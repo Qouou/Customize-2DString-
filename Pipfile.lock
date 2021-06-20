@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "792bf9cbb657915d08e4f34c7482b2c7eb127b608838e24ca3152e23f2191509"
+            "sha256": "6ba1dc5ce3cf1b20522ab059024caf5e424b3aa960a5209684a704997bae6576"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -33,11 +33,11 @@
         },
         "django": {
             "hashes": [
-                "sha256:6f857bd4e574442ba35a7172f1397b303167dae964cf18e53db5e85fe248d000",
-                "sha256:d98c9b6e5eed147bc51f47c014ff6826bd1ab50b166956776ee13db5a58804ae"
+                "sha256:a523d62b7ab2908f551dabc32b99017a86aa7784e32b761708e52be3dce6d35d",
+                "sha256:dc41bf07357f1f4810c1c555b685cb51f780b41e37892d6cc92b89789f2847e1"
             ],
             "index": "pypi",
-            "version": "==3"
+            "version": "==3.1.12"
         },
         "kiwisolver": {
             "hashes": [
