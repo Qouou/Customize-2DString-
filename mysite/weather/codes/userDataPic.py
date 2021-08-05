@@ -23,7 +23,7 @@ def segment(data):
     elif data > 35.4 and data < 45.5:
         return 'orange'
     elif data > 45.4 and data < 54.5:
-        return 'darkorange'
+        return 'tomato'
     elif data > 54.4 and data < 102.5:
         return 'IndianRed'
     elif data > 102.4 and data < 150.5:
