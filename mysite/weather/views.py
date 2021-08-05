@@ -112,6 +112,20 @@ def mixPic(mask_path):
     os.chdir(os.getcwd())
     resultPicture.save(mask_path + "_mix.png")
 
+# 依分數排出名次
+def findRank(data):
+    ranking = [-1 for i in range(len(data))]
+    no = 1
+    ranking[0] = 1
+
+    for i in range(len(data)):
+        data[i] = float(data[i])
+    for i in range(1, len(data)):
+        if(data[i] < data[i-1]):
+            no += 1
+        ranking[i] = no
+    return ranking    
+
 def getQuery(request):
     ctx = {}
     if request.POST:
@@ -154,6 +168,7 @@ def getQuery(request):
         ctx['images'] = [i for i in range(30)]
         jsonDate = json.dumps(ctx['resultDate'])
         ctx['jsonDate'] = jsonDate
+        ctx['ranking'] = findRank(content)
         
         os.chdir("/home/s3014/Customize-2DString-/mysite/weather/codes")
 
