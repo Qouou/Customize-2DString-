@@ -98,9 +98,11 @@
     let date_data = "{{ resultDate }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     let time_data = "{{ resultTime }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     let content_data = "{{ resultContent }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+    let ranking_data = "{{ ranking }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     console.log(date_data);
     console.log(time_data);
     console.log(content_data);
+    console.log(ranking_data);
     // var num = 0
     function getFileName(index) {
       return "/static/sis/" + date_data[index];
@@ -113,6 +115,9 @@
     }
     function getContent(index) {
       return content_data[index];
+    }
+    function getRank(index) {
+      return ranking_data[index];
     }
     console.log(getFileName(0));
     function getFileAllPath(fileName) {
@@ -174,12 +179,14 @@
       }
       
       for (let index = 0; index < elements.length; index++) {
-        if (num+(currentPage-1)*24 >= 100){
+        Xst = num + (currentPage - 1) * 24
+	if (Xst >= 100){
           break;
         }
         elements[index].innerHTML += `
-        <img src="${getFileName(num+(currentPage-1)*24)}">
-        <p>${getDate(num)} ${getTime(num+(currentPage-1)*24)} </p>
+        <img src="${getFileName(Xst)}">
+        <p>${getDate(num)} ${getTime(Xst} </p>
+	<p><strong>NO. ${getRank(Xst)}</strong></p>
         <p><strong>Similarity:</strong> <br> ${getContent(num+(currentPage-1)*24)}</p>
         `;
         num = num + 1;
@@ -191,7 +198,6 @@
         }
         elementsInfo[index-1].innerHTML += `
         <button>View More</button>
-        <p> NO. ${ index+(currentPage-1)*24 }</p>
         `;
       }
       $("li").addClass("page-item");
