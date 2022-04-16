@@ -27,6 +27,7 @@
       padding: 1em;
       text-align: center;
     }
+
     #Clear,
     #A,
     #B,
@@ -63,6 +64,10 @@
 
     .selected {
       border: 4px dashed rgba(0, 0, 0, 0.5);
+      padding: 0.1em;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
 
     #dest_move {
@@ -74,6 +79,7 @@
 
     .A {
       background-color: lightgreen;
+      
     }
 
     .B {
@@ -93,7 +99,7 @@
     }
 
     .F {
-      background-color: darkorange;
+      background-color: tomato;
     }
 
     .G {
@@ -111,12 +117,22 @@
     .J {
       background-color: brown;
     }
+
     .Clear {
       background-color: rgba(255, 255, 255, 0);  
     }
+
     #bg-tbl {
       user-select: none;
     }
+
+    .centerBox {
+      padding: 0.1em;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
   </style>
 
 </head>
@@ -130,51 +146,137 @@
       This is a simple demo! Which makes you more convenient
     </span>
   </nav>
+  <!--（FIXME）變整齊-->
   <main class="container-fluid">
     <div class="row m-auto">
-      <div class="col-md-1"></div>
-      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="A" style="background-color: lightgreen;">GOOD <br/>(A)<br/> 0 - 7.5
+      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="Clear" style="background-color: lightgray;"">
+        button <br>to <br />clear
       </div>
-      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="B" style="background-color: LightSeaGreen;">GOOD  <br/>(B) <br/>7.5 - 15.5
+      <div class=" forPointer col-md-1" onclick="changeColor(this.id)" id="A" style="background-color: lightgreen;">
+        GOOD<br />(A)<br /> 0 - 7.5
       </div>
-      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="C" style="background-color: lightyellow;">Moderate 
-        (C) <br/>15.5 - 25.5</div>
-      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="D" style="background-color: yellow;">Moderate (D) <br/>25.5 - 35.5
+      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="B" style="background-color: LightSeaGreen;">
+        GOOD <br />(B) <br />7.5 - 15.5
+      </div>
+      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="C" style="background-color: lightyellow;">
+        Moderate
+        (C) <br />15.5 - 25.5
+      </div>
+      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="D" style="background-color: yellow;">Moderate
+        (D) <br />25.5 - 35.5
       </div>
       <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="E" style="background-color: orange;"><span
-          style="font-size: 12px;">Unhealthy for Sensitive(E) </span><br/>35.5 - 45.5</span></div>
-      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="F" style="background-color: darkorange;"><span
-          style="font-size: 12px;">Unhealthy for Sensitive(F)</span><br/> 45.5 - 54.5</div>
-      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="G" style="background-color: indianred;">Unhealthy (G) <br/>54.5 - 102.5
+          style="font-size: 12px;">Unhealthy for Sensitive(E) </span><br />35.5 - 45.5</span>
       </div>
-      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="H" style="background-color: red;">Unhealthy (H) <br/>102.5 - 150.5</div>
-      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="I" style="background-color: purple;">Very Unhealthy
-        (I) <br/>150.5 - 250.5</div>
-      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="J" style="background-color: brown;">Hazardous (J)<br/> > 250.5
+      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="F" style="background-color: tomato;"><span
+          style="font-size: 12px;">Unhealthy for Sensitive(F)</span><br /> 45.5 - 54.5
       </div>
-      
+      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="G" style="background-color: indianred;">
+        Unhealthy (G) <br />54.5 - 102.5
+      </div>
+      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="H" style="background-color: red;">Unhealthy
+        (H) <br />102.5 - 150.5
+      </div>
+      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="I" style="background-color: purple;">Very
+        Unhealthy (I) <br />150.5 - 250.5
+      </div>
+      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="J" style="background-color: brown;">Hazardous
+        (J)<br /> > 250.5
+      </div>
+      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="Clear_2" style="background-color: lightgray;"">
+        button <br>to <br />clear
+      </div>
     </div>
-    <div class="row m-auto">
-      <div class="col-md-1"></div>
-      <div class="forPointer col-md-1 mr-5" onclick="changeColor(this.id)" id="Clear" style="background-color: lightgray;"> button <br>to <br/>clear
-      </div>
+
     
     <form novalidate id="userDataForm" action="getQuery" method="POST">{% csrf_token %}
-      
-      
-      <div id="bg">
-        <table id="bg-tbl" style="display:inline;">
-        </table>
+      <div class=" row m-auto">
+        <div class="col-md-3">
+          <table id="weatherEle" class="" style="padding:2em;">
+            <tr>
+            <td><span class="input-group-text" id="inputGroup-sizing-default">起始時間</span></td>
+            <td class="text-left" style="padding:16px;">
+              <input type="date" name="time_query[]">
+              <select class="text-left hourList" name="time_query[]" aria-label="Default select example">
+                <option value="" select>--</option>
+              </select>
+            </td>
+            </tr>
+            <tr>
+              <td><span class="input-group-text" id="inputGroup-sizing-default">結束時間</span></td>
+              <td class="text-left" style="padding:16px;">
+                <input type="date" name="time_query[]">
+                <select class="text-left hourList" name="time_query[]" aria-label="Default select example">
+                  <option value="" select>--</option>
+                </select>
+                <script>
+                  let html = ""
+                  for (let i = 0; i < 24; i++) 
+                    html += `<option value="${i}">${i.toString().padStart(2, 0) + ":00"}</option>`;
+                  for (let i = 0; i < 2; i++) 
+                    document.getElementsByClassName('hourList')[i].innerHTML += html;
+                </script>
+              </td>
+            </tr>
+            <!--# WD, WS_l, WS_u, PS_l, PS_u, TP_l, TP_u, RH_l, RH_u-->
+            <tr>
+              <td><span class="input-group-text" id="inputGroup-sizing-default">風向</span></td>
+              <td class="text-center" style="padding:16px;">
+                <select class="form-select-lg text-center form-control" name="weather_query[]"
+                  aria-label="Default select example">
+                  <option value="" select>-</option>
+                  <option value="east">東風</option>
+                  <option value="south">南風</option>
+                  <option value="west">西風</option>
+                  <option value="north">北風</option>
+                </select>
+              </td>
+              <td class="chart"></td>
+            </tr>
+            <script>
+              let weatherEle = document.getElementById('weatherEle');
+              let elemant = ["風速", "氣壓", "溫度", "濕度"]
+              for (let tr = 0; tr < 4; tr++) {
+                // WS_l, WS_u, PS_l, PS_u, TP_l, TP_u, RH_l, RH_u
+                weatherEle.innerHTML += `
+                <tr>
+                  <td>
+                    <span class="input-group-text" id="inputGroup-sizing-default">${elemant[tr]}</span>
+                  </td>
+                  <td>
+                    <div class="input-group-prepend">
+                      <input type="text" class="form-control" aria-label="Default"
+                        aria-describedby="inputGroup-sizing-default" value="" name="weather_query[]">
+                      <span>~</span>
+                      <input type="text" class="form-control" aria-label="Default"
+                        aria-describedby="inputGroup-sizing-default" value="" name="weather_query[]">
+                    </div>
+                  </td>
+                  <td class="chart">
+                  </td>
+                </tr>`;
+              }
+            </script>
+          </table>
+        </div> 
+        <div class="col-md-6">
+          <div id="bg">
+            <table id="bg-tbl" style="display:inline;">
+            </table>
+          </div>
+          <input class="d-none" id="userData" name="data">
+          
+        </div>
+        <div class="col-md-3 bg-secondary."></div>
+        
       </div>
-      <input class="d-none" id="userData" name="data">
-      <div class="text-center">
-        <button type="button" onclick="resetData()"
-          class="btn btn-outline-secondary m-5 btn btn-outline-secondary btn-lg">RESET</button>
-        <button type="button" onclick="processData()"
-          class="btn btn-outline-secondary m-5 btn btn-outline-secondary btn-lg">ENTER</button>
-      </div>
+      <div class="text-center" style="margin: auto">
+          <button type="button" onclick="resetData()"
+            class="btn btn-outline-secondary m-5 btn btn-outline-secondary btn-lg">RESET</button>
+          <button type="button" onclick="processData()" class="btn m-5 btn btn-primary btn-lg"
+            id="enter">ENTER</button>
+        </div>
     </form>
-  </div>
   </main>
   <!-- <div id="demo"></div> -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -184,7 +286,7 @@
   <script>
     let bgDiv = document.getElementById('bg');
     let bg_tbl = document.getElementById('bg-tbl');
-    let html = '';
+    html = '';
     for (let row = 0; row < 10; row += 1) {
       html += `<tr>`
       for (let col = 0; col < 10; col += 1) {
@@ -206,6 +308,7 @@
     function changeColor(id) {
       document.getElementById(nowColor).classList.remove('selected');
       nowColor = id;
+      console.log("id: ", id);
       document.getElementById(nowColor).classList.add('selected');
     }
     function changeBGColor(id) {
