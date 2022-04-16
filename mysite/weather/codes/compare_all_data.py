@@ -157,9 +157,122 @@ def Score(str1, str2):
     
     return Score, parameter
 
+def GetDays(time_query):
+    #"2018-01-01", "9"
+    start = [int(i) for i in time_query[0].split('-')]
+    start.append(int(time_query[1]))
+    end = [int(i) for i in time_query[2].split('-')]
+    end.append(int(time_query[3]))
+    
+
+    startDay = date(start[0], start[1], start[2])
+    endDay = date(end[0], end[1], end[2])
+
+    allDaysList = endDay - startDay    # 起始終止日期之間的所有日期
+    allHours = []    # 儲存起始終止日期之間的所有小時
+
+    for i in range(allDaysList.days + 1):
+        day = str(startDay + timedelta(days=i)).replace('-', '/')    # 當日日期
+        
+        # 轉格式: 拿掉第一個 0 ('2018/1/2 17:00' -> '2018/01/02 17:00')
+        aday = day.split('/')
+        day = aday[0]
+        for element in aday[1:]:
+            if (element[0] == "0"):
+                element = element[1:]
+            day += "/" + element
+        hr = ""     # 小時
+
+        # 如果是起始日, 小時: 起始時間~24
+        if(i == 0):
+            for i in range(start[3], 24):
+                hr = '%02d' % i + ':00'
+                allHours.append(str(day) + " " + hr)
+        # 如果是結束日, 小時: 0~結束時間
+        elif(i == allDaysList.days):
+            for i in range(0, end[3]+1):
+                hr = '%02d' % i + ':00'
+                allHours.append(str(day) + " " + hr)
+        # 其他,  小時: 0~24
+        else:
+            for i in range(24):
+                hr = '%02d' % i + ':00'
+                allHours.append(str(day) + " " + hr)
+                
+    return allHours
+
+
+def FilterTime(library, time_query):
+    days = GetDays(time_query)
+    toDelete = []    # 把要刪除的項目日期加到 list
+
+    for date in library.keys():
+        if date not in days:
+            toDelete.append(date)
+
+    # 移除不需要的 item
+    for date in toDelete:
+        library.pop(date)
+    
+    return library
+
+
+def Filter(library, weather_query):
+    query = [-100, 10000, -100, 10000, -100, 10000, -100, 10000]
+    for i in range(1, len(weather_query)):
+        if(weather_query[i] != 'X'):
+            query[i-1] = float(weather_query[i])
+    query.insert(0, weather_query[0])
+    # print(query)
+    # print(query)
+
+    toDelete = []    # 把要刪除的項目日期加到 list
+
+    for date in library.keys():
+
+    # date = "2018/8/7 16:00"
+        # 過濾風向
+        if(weather_query[0] != 'X'):
+            if(library[date]['WD'] != query[0]):
+                # print(library[date]['WD'])
+                toDelete.append(date)
+        # 過濾風速
+        if(weather_query[1] != 'X' or weather_query[2] != 'X'):
+            if(library[date]['WS'] < query[1] or library[date]['WS'] > query[2]):
+                toDelete.append(date)
+        # 過濾壓力
+        if(weather_query[3] != 'X' or weather_query[4] != 'X'):
+            if(library[date]['PS'] < query[3] or library[date]['PS'] > query[4]):
+                toDelete.append(date)
+        # 過濾氣溫
+        if(weather_query[5] != 'X' or weather_query[6] != 'X'):
+            if(library[date]['TP'] < query[5] or library[date]['TP'] > query[6]):
+                toDelete.append(date)
+        # 過濾濕度
+        if(weather_query[7] != 'X' or weather_query[8] != 'X'):
+            if(library[date]['RH'] < query[7] or library[date]['RH'] > query[8]):
+                toDelete.append(date)
+        
+    # 移除重複項
+    toDelete = list(dict.fromkeys(toDelete))
+    # print("library: ", len(library))
+    # print(library)
+    # print("toDelete: ", len(toDelete))
+    # print(toDelete)
+    
+    # 移除不需要的 item
+    for date in toDelete:
+        
+        library.pop(date)
+    
+    # print(len(library))
+    return library
+
 def main(argv):
     
     query = []
+    weather_query = []
+    time_query = []
     """
     try:
         opts, args = getopt.getopt(argv,"hx:y:",["stringx=","stringy="])
@@ -182,12 +295,16 @@ def main(argv):
     # print('-----')
     for i in argv:
         query.append('#'+i)
+    weather_query = argv[2].split('/')
+    weather_query.pop()
+    time_query = argv[3].split('/')
+    time_query.pop()
     # print(query)
     # print ('2DStringX：', stringX)
     # print ('2DStringY：', stringY)
     #query = list(map(str,input("String to compare: ").split()))
     library = defaultdict(dict)
-    with open('/home/s3014/Customize-2DString-/mysite/weather/codes/allData.csv', newline='') as csvfile:
+    with open('/home/s3014/Customize-2DString-/mysite/weather/codes/file_output(try2)_wind.csv', newline='') as csvfile:
         # 讀取 CSV 檔案內容
         rows = csv.reader(csvfile)
         for row in rows:
@@ -201,10 +318,21 @@ def main(argv):
             # 0 time , 1 string of x , 2 string of y
             library[tmp[0]]['X'] = tmp[1]
             library[tmp[0]]['Y'] = tmp[2]
+            library[tmp[0]]['WD'] = tmp[3]
+            library[tmp[0]]['WS'] = float(tmp[4])
+            library[tmp[0]]['PS'] = float(tmp[5])
+            library[tmp[0]]['TP'] = float(tmp[6])
+            library[tmp[0]]['RH'] = int(tmp[7])
         csvfile.close()
         #print(library['2018/1/3 19:00']['X'])
     #print('Read End')
     # print(library)
+    
+    library = Filter(library, weather_query)
+    # print(library)
+    if (argv[3] != "////"):
+        library = FilterTime(library, time_query)
+    
     allScore = {}
     parameter_All = {}
     for i in library.keys():
