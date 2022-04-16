@@ -112,9 +112,42 @@ def mixPic(mask_path):
     os.chdir(os.getcwd())
     resultPicture.save(mask_path + "_mix.png")
 
+def findRank(data):
+    print(data)
+    # print(data)
+    ranking = [-1 for i in range(len(data))]
+    no = 1
+    ranking[0] = 1
+
+    for i in range(len(data)):
+        print(data[i])
+        data[i] = float(data[i])
+    for i in range(1, len(data)):
+        if(data[i] < data[i-1]):
+            no += 1
+        ranking[i] = no
+    return ranking
+    
+    
+    
 def getQuery(request):
     ctx = {}
     if request.POST:
+        w_data =  request.POST.getlist('weather_query[]')    # 天氣因子的query
+        weather_query =""
+
+        for i in range(len(w_data)):
+            if w_data[i] == "":
+                w_data[i] = "X"
+            weather_query += w_data[i] + "/"
+        ctx['weather_query'] = weather_query
+        
+        time_query = ""
+        t_data =  request.POST.getlist('time_query[]')    # 時間的query
+        for i in range(len(t_data)):
+            time_query += t_data[i] + "/"
+        ctx['time_query'] = time_query
+        
         data = request.POST['data']
         datalist = data.split(',')
         for i in range(len(datalist)):
@@ -134,26 +167,43 @@ def getQuery(request):
         # input can't read when starting with '#'
         stringXwithoutSharp = stringX[1:]
         stringYwithoutSharp = stringY[1:]
-        command = 'python3 compare_all_data.py ' + stringXwithoutSharp +' ' + stringYwithoutSharp
+        command = 'python3 compare_all_data.py ' + stringXwithoutSharp +' ' + stringYwithoutSharp + ' ' + weather_query + ' ' + time_query
         ctx['allContainer'] = os.popen(command).readlines()
         
         date = []
         content = []
         score = []
         time = []
+        WDdata = []
+        WSdata = []
+        PSdata = []
+        TPdata = []
+        RHdata = []
+        
         for i in ctx['allContainer']:
             tmp = i.split()
             date.append(tmp[0].replace('/','-')+'-'+tmp[1].replace(':','-')+'.png')
             time.append(tmp[1].replace(':','-'))
             content.append(tmp[2])
             # score.append(tmp[3])
+            WDdata.append(tmp[3])
+            WSdata.append(tmp[4])
+            PSdata.append(tmp[5])
+            TPdata.append(tmp[6])
+            RHdata.append(tmp[7])
         ctx['resultDate'] = date
         ctx['resultTime'] = time
         ctx['resultContent'] = content
+        ctx['resultWD'] = WDdata
+        ctx['resultWS'] = WSdata
+        ctx['resultPS'] = PSdata
+        ctx['resultTP'] = TPdata
+        ctx['resultRH'] = RHdata
         # ctx['resultScore'] = score
         ctx['images'] = [i for i in range(30)]
         jsonDate = json.dumps(ctx['resultDate'])
         ctx['jsonDate'] = jsonDate
+        ctx['ranking'] = findRank(content)
         
         os.chdir("/home/s3014/Customize-2DString-/mysite/weather/codes")
 
