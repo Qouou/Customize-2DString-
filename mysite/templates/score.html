@@ -86,6 +86,23 @@
             </form>
           </div>
         </div>
+        <span id="weather">
+          <h4>Weather Query</h4>
+            <script>
+              let weather_query = "{{ weather_query }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+              console.log(weather_query)
+              let tmp = String(weather_query).split('/')
+              console.log(tmp)
+              let html = `
+                         WD (${tmp[0]})/ 
+                         WS (${tmp[1]}~${tmp[2]})/ 
+                         Pressure (${tmp[3]}~${tmp[4]})/ 
+                         Temperature (${tmp[5]}~${tmp[6]})/ 
+                         Humid (${tmp[7]}~${tmp[8]})
+                         `
+              document.getElementById('weather').innerHTML += html
+            </script>
+          </span>
       </div>
       <div id="userPic" class="col-md-4">
       </div>
@@ -98,9 +115,22 @@
     let date_data = "{{ resultDate }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     let time_data = "{{ resultTime }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     let content_data = "{{ resultContent }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+    let WD_data = "{{ resultWD }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+    let WS_data = "{{ resultWS }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+    let PS_data = "{{ resultPS }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+    let TP_data = "{{ resultTP }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+    let RH_data = "{{ resultRH }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+    let ranking_data = "{{ ranking }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+    
     console.log(date_data);
     console.log(time_data);
     console.log(content_data);
+    console.log(WD_data);
+    console.log(WS_data);
+    console.log(PS_data);
+    console.log(TP_data);
+    console.log(RH_data);
+    console.log(ranking_data);
     // var num = 0
     function getFileName(index) {
       return "/static/sis/" + date_data[index];
@@ -113,6 +143,24 @@
     }
     function getContent(index) {
       return content_data[index];
+    }
+    function getWD(index) {
+      return WD_data[index];
+    }
+    function getWS(index) {
+      return WS_data[index];
+    }
+    function getPS(index) {
+      return PS_data[index];
+    }
+    function getTP(index) {
+      return TP_data[index];
+    }
+    function getRH(index) {
+      return RH_data[index];
+    }
+    function getRank(index) {
+      return ranking_data[index];
     }
     console.log(getFileName(0));
     function getFileAllPath(fileName) {
@@ -174,13 +222,17 @@
       }
       
       for (let index = 0; index < elements.length; index++) {
-        if (num+(currentPage-1)*24 >= 100){
+        Xst = num + (currentPage - 1) * 24
+        if (Xst >= 100){
           break;
         }
+        console.log(Xst)
+        console.log(getFileName(Xst))
         elements[index].innerHTML += `
-        <img src="${getFileName(num+(currentPage-1)*24)}">
-        <p>${getDate(num)} ${getTime(num+(currentPage-1)*24)} </p>
-        <p><strong>Similarity:</strong> <br> ${getContent(num+(currentPage-1)*24)}</p>
+        <img src="${getFileName(Xst)}">
+        <p><strong>NO.${getRank(Xst)} / ${getContent(Xst).substring(0, 8)}</strong></p>
+        <p>${getDate(Xst)} ${getTime(Xst).substring(0, 2)}H</p>  
+        <p>${getWD(Xst)}/${getWS(Xst)}/${getPS(Xst)}/${getTP(Xst)}/${getRH(Xst)}</p>
         `;
         num = num + 1;
       }
