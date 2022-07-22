@@ -171,6 +171,29 @@
     console.log(getFileAllPath("{{ PicName }}"));
     userPic.innerHTML += `<img src="${getFileAllPath("{{ PicName }}")}">`;
   </script>
+
+  <script>
+    function findParams(date, time) {
+      let data = date.split('-');
+      let data2 = time.split('-');
+      console.log("date: ", data);
+
+      let year = data[0];
+      let startMonth = parseInt(data[1]);
+      let startDay = parseInt(data[2]);
+      let startHour = parseInt(data2[0]);
+      let endMonth = parseInt(data[1]) + 1;
+      let endDay = parseInt(data[2]);
+      let endHour = parseInt(data2[0]);
+
+      // console.log("year=" + year + "&startMonth=" + startMonth + "&startDay=" + 
+                  // startDay + "&startHour=" + startHour +
+                  // "&endMonth=" + endMonth + "&endDay=" + endDay + "&endHour=" + endHour);
+      return "year=" + year + "&startMonth=" + startMonth + "&startDay=" + 
+                  startDay + "&startHour=" + startHour +
+                  "&endMonth=" + endMonth + "&endDay=" + endDay + "&endHour=" + endHour;
+    }
+  </script>
   
   <div class="">
     <div class="row mt-3" id="matchPic"></div>
@@ -237,12 +260,21 @@
         num = num + 1;
       }
       
+      
+
       for (let index = 1; index <= elementsInfo.length; index++) {
-        if (index+(currentPage-1)*24 > 100){
+        var num = 0;
+        Xst = num + (currentPage - 1) * 24
+        if (Xst >= 100){
           break;
         }
+        
+        console.log("index: ", index);
+        console.log(getDate(index));
+        url = "https://pyyin-mask.im.ncnu.edu.tw/mask.html?" + findParams(getDate(index), getTime(index));
+
         elementsInfo[index-1].innerHTML += `
-        <button>View More</button>
+        <button><a href="${url}">View More</a></button>
         <p> NO. ${ index+(currentPage-1)*24 }</p>
         `;
       }

@@ -11,7 +11,3 @@ This is a simple demo! Which makes you more convenient to get similarity of PM2.
 2. install dependencies with Pipfile
 
   `pip3 install -r requirements.txt` (Python 3)
-  
-  
-  
-  123

@@ -149,49 +149,46 @@
   <!--（FIXME）變整齊-->
   <main class="container-fluid">
     <div class="row m-auto">
-      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="Clear" style="background-color: lightgray;"">
-        button <br>to <br />clear
+      <div class="col-md-1"></div>
+      <div class="forPointer col-md-1 centerBox" onclick="changeColor(this.id)" id="A" style="background-color: lightgreen;">
+        GOOD <br/> (A) <br/> 0 - 7.5
       </div>
-      <div class=" forPointer col-md-1" onclick="changeColor(this.id)" id="A" style="background-color: lightgreen;">
-        GOOD<br />(A)<br /> 0 - 7.5
+      <div class="forPointer col-md-1 centerBox" onclick="changeColor(this.id)" id="B" style="background-color: LightSeaGreen;">
+        GOOD <br/> (B) <br/> 7.5 - 15.5
       </div>
-      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="B" style="background-color: LightSeaGreen;">
-        GOOD <br />(B) <br />7.5 - 15.5
+      <div class="forPointer col-md-1 centerBox" onclick="changeColor(this.id)" id="C" style="background-color: lightyellow;">
+        Moderate <br/> (C) <br/> 15.5 - 25.5
       </div>
-      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="C" style="background-color: lightyellow;">
-        Moderate
-        (C) <br />15.5 - 25.5
+      <div class="forPointer col-md-1 centerBox" onclick="changeColor(this.id)" id="D" style="background-color: yellow;">
+        Moderate <br/> (D) <br/> 25.5 - 35.5
       </div>
-      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="D" style="background-color: yellow;">Moderate
-        (D) <br />25.5 - 35.5
+      <div class="forPointer col-md-1 centerBox" onclick="changeColor(this.id)" id="E" style="background-color: orange;">
+        Unhealthy for Sensitive <br/> (E) <br/>35.5 - 45.5
       </div>
-      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="E" style="background-color: orange;"><span
-          style="font-size: 12px;">Unhealthy for Sensitive(E) </span><br />35.5 - 45.5</span>
+      <div class="forPointer col-md-1 centerBox" onclick="changeColor(this.id)" id="F" style="background-color: tomato;">
+        Unhealthy for Sensitive <br/> (F) <br/> 45.5 - 54.5
       </div>
-      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="F" style="background-color: tomato;"><span
-          style="font-size: 12px;">Unhealthy for Sensitive(F)</span><br /> 45.5 - 54.5
+      <!--(FIXME)tomato-->
+      <div class="forPointer col-md-1 centerBox" onclick="changeColor(this.id)" id="G" style="background-color: indianred;">
+        Unhealthy <br/> (G) <br/> 54.5 - 102.5
       </div>
-      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="G" style="background-color: indianred;">
-        Unhealthy (G) <br />54.5 - 102.5
+      <div class="forPointer col-md-1 centerBox " onclick="changeColor(this.id)" id="H" style="background-color: red;">
+        Unhealthy <br/> (H) <br/> 102.5 - 150.5</div>
+      <div class="forPointer col-md-1 centerBox " onclick="changeColor(this.id)" id="I" style="background-color: purple;">
+        Very Unhealthy <br/> (I) <br/> 150.5 - 250.5
       </div>
-      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="H" style="background-color: red;">Unhealthy
-        (H) <br />102.5 - 150.5
+      <div class="forPointer col-md-1 centerBox " onclick="changeColor(this.id)" id="J" style="background-color: brown;">
+        Hazardous <br/> (J) <br/> > 250.5
       </div>
-      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="I" style="background-color: purple;">Very
-        Unhealthy (I) <br />150.5 - 250.5
-      </div>
-      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="J" style="background-color: brown;">Hazardous
-        (J)<br /> > 250.5
-      </div>
-      <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="Clear_2" style="background-color: lightgray;"">
-        button <br>to <br />clear
-      </div>
+      {% comment %} <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="Clear"
+        style="background-color: lightgray;"> button <br>to <br />clear
+      </div> {% endcomment %}
     </div>
-
     
     <form novalidate id="userDataForm" action="getQuery" method="POST">{% csrf_token %}
       <div class=" row m-auto">
-        <div class="col-md-3">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
           <table id="weatherEle" class="" style="padding:2em;">
             <tr>
             <td><span class="input-group-text" id="inputGroup-sizing-default">起始時間</span></td>
@@ -265,9 +262,12 @@
             </table>
           </div>
           <input class="d-none" id="userData" name="data">
-          
         </div>
-        <div class="col-md-3 bg-secondary."></div>
+        <div class="col-md-1"></div>
+        <div class="forPointer col-md-1 mr-5" onclick="changeColor(this.id)" id="Clear"
+          style="background-color: lightgray;"> button <br>to <br />clear
+        </div>
+        {% comment %} <div class="col-md-3 bg-secondary."></div> {% endcomment %}
         
       </div>
       <div class="text-center" style="margin: auto">

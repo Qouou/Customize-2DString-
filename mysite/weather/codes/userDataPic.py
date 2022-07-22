@@ -53,7 +53,8 @@ def drawColor(data):
     plt.axis('off')
     now = time.strftime("%Y-%m-%d-%H-%M", time.localtime())
     # date = date.replace('/','-').replace(' ','-').replace(':','-')
-    plt.savefig('../static/sis/'+now + '.png', bbox_inches='tight',pad_inches = 0)
+    # plt.savefig('../static/sis/'+now + '.png', bbox_inches='tight',pad_inches = 0)
+    plt.savefig('/home/tsai-jen/Customize-2DString-/mysite/static/sis/'+now + '.png', bbox_inches='tight',pad_inches = 0)
     plt.cla()
     plt.clf()
     return now

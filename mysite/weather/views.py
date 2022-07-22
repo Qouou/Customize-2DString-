@@ -18,7 +18,7 @@ def score(request):
         stringY = request.POST['StringY']
         ctx['stringX'] = stringX
         ctx['stringY'] = stringY
-        os.chdir("/home/s3014/Customize-2DString-/mysite/weather/codes/")
+        os.chdir("/home/tsai-jen/Customize-2DString-/mysite/weather/codes/")
         command = 'python3 compare_all_data.py ' + stringX +' ' + stringY
         ctx['allContainer'] = os.popen(command).readlines()
         date = []
@@ -127,13 +127,13 @@ def findRank(data):
             no += 1
         ranking[i] = no
     return ranking
-    
-    
-    
+
+
 def getQuery(request):
     ctx = {}
     if request.POST:
         w_data =  request.POST.getlist('weather_query[]')    # 天氣因子的query
+        # w_data =  request.POST['WD'] + "/" + request.POST['WS_l'] + "/" + request.POST['WS_u'] + "/" + request.POST['PS_l'] + "/" + request.POST['PS_u'] + "/" + request.POST['TP_l'] + "/" + request.POST['TP_u'] + "/" + request.POST['RH_l'] + "/" + request.POST['RH_u'] 
         weather_query =""
 
         for i in range(len(w_data)):
@@ -141,23 +141,27 @@ def getQuery(request):
                 w_data[i] = "X"
             weather_query += w_data[i] + "/"
         ctx['weather_query'] = weather_query
+        print(ctx['weather_query'])
         
         time_query = ""
         t_data =  request.POST.getlist('time_query[]')    # 時間的query
         for i in range(len(t_data)):
             time_query += t_data[i] + "/"
         ctx['time_query'] = time_query
-        
+
         data = request.POST['data']
         datalist = data.split(',')
         for i in range(len(datalist)):
             datalist[i] = segment(datalist[i])
         dataString = ' '.join(str(word) for word in datalist)
-        os.chdir("/home/s3014/Customize-2DString-/mysite/weather/codes")
+        print("dataString: ", dataString)
+        os.chdir("/home/tsai-jen/Customize-2DString-/mysite/weather/codes")
         os.system("javac ContourTracingViaWeb.java")
         command = "java ContourTracingViaWeb "+ dataString
         getString = os.popen(command).readlines()
 
+        print("getString: ", getString)
+        # print(getString)
         stringX = getString[1].split()[0]
         stringY = getString[1].split()[1]
         
@@ -168,7 +172,10 @@ def getQuery(request):
         stringXwithoutSharp = stringX[1:]
         stringYwithoutSharp = stringY[1:]
         command = 'python3 compare_all_data.py ' + stringXwithoutSharp +' ' + stringYwithoutSharp + ' ' + weather_query + ' ' + time_query
+        print(command)
+
         ctx['allContainer'] = os.popen(command).readlines()
+        # print("allContainer", ctx['allContainer'] )
         
         date = []
         content = []
@@ -179,7 +186,7 @@ def getQuery(request):
         PSdata = []
         TPdata = []
         RHdata = []
-        
+
         for i in ctx['allContainer']:
             tmp = i.split()
             date.append(tmp[0].replace('/','-')+'-'+tmp[1].replace(':','-')+'.png')
@@ -204,12 +211,18 @@ def getQuery(request):
         jsonDate = json.dumps(ctx['resultDate'])
         ctx['jsonDate'] = jsonDate
         ctx['ranking'] = findRank(content)
+        # print('--')
+        # print(content)
+        # print('--')
         
-        os.chdir("/home/s3014/Customize-2DString-/mysite/weather/codes")
+
+        
+        os.chdir("/home/tsai-jen/Customize-2DString-/mysite/weather/codes")
 
         getPicCommand = 'python3 userDataPic.py ' + dataString
         getPicName = os.popen(getPicCommand).readlines()[0].strip()
         ctx['PicName'] = getPicName
-        os.chdir("/home/s3014/Customize-2DString-/mysite/weather/static/sis")
+        # os.chdir("/home/tsai-jen/Customize-2DString-/mysite/weather/static/sis")
+        os.chdir("/home/tsai-jen/Customize-2DString-/mysite/static/sis")
         mixPic(getPicName)
     return render(request, "score.html", ctx)

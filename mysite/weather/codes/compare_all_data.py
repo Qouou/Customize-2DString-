@@ -268,8 +268,8 @@ def Filter(library, weather_query):
     # print(len(library))
     return library
 
+
 def main(argv):
-    
     query = []
     weather_query = []
     time_query = []
@@ -299,12 +299,13 @@ def main(argv):
     weather_query.pop()
     time_query = argv[3].split('/')
     time_query.pop()
+    
     # print(query)
     # print ('2DStringX：', stringX)
     # print ('2DStringY：', stringY)
     #query = list(map(str,input("String to compare: ").split()))
     library = defaultdict(dict)
-    with open('/home/s3014/Customize-2DString-/mysite/weather/codes/file_output(try2)_wind.csv', newline='') as csvfile:
+    with open('/home/tsai-jen/Customize-2DString-/mysite/weather/codes/file_output(try2)_wind.csv', newline='') as csvfile:
         # 讀取 CSV 檔案內容
         rows = csv.reader(csvfile)
         for row in rows:
@@ -312,7 +313,7 @@ def main(argv):
             # print('row')
             # print(tmp)
             #tmp = row.split('\t')
-            #print(tmp)
+            # print(tmp)
             if tmp[1] == 'X':
                 continue
             # 0 time , 1 string of x , 2 string of y
@@ -320,19 +321,21 @@ def main(argv):
             library[tmp[0]]['Y'] = tmp[2]
             library[tmp[0]]['WD'] = tmp[3]
             library[tmp[0]]['WS'] = float(tmp[4])
-            library[tmp[0]]['PS'] = float(tmp[5])
-            library[tmp[0]]['TP'] = float(tmp[6])
+            library[tmp[0]]['PS'] = float(tmp[5])   #氣壓
+            library[tmp[0]]['TP'] = float(tmp[6])   #溫度
             library[tmp[0]]['RH'] = int(tmp[7])
         csvfile.close()
         #print(library['2018/1/3 19:00']['X'])
     #print('Read End')
+    # 過濾
+    # print("length: ", len(library))
     # print(library)
-    
     library = Filter(library, weather_query)
     # print(library)
     if (argv[3] != "////"):
         library = FilterTime(library, time_query)
-    
+    # print("length: ", len(library))
+
     allScore = {}
     parameter_All = {}
     for i in library.keys():
@@ -354,10 +357,15 @@ def main(argv):
     #     print(i,end = ' ')
     #     print(tmpDate[i])
     for data in topTen:
-        dictdata[data[0]] = data[1]
+        # print(data[0])
+        # dictdata[data[0]] = data[1]
+        dictdata[data[0]] = str(data[1]) + " " + library[data[0]]['WD'] + " " + str(library[data[0]]['WS']) + " " + str(library[data[0]]['PS']) + " " + str(library[data[0]]['TP']) + " " + str(library[data[0]]['RH'])
+
+        # dictdata[data[0]] = library[data[0]]['RH']
         # print(data[0])
         # print(library[data[0]]['X'], library[data[0]]['Y'])
-    
+
+
     tmpStr = ''
     for i in dictdata.keys():
         print(i, end='\t')
@@ -378,7 +386,7 @@ def main(argv):
     for i in range(len(date)):
         date[i] = date[i].replace('-',' ')
     selectData = defaultdict(dict)
-    with open('/home/s3014/Customize-2DString-/mysite/weather/codes/2018micro高斯new.csv', newline='') as csvfile:
+    with open('/home/tsai-jen/Customize-2DString-/mysite/weather/codes/2018micro高斯new.csv', newline='') as csvfile:
         # 讀取 CSV 檔案內容
         rows = csv.reader(csvfile)
         for row in rows:
@@ -396,7 +404,7 @@ def main(argv):
         selectData[i]['afterLevel'] = tmp_level
     #print(selectData)
     library = defaultdict(dict)
-    with open('/home/s3014/Customize-2DString-/mysite/weather/codes/allData.csv', newline='') as csvfile:
+    with open('/home/tsai-jen/Customize-2DString-/mysite/weather/codes/allData.csv', newline='') as csvfile:
         # 讀取 CSV 檔案內容
         rows = csv.reader(csvfile)
         for row in rows:
@@ -415,7 +423,7 @@ def main(argv):
     #         print(j , end = ' : ')
     #         print(parameter_All[i][j])
     now = time.strftime("%m-%d-%Y_%H-%M-%S", time.localtime())
-    with open('/home/s3014/Customize-2DString-/mysite/weather/codes/output_selectDate_'+now+'.csv', 'w', newline='') as csvfile:
+    with open('/home/tsai-jen/Customize-2DString-/mysite/weather/codes/output_selectDate_'+now+'.csv', 'w', newline='') as csvfile:
         # 以空白分隔欄位，建立 CSV 檔寫入器
         writer = csv.writer(csvfile, delimiter=',')
         for i in selectData.keys():

@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", default="forloaclhost")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['163.22.17.82']
+ALLOWED_HOSTS = ['127.0.0.1']
 # .environ.get('ALLOWED_HOSTS').split(" ") if os.environ.get('ALLOWED_HOSTS') else ['localhost','127.0.0.1']
 
 
