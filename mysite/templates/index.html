@@ -5,199 +5,85 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
   <!-- https://pagination.js.org/dist/2.1.5/pagination.js -->
-  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/css/index.css' %}">
+
   <title>2DString</title>
-  <style>
-    #bg {
-      background-image: url("/static/map.png");
-      background-repeat: no-repeat;
-      /* 背景圖片位置固定 */
-      background-position: center;
-      margin: 0%;
-      padding: 0%;
-    }
-
-    div {
-      margin: 0em;
-      padding: 1em;
-      text-align: center;
-    }
-
-    #Clear,
-    #A,
-    #B,
-    #C,
-    #D,
-    #E,
-    #F,
-    #G,
-    #H,
-    #I,
-    #J {
-      color: black;
-      /* border: 3px dashed black; */
-      text-align: center;
-      height: 100px;
-    }
-
-    .forPointer:hover {
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .dest_copy {
-      border: 3px dashed blue;
-      width: 10ch;
-      height: 8ch;
-      text-align: center;
-    }
-
-    .dest_copy:hover {
-      cursor: pointer;
-      border: 4px dashed rgba(128, 128, 128, 0.5);
-    }
-
-    .selected {
-      border: 4px dashed rgba(0, 0, 0, 0.5);
-      padding: 0.1em;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    #dest_move {
-      border: 3px solid blue;
-      width: 200px;
-      height: 50;
-      text-align: center;
-    }
-
-    .A {
-      background-color: lightgreen;
-      
-    }
-
-    .B {
-      background-color: LightSeaGreen;
-    }
-
-    .C {
-      background-color: lightyellow;
-    }
-
-    .D {
-      background-color: yellow;
-    }
-
-    .E {
-      background-color: orange;
-    }
-
-    .F {
-      background-color: tomato;
-    }
-
-    .G {
-      background-color: IndianRed;
-    }
-
-    .H {
-      background-color: red;
-    }
-
-    .I {
-      background-color: purple;
-    }
-
-    .J {
-      background-color: brown;
-    }
-
-    .Clear {
-      background-color: rgba(255, 255, 255, 0);  
-    }
-
-    #bg-tbl {
-      user-select: none;
-    }
-
-    .centerBox {
-      padding: 0.1em;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-  </style>
 
 </head>
 
 <body class="bg-light">
-  <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
-      Customize your own 2DString
-    </a>
-    <span class="navbar-text">
-      This is a simple demo! Which makes you more convenient
-    </span>
-  </nav>
+  {% include 'navbar.html' %}
   <!--（FIXME）變整齊-->
   <main class="container-fluid">
     <div class="row m-auto">
       <div class="col-md-1"></div>
-      <div class="forPointer col-md-1 centerBox" onclick="changeColor(this.id)" id="A" style="background-color: lightgreen;">
-        GOOD <br/> (A) <br/> 0 - 7.5
+      <div class="forPointer col-md-1 centerBox" onclick="changeColor(this.id)" id="A"
+        style="background-color: lightgreen;">
+        GOOD <br /> (A) <br /> 0 - 7.5
       </div>
-      <div class="forPointer col-md-1 centerBox" onclick="changeColor(this.id)" id="B" style="background-color: LightSeaGreen;">
-        GOOD <br/> (B) <br/> 7.5 - 15.5
+      <div class="forPointer col-md-1 centerBox" onclick="changeColor(this.id)" id="B"
+        style="background-color: LightSeaGreen;">
+        GOOD <br /> (B) <br /> 7.5 - 15.5
       </div>
-      <div class="forPointer col-md-1 centerBox" onclick="changeColor(this.id)" id="C" style="background-color: lightyellow;">
-        Moderate <br/> (C) <br/> 15.5 - 25.5
+      <div class="forPointer col-md-1 centerBox" onclick="changeColor(this.id)" id="C"
+        style="background-color: lightyellow;">
+        Moderate <br /> (C) <br /> 15.5 - 25.5
       </div>
-      <div class="forPointer col-md-1 centerBox" onclick="changeColor(this.id)" id="D" style="background-color: yellow;">
-        Moderate <br/> (D) <br/> 25.5 - 35.5
+      <div class="forPointer col-md-1 centerBox" onclick="changeColor(this.id)" id="D"
+        style="background-color: yellow;">
+        Moderate <br /> (D) <br /> 25.5 - 35.5
       </div>
-      <div class="forPointer col-md-1 centerBox" onclick="changeColor(this.id)" id="E" style="background-color: orange;">
-        Unhealthy for Sensitive <br/> (E) <br/>35.5 - 45.5
+      <div class="forPointer col-md-1 centerBox" onclick="changeColor(this.id)" id="E"
+        style="background-color: orange;">
+        Unhealthy for Sensitive <br /> (E) <br />35.5 - 45.5
       </div>
-      <div class="forPointer col-md-1 centerBox" onclick="changeColor(this.id)" id="F" style="background-color: tomato;">
-        Unhealthy for Sensitive <br/> (F) <br/> 45.5 - 54.5
+      <div class="forPointer col-md-1 centerBox" onclick="changeColor(this.id)" id="F"
+        style="background-color: tomato;">
+        Unhealthy for Sensitive <br /> (F) <br /> 45.5 - 54.5
       </div>
       <!--(FIXME)tomato-->
-      <div class="forPointer col-md-1 centerBox" onclick="changeColor(this.id)" id="G" style="background-color: indianred;">
-        Unhealthy <br/> (G) <br/> 54.5 - 102.5
+      <div class="forPointer col-md-1 centerBox" onclick="changeColor(this.id)" id="G"
+        style="background-color: indianred;">
+        Unhealthy <br /> (G) <br /> 54.5 - 102.5
       </div>
       <div class="forPointer col-md-1 centerBox " onclick="changeColor(this.id)" id="H" style="background-color: red;">
-        Unhealthy <br/> (H) <br/> 102.5 - 150.5</div>
-      <div class="forPointer col-md-1 centerBox " onclick="changeColor(this.id)" id="I" style="background-color: purple;">
-        Very Unhealthy <br/> (I) <br/> 150.5 - 250.5
+        Unhealthy <br /> (H) <br /> 102.5 - 150.5</div>
+      <div class="forPointer col-md-1 centerBox " onclick="changeColor(this.id)" id="I"
+        style="background-color: purple;">
+        Very Unhealthy <br /> (I) <br /> 150.5 - 250.5
       </div>
-      <div class="forPointer col-md-1 centerBox " onclick="changeColor(this.id)" id="J" style="background-color: brown;">
-        Hazardous <br/> (J) <br/> > 250.5
+      <div class="forPointer col-md-1 centerBox " onclick="changeColor(this.id)" id="J"
+        style="background-color: brown;">
+        Hazardous <br /> (J) <br /> > 250.5
       </div>
       {% comment %} <div class="forPointer col-md-1" onclick="changeColor(this.id)" id="Clear"
         style="background-color: lightgray;"> button <br>to <br />clear
       </div> {% endcomment %}
     </div>
-    
+
     <form novalidate id="userDataForm" action="getQuery" method="POST">{% csrf_token %}
       <div class=" row m-auto">
         <div class="col-md-1"></div>
         <div class="col-md-2">
           <table id="weatherEle" class="" style="padding:2em;">
             <tr>
-            <td><span class="input-group-text" id="inputGroup-sizing-default">起始時間</span></td>
-            <td class="text-left" style="padding:16px;">
-              <input type="date" name="time_query[]">
-              <select class="text-left hourList" name="time_query[]" aria-label="Default select example">
-                <option value="" select>--</option>
-              </select>
-            </td>
+              <td><span class="input-group-text" id="inputGroup-sizing-default">起始時間</span></td>
+              <td class="text-left" style="padding:16px;">
+                <input type="date" name="time_query[]">
+                <select class="text-left hourList" name="time_query[]" aria-label="Default select example">
+                  <option value="" select>--</option>
+                </select>
+              </td>
             </tr>
             <tr>
               <td><span class="input-group-text" id="inputGroup-sizing-default">結束時間</span></td>
@@ -208,9 +94,9 @@
                 </select>
                 <script>
                   let html = ""
-                  for (let i = 0; i < 24; i++) 
+                  for (let i = 0; i < 24; i++)
                     html += `<option value="${i}">${i.toString().padStart(2, 0) + ":00"}</option>`;
-                  for (let i = 0; i < 2; i++) 
+                  for (let i = 0; i < 2; i++)
                     document.getElementsByClassName('hourList')[i].innerHTML += html;
                 </script>
               </td>
@@ -255,10 +141,11 @@
               }
             </script>
           </table>
-        </div> 
+        </div>
         <div class="col-md-6">
           <div id="bg">
             <table id="bg-tbl" style="display:inline;">
+
             </table>
           </div>
           <input class="d-none" id="userData" name="data">
@@ -268,21 +155,31 @@
           style="background-color: lightgray;"> button <br>to <br />clear
         </div>
         {% comment %} <div class="col-md-3 bg-secondary."></div> {% endcomment %}
-        
+
       </div>
       <div class="text-center" style="margin: auto">
-          <button type="button" onclick="resetData()"
-            class="btn btn-outline-secondary m-5 btn btn-outline-secondary btn-lg">RESET</button>
-          <button type="button" onclick="processData()" class="btn m-5 btn btn-primary btn-lg"
-            id="enter">ENTER</button>
-        </div>
+        <button type="button" onclick="resetData()"
+          class="btn btn-outline-secondary m-5 btn btn-outline-secondary btn-lg">RESET</button>
+        <button type="button" onclick="processData()" class="btn m-5 btn btn-primary btn-lg" id="enter">ENTER</button>
+      </div>
     </form>
   </main>
   <!-- <div id="demo"></div> -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="https://pagination.js.org/dist/2.1.5/pagination.js" crossorigin="anonymous"></script>
-   
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://pagination.js.org/dist/2.1.5/pagination.js" crossorigin="anonymous"></script> -->
+  <!-- jQuery CDN - Slim version (=without AJAX) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <!-- Popper.JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+    integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    crossorigin="anonymous"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+    integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+    crossorigin="anonymous"></script>
   <script>
     let bgDiv = document.getElementById('bg');
     let bg_tbl = document.getElementById('bg-tbl');
@@ -356,18 +253,18 @@
       }
     }
     $('#demo').pagination({
-      dataSource: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,26, 27,28,29,30, 31,32,33,34, 35],
+      dataSource: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35],
       pageSize: 5,
       autoHidePrevious: true,
       autoHideNext: true,
-      callback: function(data, pagination) {
-          // template method of yourself
-          var html = template(data);
-          dataContainer.html(html);
+      callback: function (data, pagination) {
+        // template method of yourself
+        var html = template(data);
+        dataContainer.html(html);
       }
     })
   </script>
-  
+
 </body>
 
 </html>

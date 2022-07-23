@@ -1,0 +1,4 @@
+requirements.txt
+/venv
+/mysite/weather/codes/*.csv
+/mysite/static/sis/*.png

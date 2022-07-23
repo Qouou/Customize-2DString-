@@ -1,0 +1,123 @@
+#bg {
+  background-image: url("/static/map.png");
+  background-repeat: no-repeat;
+  /* 背景圖片位置固定 */
+  background-position: center;
+  width: 130ch;
+  height: 82ch;
+  margin: 0%;
+  padding: 0%;
+}
+
+div {
+  margin: 0em;
+  padding: 1em;
+  text-align: center;
+}
+
+#Clear,
+#A,
+#B,
+#C,
+#D,
+#E,
+#F,
+#G,
+#H,
+#I,
+#J {
+  color: black;
+  /* border: 3px dashed black; */
+  text-align: center;
+  height: 100px;
+}
+
+.forPointer:hover {
+  cursor: pointer;
+  user-select: none;
+}
+
+.dest_copy {
+  /* border: 3px dashed blue; */
+  border: 0.5ch dashed blue;
+  width: 10ch;
+  height: 8ch;
+  text-align: center;
+}
+
+.dest_copy:hover {
+  cursor: pointer;
+  /* border: 4px dashed rgba(128, 128, 128, 0.5); */
+  border: 0.5ch dashed rgba(128, 128, 128, 0.5);
+}
+
+.selected {
+  border: 4px dashed rgba(0, 0, 0, 0.5);
+  padding: 0.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#dest_move {
+  border: 3px solid blue;
+  width: 200px;
+  height: 50;
+  text-align: center;
+}
+
+.A {
+  background-color: lightgreen;
+
+}
+
+.B {
+  background-color: LightSeaGreen;
+}
+
+.C {
+  background-color: lightyellow;
+}
+
+.D {
+  background-color: yellow;
+}
+
+.E {
+  background-color: orange;
+}
+
+.F {
+  background-color: tomato;
+}
+
+.G {
+  background-color: IndianRed;
+}
+
+.H {
+  background-color: red;
+}
+
+.I {
+  background-color: purple;
+}
+
+.J {
+  background-color: brown;
+}
+
+.Clear {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+#bg-tbl {
+  user-select: none;
+}
+
+.centerBox {
+  padding: 0.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
