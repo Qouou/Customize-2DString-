@@ -1,0 +1,19 @@
+services:
+  app:
+    restart: unless-stopped
+    image: 2dstring
+    volumes:
+      - ./log:/log
+    networks:
+      - traefik_network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.2dstring.rule=Host(`pyyin-2dstring.im.ncnu.edu.tw`)"
+      - "traefik.http.routers.2dstring.entrypoints=websecure"
+      - "traefik.http.routers.2dstring.service=2dstring-server"
+      - "traefik.http.services.2dstring-server.loadbalancer.passhostheader=true"
+      - "traefik.http.services.2dstring-server.loadbalancer.server.port=8000"
+      - "traefik.docker.network=traefik_network"
+networks:
+  traefik_network:
+    external: true

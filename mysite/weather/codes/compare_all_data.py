@@ -2,7 +2,8 @@ import os
 import csv
 from collections import defaultdict
 import sys
-import time
+from datetime import date
+
 # os.system("")
 #該版本是返回最長公共子串和其長度，若只返回長度，則可以簡化
 def lcs(s1, s2):
@@ -305,6 +306,7 @@ def main(argv):
     # print ('2DStringY：', stringY)
     #query = list(map(str,input("String to compare: ").split()))
     library = defaultdict(dict)
+    # with open('/usr/src/app/mysite/weather/codes/file_output(try2)_wind.csv', newline='') as csvfile:
     with open('/home/tsai-jen/Customize-2DString-/mysite/weather/codes/file_output(try2)_wind.csv', newline='') as csvfile:
         # 讀取 CSV 檔案內容
         rows = csv.reader(csvfile)
@@ -386,6 +388,7 @@ def main(argv):
     for i in range(len(date)):
         date[i] = date[i].replace('-',' ')
     selectData = defaultdict(dict)
+    # with open('/usr/src/app/mysite/weather/codes/2018micro高斯new.csv', newline='') as csvfile:
     with open('/home/tsai-jen/Customize-2DString-/mysite/weather/codes/2018micro高斯new.csv', newline='') as csvfile:
         # 讀取 CSV 檔案內容
         rows = csv.reader(csvfile)
@@ -404,6 +407,7 @@ def main(argv):
         selectData[i]['afterLevel'] = tmp_level
     #print(selectData)
     library = defaultdict(dict)
+    # with open('/usr/src/app/mysite/weather/codes/allData.csv', newline='') as csvfile:
     with open('/home/tsai-jen/Customize-2DString-/mysite/weather/codes/allData.csv', newline='') as csvfile:
         # 讀取 CSV 檔案內容
         rows = csv.reader(csvfile)
@@ -423,6 +427,7 @@ def main(argv):
     #         print(j , end = ' : ')
     #         print(parameter_All[i][j])
     now = time.strftime("%m-%d-%Y_%H-%M-%S", time.localtime())
+    # with open('/usr/src/app/mysite/weather/codes/output_selectDate_'+now+'.csv', 'w', newline='') as csvfile:
     with open('/home/tsai-jen/Customize-2DString-/mysite/weather/codes/output_selectDate_'+now+'.csv', 'w', newline='') as csvfile:
         # 以空白分隔欄位，建立 CSV 檔寫入器
         writer = csv.writer(csvfile, delimiter=',')

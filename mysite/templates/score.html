@@ -10,19 +10,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  {% load static %}
+  
   <style>
     .containerPic {
       text-align: center;
       width: 95%;
       margin: 0px auto;
     }
-
-    .containerPage {
-      margin: 100px auto;
-    }
-
+    .containerPage{
+			margin: 100px auto;
+		}
     .card {
       /* 定位點 */
       position: relative;
@@ -59,11 +63,20 @@
       -webkit-transition: 500ms;
       opacity: 1;
     }
+
   </style>
 </head>
 
 <body class="bg-light">
   {% include 'navbar.html' %}
+  <!-- <nav class="navbar navbar-dark bg-dark">
+    <span  class="navbar-brand" >
+      Customize your own 2DString
+    </span>
+    <span class="navbar-text">
+      This is a simple demo! Which makes you more convenient
+    </span>
+  </nav> -->
 
   <div class="container">
     <div class="row mt-3">
@@ -72,38 +85,46 @@
         <div class="row">
           <div class="col-md-12">
             <form class="needs-validation" novalidate action="score" method="post">{% csrf_token %}
-              <label for="firstName">2DString X</label>
-              {{ stringX }}
-              <hr />
-              <label for="firstName">2DString Y</label>
-              {{ stringY }}
+                <label for="firstName">2DString X</label>
+                {{ stringX }}
+                <hr/>
+                <label for="firstName">2DString Y</label>
+                {{ stringY }}
             </form>
           </div>
         </div>
         <span id="weather">
           <h4>Weather Query</h4>
-          <script>
-            let weather_query = "{{ weather_query }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
-            console.log(weather_query)
-            let tmp = String(weather_query).split('/')
-            console.log(tmp)
-            let html = `
+            <script>
+              let weather_query = "{{ weather_query }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+              console.log(weather_query)
+              let tmp = String(weather_query).split('/')
+              console.log(tmp)
+              let html = `
                          WD (${tmp[0]})/ 
                          WS (${tmp[1]}~${tmp[2]})/ 
                          Pressure (${tmp[3]}~${tmp[4]})/ 
                          Temperature (${tmp[5]}~${tmp[6]})/ 
                          Humid (${tmp[7]}~${tmp[8]})
                          `
-            document.getElementById('weather').innerHTML += html
-          </script>
-        </span>
+              document.getElementById('weather').innerHTML += html
+            </script>
+          </span>
       </div>
       <div id="userPic" class="col-md-4">
       </div>
     </div>
-
+    
   </div>
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+
+  <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script> -->
+   <!-- First try loading jQuery from Google's CDN -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <!-- Fall back to a local copy of jQuery if the CDN fails -->
+  <script>
+  window.jQuery || document.write('<script src="http://mysite.com/jquery.min.js"><\/script>')
+  </script>
+
   <script type="text/javascript" src="/static/js/pagination.js"></script>
   <script>
     let date_data = "{{ resultDate }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
@@ -115,7 +136,7 @@
     let TP_data = "{{ resultTP }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     let RH_data = "{{ resultRH }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     let ranking_data = "{{ ranking }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
-
+    
     console.log(date_data);
     console.log(time_data);
     console.log(content_data);
@@ -130,7 +151,7 @@
       return "/static/sis/" + date_data[index];
     }
     function getDate(index) {
-      return date_data[index].substring(0, date_data[index].length - 10);
+      return date_data[index].substring(0, date_data[index].length-10);
     }
     function getTime(index) {
       return time_data[index];
@@ -171,24 +192,25 @@
       let data = date.split('-');
       let data2 = time.split('-');
       console.log("date: ", data);
+      console.log("date2: ", data2);
 
       let year = data[0];
       let startMonth = parseInt(data[1]);
-      let startDay = parseInt(data[2]);
+      let startDay = parseInt(data[2])-1;
       let startHour = parseInt(data2[0]);
-      let endMonth = parseInt(data[1]) + 1;
-      let endDay = parseInt(data[2]);
+      let endMonth = parseInt(data[1]);
+      let endDay = parseInt(data[2])+1;
       let endHour = parseInt(data2[0]);
 
-      // console.log("year=" + year + "&startMonth=" + startMonth + "&startDay=" + 
-      // startDay + "&startHour=" + startHour +
-      // "&endMonth=" + endMonth + "&endDay=" + endDay + "&endHour=" + endHour);
-      return "year=" + year + "&startMonth=" + startMonth + "&startDay=" +
-        startDay + "&startHour=" + startHour +
-        "&endMonth=" + endMonth + "&endDay=" + endDay + "&endHour=" + endHour;
+      console.log("year=" + year + "&startMonth=" + startMonth + "&startDay=" + 
+                  startDay + "&startHour=" + startHour +
+                  "&endMonth=" + endMonth + "&endDay=" + endDay + "&endHour=" + endHour);
+      return "year=" + year + "&startMonth=" + startMonth + "&startDay=" + 
+                  startDay + "&startHour=" + startHour +
+                  "&endMonth=" + endMonth + "&endDay=" + endDay + "&endHour=" + endHour;
     }
   </script>
-
+  
   <div class="">
     <div class="row mt-3" id="matchPic"></div>
     <div class="row mt-3">
@@ -196,53 +218,51 @@
         <ul class="pagination justify-content-center" id="page">
         </ul>
       </nav>
-
+      
       <div class="show"></div>
     </div>
   </div>
-
-
-
-
+  
+  
+  
+  
   <!-- <div class="pagination" id="pagination" ></div> -->
   <div class="text-center">
-    <button class="btn btn-outline-secondary m-5 btn btn-outline-secondary btn-lg"
-      onclick="history.back(-1)">回上一頁</button>
+    <button class="btn btn-outline-secondary m-5 btn btn-outline-secondary btn-lg" onclick="history.back(-1)">回上一頁</button>
   </div>
-
-
+  
   <script>
     let count = 0;
-
+    
     let placeOfPic = document.getElementById("matchPic");
-    for (let index = 0; index < 3; index++) {
+    for(let index = 0 ; index < 3;index ++){
       placeOfPic.innerHTML += `
       <div class="containerPic"></div>
       `;
-
+      
     }
     let placeOfCard = document.getElementsByClassName("containerPic");
-    for (let index = 0; index < placeOfCard.length; index++) {
-      for (let j = 0; j < 8; j++) {
+    for(let index = 0 ; index < placeOfCard.length;index ++){
+      for(let j = 0 ; j < 8 ; j++){
         placeOfCard[index].innerHTML += `
           <div class="card"><div class="info"></div></div>
         `;
       }
     }
-
-    function showPicture(currentPage) {
+    
+    function showPicture(currentPage){
       let elements = document.getElementsByClassName("card");
       let elementsInfo = document.getElementsByClassName("info");
       var num = 0;
-      if (count != 0) {
+      if (count != 0){
         for (let index = 0; index < elements.length; index++) {
           elements[index].innerHTML = "";
         }
       }
-
+      
       for (let index = 0; index < elements.length; index++) {
         Xst = num + (currentPage - 1) * 24
-        if (Xst >= 100) {
+        if (Xst >= 100){
           break;
         }
         console.log(Xst)
@@ -255,32 +275,32 @@
         `;
         num = num + 1;
       }
-
-
+      
+      
 
       for (let index = 1; index <= elementsInfo.length; index++) {
         var num = 0;
         Xst = num + (currentPage - 1) * 24
-        if (Xst >= 100) {
+        if (Xst >= 100){
           break;
         }
-
+        
         console.log("index: ", index);
         console.log(getDate(index));
         url = "https://pyyin-mask.im.ncnu.edu.tw/mask.html?" + findParams(getDate(index), getTime(index));
 
-        elementsInfo[index - 1].innerHTML += `
+        elementsInfo[index-1].innerHTML += `
         <button><a href="${url}">View More</a></button>
-        <p> NO. ${index + (currentPage - 1) * 24}</p>
+        <p> NO. ${ index+(currentPage-1)*24 }</p>
         `;
       }
       $("li").addClass("page-item");
       $("a").addClass("page-link");
       count += 1;
     }
-
-
-
+    
+    
+   
     $('#page').pagination({
       total: 100, // 总数据条数
       current: 1, // 当前页码
@@ -298,14 +318,14 @@
       * @param  {[object]} $target [description]
       * @return {[type]}         [description]
       */
-      click: function (options, $target) { // 点击按钮事件
+      click: function(options,$target) { // 点击按钮事件
         console.log(options);
-        if (options.current == 1) {
+        if (options.current == 1){
           showPicture(1);
-        } else {
+        }else{
           showPicture(options.current);
-        }
-        $target.next(".show").text('Current Page：Page ' + options.current);
+        } 
+        $target.next(".show").text('Current Page：Page '+options.current);
       }
     });
     showPicture(1);

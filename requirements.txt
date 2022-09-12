@@ -6,6 +6,7 @@
 #
 
 -i https://pypi.org/simple
+# Flask==2.1.2
 asgiref==3.3.4; python_version >= '3.6'
 cycler==0.10.0
 django==3.2.4

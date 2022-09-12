@@ -54,6 +54,7 @@ def drawColor(data):
     now = time.strftime("%Y-%m-%d-%H-%M", time.localtime())
     # date = date.replace('/','-').replace(' ','-').replace(':','-')
     # plt.savefig('../static/sis/'+now + '.png', bbox_inches='tight',pad_inches = 0)
+    # plt.savefig('/usr/src/app/mysite/static/sis/'+now + '.png', bbox_inches='tight',pad_inches = 0)
     plt.savefig('/home/tsai-jen/Customize-2DString-/mysite/static/sis/'+now + '.png', bbox_inches='tight',pad_inches = 0)
     plt.cla()
     plt.clf()

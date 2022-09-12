@@ -4,6 +4,7 @@ import json
 from django.http import HttpResponse
 import os
 from PIL import Image
+from django.conf import settings
 
 def index(request):
     # return HttpResponse("Hello, world. You're at the query index.")
@@ -18,7 +19,8 @@ def score(request):
         stringY = request.POST['StringY']
         ctx['stringX'] = stringX
         ctx['stringY'] = stringY
-        os.chdir("/home/tsai-jen/Customize-2DString-/mysite/weather/codes/")
+        pwd=settings.BASE_DIR + "/weather/codes/"
+        os.chdir(pwd)
         command = 'python3 compare_all_data.py ' + stringX +' ' + stringY
         ctx['allContainer'] = os.popen(command).readlines()
         date = []
@@ -155,7 +157,8 @@ def getQuery(request):
             datalist[i] = segment(datalist[i])
         dataString = ' '.join(str(word) for word in datalist)
         print("dataString: ", dataString)
-        os.chdir("/home/tsai-jen/Customize-2DString-/mysite/weather/codes")
+        pwd=settings.BASE_DIR + "/weather/codes/"
+        os.chdir(pwd)
         os.system("javac ContourTracingViaWeb.java")
         command = "java ContourTracingViaWeb "+ dataString
         getString = os.popen(command).readlines()
@@ -217,12 +220,13 @@ def getQuery(request):
         
 
         
-        os.chdir("/home/tsai-jen/Customize-2DString-/mysite/weather/codes")
+        pwd=settings.BASE_DIR + "/weather/codes/"
+        os.chdir(pwd)
 
         getPicCommand = 'python3 userDataPic.py ' + dataString
         getPicName = os.popen(getPicCommand).readlines()[0].strip()
         ctx['PicName'] = getPicName
-        # os.chdir("/home/tsai-jen/Customize-2DString-/mysite/weather/static/sis")
-        os.chdir("/home/tsai-jen/Customize-2DString-/mysite/static/sis")
+        pwd=settings.BASE_DIR + "/static/sis"
+        os.chdir(pwd)
         mixPic(getPicName)
     return render(request, "score.html", ctx)

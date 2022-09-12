@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", default="forloaclhost")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', 'pyyin-2dstring.im.ncnu.edu.tw']
 # .environ.get('ALLOWED_HOSTS').split(" ") if os.environ.get('ALLOWED_HOSTS') else ['localhost','127.0.0.1']
 
 
@@ -120,11 +120,8 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, "static_file")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder"
