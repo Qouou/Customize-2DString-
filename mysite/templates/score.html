@@ -68,15 +68,8 @@
 </head>
 
 <body class="bg-light">
+  <!-- add navbar -->
   {% include 'navbar.html' %}
-  <!-- <nav class="navbar navbar-dark bg-dark">
-    <span  class="navbar-brand" >
-      Customize your own 2DString
-    </span>
-    <span class="navbar-text">
-      This is a simple demo! Which makes you more convenient
-    </span>
-  </nav> -->
 
   <div class="container">
     <div class="row mt-3">
@@ -117,8 +110,7 @@
     
   </div>
 
-  <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script> -->
-   <!-- First try loading jQuery from Google's CDN -->
+  <!-- First try loading jQuery from Google's CDN -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <!-- Fall back to a local copy of jQuery if the CDN fails -->
   <script>
@@ -189,18 +181,27 @@
 
   <script>
     function findParams(date, time) {
-      let data = date.split('-');
-      let data2 = time.split('-');
-      console.log("date: ", data);
-      console.log("date2: ", data2);
+      day = new Date(date);
+      // console.log("day: ", day);
 
-      let year = data[0];
-      let startMonth = parseInt(data[1]);
-      let startDay = parseInt(data[2])-1;
-      let startHour = parseInt(data2[0]);
-      let endMonth = parseInt(data[1]);
-      let endDay = parseInt(data[2])+1;
-      let endHour = parseInt(data2[0]);
+      yesterday = new Date(date);
+      yesterday.setDate(yesterday.getDate() - 1);
+      // console.log("yesterday: ", yesterday);
+
+      tomorrow = new Date(date);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      // console.log("tomorrow: ", tomorrow);
+      
+      hour = parseInt(time.split('-')[0]);
+      console.log("hour: ", hour);
+      
+      let year = day.getFullYear();
+      let startMonth = yesterday.getMonth() + 1;
+      let startDay = yesterday.getDate();
+      let startHour = 0;
+      let endMonth = tomorrow.getMonth() + 1;
+      let endDay = tomorrow.getDate();
+      let endHour = 24;
 
       console.log("year=" + year + "&startMonth=" + startMonth + "&startDay=" + 
                   startDay + "&startHour=" + startHour +
@@ -286,8 +287,8 @@
         }
         
         console.log("index: ", index);
-        console.log(getDate(index));
-        url = "https://pyyin-mask.im.ncnu.edu.tw/mask.html?" + findParams(getDate(index), getTime(index));
+        // console.log(getDate(index));
+        url = "http://pyyin-mask.im.ncnu.edu.tw/mask.html?" + findParams(getDate(index-1), getTime(index-1));
 
         elementsInfo[index-1].innerHTML += `
         <button><a href="${url}">View More</a></button>
