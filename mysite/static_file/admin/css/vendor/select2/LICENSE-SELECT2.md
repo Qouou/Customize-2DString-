@@ -1,0 +1,1 @@
+/home/s3014/.local/share/virtualenvs/Customize-2DString--mZyDGqhD/lib/python3.6/site-packages/django/contrib/admin/static/admin/css/vendor/select2/LICENSE-SELECT2.md
