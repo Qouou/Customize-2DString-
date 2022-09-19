@@ -5923,3 +5923,1835 @@ Not Found: /
 [pid: 8|app: 0|req: 23/23] 172.18.0.2 () {60 vars in 1316 bytes} [Sat Sep 10 17:49:52 2022] GET /static/map.png => generated 1074508 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 7 headers in 250 bytes (0 switches on core 0)
 Not Found: /favicon.ico
 [pid: 8|app: 0|req: 24/24] 172.18.0.2 () {60 vars in 1298 bytes} [Sat Sep 10 17:49:53 2022] GET /favicon.ico => generated 2361 bytes in 8 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 1)
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Sep 13 01:44:03 2022] ***
+compiled with version: 10.2.1 20210110 on 13 September 2022 01:38:46
+os: Linux-4.15.0-188-generic #199-Ubuntu SMP Wed Jun 15 20:42:56 UTC 2022
+nodename: a75a2aac05fa
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 7
+uwsgi socket 0 bound to TCP address 127.0.0.1:38877 (port auto-assigned) fd 6
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.8.14 (default, Sep  7 2022, 23:40:02)  [GCC 10.2.1 20210110]
+Python main interpreter initialized at 0x55574eae6990
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 166752 bytes (162 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x55574eae6990 pid: 1 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1)
+spawned uWSGI worker 1 (pid: 7, cores: 2)
+spawned uWSGI http 1 (pid: 8)
+[pid: 7|app: 0|req: 1/1] 172.18.0.2 () {60 vars in 2257 bytes} [Tue Sep 13 09:44:07 2022] GET /weather/ => generated 13794 bytes in 347 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 0)
+south/X/X/X/X/X/X/X/X/
+dataString:  -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 0 -1 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+getString:  ['Start\n', '#MbMbRb#Me#Re#AbRb#AeMe#Ab#Ae#Ab#AeRe#Rb#Mb#Mb#MeMeRe #MbMbRb#MeRe#AbAbRbRb#AeAeMe#ReRe#Mb#Ab#Ae#Mb#Me#Me\n', 'Finish\n']
+python3 compare_all_data.py MbMbRb#Me#Re#AbRb#AeMe#Ab#Ae#Ab#AeRe#Rb#Mb#Mb#MeMeRe MbMbRb#MeRe#AbAbRbRb#AeAeMe#ReRe#Mb#Ab#Ae#Mb#Me#Me south/X/X/X/X/X/X/X/X/ ////
+Traceback (most recent call last):
+  File "compare_all_data.py", line 445, in <module>
+    main(sys.argv[1:])
+  File "compare_all_data.py", line 429, in main
+    now = time.strftime("%m-%d-%Y_%H-%M-%S", time.localtime())
+NameError: name 'time' is not defined
+['0.524390243902439', '0.5', '0.47560975609756095', '0.47560975609756095', '0.47560975609756095', '0.46341463414634143', '0.46341463414634143', '0.45121951219512196', '0.45121951219512196', '0.4512195121951219', '0.4512195121951219', '0.4512195121951219', '0.4512195121951219', '0.4512195121951219', '0.4512195121951219', '0.4512195121951219', '0.4512195121951219', '0.4512195121951219', '0.4512195121951219', '0.4512195121951219', '0.4512195121951219', '0.4512195121951219', '0.43902439024390244', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829', '0.4268292682926829']
+0.524390243902439
+0.5
+0.47560975609756095
+0.47560975609756095
+0.47560975609756095
+0.46341463414634143
+0.46341463414634143
+0.45121951219512196
+0.45121951219512196
+0.4512195121951219
+0.4512195121951219
+0.4512195121951219
+0.4512195121951219
+0.4512195121951219
+0.4512195121951219
+0.4512195121951219
+0.4512195121951219
+0.4512195121951219
+0.4512195121951219
+0.4512195121951219
+0.4512195121951219
+0.4512195121951219
+0.43902439024390244
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+0.4268292682926829
+[pid: 7|app: 0|req: 2/2] 172.18.0.2 () {66 vars in 2410 bytes} [Tue Sep 13 09:44:12 2022] POST /weather/getQuery => generated 30161 bytes in 15337 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 1)
+Not Found: /static/js/pagination.js
+[pid: 7|app: 0|req: 3/3] 172.18.0.2 () {56 vars in 2164 bytes} [Tue Sep 13 09:44:27 2022] GET /static/js/pagination.js => generated 2580 bytes in 33 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 0)
+Not Found: /static/js/pagination.js
+[pid: 7|app: 0|req: 4/4] 172.18.0.2 () {56 vars in 2164 bytes} [Tue Sep 13 09:44:28 2022] GET /static/js/pagination.js => generated 2580 bytes in 29 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 1)
+Not Found: /static/sis/2022-09-13-09-44_mix.png
+[pid: 7|app: 0|req: 5/5] 172.18.0.2 () {56 vars in 2209 bytes} [Tue Sep 13 09:44:28 2022] GET /static/sis/2022-09-13-09-44_mix.png => generated 2628 bytes in 5 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 0)
+gateway "uWSGI http 1" has been buried (pid: 8)
+...brutally killing workers...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /app
+closing all non-uwsgi socket fds > 2 (max_fd = 1048576)...
+found fd 6 mapped to socket 0 (127.0.0.1:38877)
+running /usr/local/bin/uwsgi
+[uWSGI] getting INI configuration from run.ini
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Sep 13 09:44:54 2022] ***
+compiled with version: 10.2.1 20210110 on 13 September 2022 01:38:46
+os: Linux-4.15.0-188-generic #199-Ubuntu SMP Wed Jun 15 20:42:56 UTC 2022
+nodename: a75a2aac05fa
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 9
+uwsgi socket 0 bound to TCP address 127.0.0.1:41571 (port auto-assigned) fd 8
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.8.14 (default, Sep  7 2022, 23:40:02)  [GCC 10.2.1 20210110]
+Python main interpreter initialized at 0x559e18f93b60
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 166752 bytes (162 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x559e18f93b60 pid: 1 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 1)
+spawned uWSGI worker 1 (pid: 57, cores: 2)
+spawned uWSGI http 1 (pid: 58)
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Sep 13 01:51:36 2022] ***
+compiled with version: 10.2.1 20210110 on 13 September 2022 01:38:46
+os: Linux-4.15.0-188-generic #199-Ubuntu SMP Wed Jun 15 20:42:56 UTC 2022
+nodename: b9de25859d85
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 7
+uwsgi socket 0 bound to TCP address 127.0.0.1:32983 (port auto-assigned) fd 6
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.8.14 (default, Sep  7 2022, 23:40:02)  [GCC 10.2.1 20210110]
+Python main interpreter initialized at 0x55827c210990
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 166752 bytes (162 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x55827c210990 pid: 1 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1)
+spawned uWSGI worker 1 (pid: 8, cores: 2)
+spawned uWSGI http 1 (pid: 9)
+[pid: 8|app: 0|req: 1/1] 172.18.0.2 () {60 vars in 2257 bytes} [Tue Sep 13 09:51:48 2022] GET /weather/ => generated 13794 bytes in 85 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 0)
+X/X/X/X/X/X/X/X/X/
+dataString:  -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 0 0 -1 -1 -1 -1 -1 -1 -1 -1 0 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+getString:  ['Start\n', '#MbMbRb#Me#Re#Rb#Me#Ab#AeRe#Rb#Mb#Mb#MeMeRe #MbMbRb#MeRe#RbRb#Me#ReRe#AbMb#Ae#Mb#Me#Me\n', 'Finish\n']
+python3 compare_all_data.py MbMbRb#Me#Re#Rb#Me#Ab#AeRe#Rb#Mb#Mb#MeMeRe MbMbRb#MeRe#RbRb#Me#ReRe#AbMb#Ae#Mb#Me#Me X/X/X/X/X/X/X/X/X/ ////
+Traceback (most recent call last):
+  File "compare_all_data.py", line 445, in <module>
+    main(sys.argv[1:])
+  File "compare_all_data.py", line 429, in main
+    now = time.strftime("%m-%d-%Y_%H-%M-%S", time.localtime())
+NameError: name 'time' is not defined
+['0.7727272727272727', '0.7727272727272727', '0.7727272727272727', '0.7727272727272727', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.696969696969697', '0.696969696969697', '0.6818181818181819', '0.6818181818181819', '0.6818181818181819', '0.6818181818181819', '0.6818181818181819', '0.6818181818181819', '0.6818181818181819', '0.6818181818181819', '0.6818181818181819', '0.6818181818181819', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516']
+0.7727272727272727
+0.7727272727272727
+0.7727272727272727
+0.7727272727272727
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.696969696969697
+0.696969696969697
+0.6818181818181819
+0.6818181818181819
+0.6818181818181819
+0.6818181818181819
+0.6818181818181819
+0.6818181818181819
+0.6818181818181819
+0.6818181818181819
+0.6818181818181819
+0.6818181818181819
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+[pid: 8|app: 0|req: 2/2] 172.18.0.2 () {66 vars in 2410 bytes} [Tue Sep 13 09:51:56 2022] POST /weather/getQuery => generated 30094 bytes in 47249 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 1)
+Not Found: /static/js/pagination.js
+[pid: 8|app: 0|req: 3/3] 172.18.0.2 () {56 vars in 2162 bytes} [Tue Sep 13 09:52:43 2022] GET /static/js/pagination.js => generated 2580 bytes in 29 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 0)
+Not Found: /static/js/pagination.js
+[pid: 8|app: 0|req: 4/4] 172.18.0.2 () {56 vars in 2163 bytes} [Tue Sep 13 09:52:43 2022] GET /static/js/pagination.js => generated 2580 bytes in 31 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 1)
+Not Found: /static/sis/2022-09-13-09-52_mix.png
+[pid: 8|app: 0|req: 5/5] 172.18.0.2 () {56 vars in 2208 bytes} [Tue Sep 13 09:52:43 2022] GET /static/sis/2022-09-13-09-52_mix.png => generated 2628 bytes in 5 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 0)
+X/X/X/X/X/X/X/X/X/
+dataString:  -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 0 0 -1 -1 -1 -1 -1 -1 -1 -1 0 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+getString:  ['Start\n', '#MbMbRb#Me#Re#Rb#Me#Ab#AeRe#Rb#Mb#Mb#MeMeRe #MbMbRb#MeRe#RbRb#Me#ReRe#AbMb#Ae#Mb#Me#Me\n', 'Finish\n']
+python3 compare_all_data.py MbMbRb#Me#Re#Rb#Me#Ab#AeRe#Rb#Mb#Mb#MeMeRe MbMbRb#MeRe#RbRb#Me#ReRe#AbMb#Ae#Mb#Me#Me X/X/X/X/X/X/X/X/X/ ////
+Traceback (most recent call last):
+  File "compare_all_data.py", line 445, in <module>
+    main(sys.argv[1:])
+  File "compare_all_data.py", line 429, in main
+    now = time.strftime("%m-%d-%Y_%H-%M-%S", time.localtime())
+NameError: name 'time' is not defined
+['0.7727272727272727', '0.7727272727272727', '0.7727272727272727', '0.7727272727272727', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.7121212121212122', '0.696969696969697', '0.696969696969697', '0.6818181818181819', '0.6818181818181819', '0.6818181818181819', '0.6818181818181819', '0.6818181818181819', '0.6818181818181819', '0.6818181818181819', '0.6818181818181819', '0.6818181818181819', '0.6818181818181819', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516', '0.6515151515151516']
+0.7727272727272727
+0.7727272727272727
+0.7727272727272727
+0.7727272727272727
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.7121212121212122
+0.696969696969697
+0.696969696969697
+0.6818181818181819
+0.6818181818181819
+0.6818181818181819
+0.6818181818181819
+0.6818181818181819
+0.6818181818181819
+0.6818181818181819
+0.6818181818181819
+0.6818181818181819
+0.6818181818181819
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+0.6515151515151516
+[pid: 8|app: 0|req: 6/6] 172.18.0.2 () {66 vars in 2414 bytes} [Tue Sep 13 10:44:49 2022] POST /weather/getQuery => generated 30094 bytes in 41203 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 1)
+Not Found: /static/js/pagination.js
+[pid: 8|app: 0|req: 7/7] 172.18.0.2 () {56 vars in 2168 bytes} [Tue Sep 13 10:45:30 2022] GET /static/js/pagination.js => generated 2580 bytes in 6 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 0)
+Not Found: /static/js/pagination.js
+[pid: 8|app: 0|req: 8/8] 172.18.0.2 () {56 vars in 2168 bytes} [Tue Sep 13 10:45:31 2022] GET /static/js/pagination.js => generated 2580 bytes in 5 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 1)
+Not Found: /static/sis/2022-09-13-10-45_mix.png
+[pid: 8|app: 0|req: 9/9] 172.18.0.2 () {56 vars in 2213 bytes} [Tue Sep 13 10:45:31 2022] GET /static/sis/2022-09-13-10-45_mix.png => generated 2628 bytes in 5 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 10/10] 172.18.0.2 () {52 vars in 831 bytes} [Tue Sep 13 10:45:39 2022] GET /weather/getQuery => generated 13625 bytes in 3 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 1)
+gateway "uWSGI http 1" has been buried (pid: 9)
+...brutally killing workers...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /app
+closing all non-uwsgi socket fds > 2 (max_fd = 1048576)...
+found fd 6 mapped to socket 0 (127.0.0.1:32983)
+running /usr/local/bin/uwsgi
+[uWSGI] getting INI configuration from run.ini
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Sep 13 11:08:15 2022] ***
+compiled with version: 10.2.1 20210110 on 13 September 2022 01:38:46
+os: Linux-4.15.0-188-generic #199-Ubuntu SMP Wed Jun 15 20:42:56 UTC 2022
+nodename: b9de25859d85
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 9
+uwsgi socket 0 bound to TCP address 127.0.0.1:38291 (port auto-assigned) fd 8
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.8.14 (default, Sep  7 2022, 23:40:02)  [GCC 10.2.1 20210110]
+Python main interpreter initialized at 0x55f5b796eb60
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 166752 bytes (162 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55f5b796eb60 pid: 1 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 1)
+spawned uWSGI worker 1 (pid: 101, cores: 2)
+spawned uWSGI http 1 (pid: 102)
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Sep 13 03:11:21 2022] ***
+compiled with version: 10.2.1 20210110 on 13 September 2022 01:38:46
+os: Linux-4.15.0-188-generic #199-Ubuntu SMP Wed Jun 15 20:42:56 UTC 2022
+nodename: e5b2097f2df9
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 7
+uwsgi socket 0 bound to TCP address 127.0.0.1:39581 (port auto-assigned) fd 6
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.8.14 (default, Sep  7 2022, 23:40:02)  [GCC 10.2.1 20210110]
+Python main interpreter initialized at 0x5614774f8990
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 166752 bytes (162 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x5614774f8990 pid: 1 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1)
+spawned uWSGI worker 1 (pid: 8, cores: 2)
+spawned uWSGI http 1 (pid: 9)
+[pid: 8|app: 0|req: 1/1] 172.18.0.2 () {60 vars in 2261 bytes} [Tue Sep 13 11:11:29 2022] GET /weather/ => generated 13794 bytes in 73 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 0)
+X/X/X/X/X/X/X/X/X/
+dataString:  -1 -1 0 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+getString:  ['Start\n', '#MbMbRb#Me#Ab#Re#Rb#AeMe#Re#Rb#Mb#Mb#MeMeRe #AbMbMbRb#MeRe#RbRb#AeMe#ReRe#Mb#Mb#Me#Me\n', 'Finish\n']
+python3 compare_all_data.py MbMbRb#Me#Ab#Re#Rb#AeMe#Re#Rb#Mb#Mb#MeMeRe AbMbMbRb#MeRe#RbRb#AeMe#ReRe#Mb#Mb#Me#Me X/X/X/X/X/X/X/X/X/ ////
+Traceback (most recent call last):
+  File "compare_all_data.py", line 445, in <module>
+    main(sys.argv[1:])
+  File "compare_all_data.py", line 429, in main
+    now = time.strftime("%m-%d-%Y_%H-%M-%S", time.localtime())
+NameError: name 'time' is not defined
+['0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273', '0.7272727272727273']
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+0.7272727272727273
+[pid: 8|app: 0|req: 2/2] 172.18.0.2 () {66 vars in 2414 bytes} [Tue Sep 13 11:11:34 2022] POST /weather/getQuery => generated 30078 bytes in 42066 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 1)
+[pid: 8|app: 0|req: 3/3] 172.18.0.2 () {56 vars in 2168 bytes} [Tue Sep 13 11:12:16 2022] GET /static/js/pagination.js => generated 8608 bytes in 46 msecs via sendfile() (HTTP/1.1 200) 7 headers in 266 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 4/4] 172.18.0.2 () {56 vars in 2213 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2022-09-13-11-12_mix.png => generated 350803 bytes in 4 msecs via sendfile() (HTTP/1.1 200) 7 headers in 266 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 5/5] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-6-21-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 7/6] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-7-02-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 8/7] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-7-00-00.png => generated 1657 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 9/8] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-6-22-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 10/9] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-6-23-00.png => generated 1657 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 11/10] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-7-01-00.png => generated 1657 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 12/11] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-7-05-00.png => generated 1657 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 13/12] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-7-04-00.png => generated 1657 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 14/13] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-7-03-00.png => generated 1657 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 15/14] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-7-07-00.png => generated 1657 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 16/15] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-7-06-00.png => generated 1657 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 17/16] 172.18.0.2 () {56 vars in 2200 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-8-13-00.png => generated 1657 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 18/17] 172.18.0.2 () {56 vars in 2200 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-8-14-00.png => generated 1657 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 19/18] 172.18.0.2 () {56 vars in 2200 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-8-15-00.png => generated 1657 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 20/19] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-9-01-00.png => generated 1657 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 21/20] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-9-03-00.png => generated 1657 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 22/21] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-9-05-00.png => generated 1657 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 23/22] 172.18.0.2 () {56 vars in 2200 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-9-06-00.png => generated 1657 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 24/23] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-9-07-00.png => generated 1657 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 25/24] 172.18.0.2 () {56 vars in 2200 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-8-20-00.png => generated 1657 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 26/25] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-8-16-00.png => generated 1657 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 27/26] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-9-00-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 28/27] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-9-04-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 28/28] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 11:12:17 2022] GET /static/sis/2018-1-9-02-00.png => generated 1657 bytes in 4 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+gateway "uWSGI http 1" has been buried (pid: 9)
+...brutally killing workers...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /app
+closing all non-uwsgi socket fds > 2 (max_fd = 1048576)...
+found fd 6 mapped to socket 0 (127.0.0.1:39581)
+running /usr/local/bin/uwsgi
+[uWSGI] getting INI configuration from run.ini
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Sep 13 19:10:25 2022] ***
+compiled with version: 10.2.1 20210110 on 13 September 2022 01:38:46
+os: Linux-4.15.0-188-generic #199-Ubuntu SMP Wed Jun 15 20:42:56 UTC 2022
+nodename: e5b2097f2df9
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 9
+uwsgi socket 0 bound to TCP address 127.0.0.1:42071 (port auto-assigned) fd 8
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.8.14 (default, Sep  7 2022, 23:40:02)  [GCC 10.2.1 20210110]
+Python main interpreter initialized at 0x5623dcb5bb60
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 166752 bytes (162 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x5623dcb5bb60 pid: 1 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 1)
+spawned uWSGI worker 1 (pid: 58, cores: 2)
+spawned uWSGI http 1 (pid: 59)
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Sep 13 11:13:59 2022] ***
+compiled with version: 10.2.1 20210110 on 13 September 2022 11:12:56
+os: Linux-4.15.0-188-generic #199-Ubuntu SMP Wed Jun 15 20:42:56 UTC 2022
+nodename: 411020b0c5ef
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 7
+uwsgi socket 0 bound to TCP address 127.0.0.1:40619 (port auto-assigned) fd 6
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.8.14 (default, Sep  7 2022, 23:40:02)  [GCC 10.2.1 20210110]
+Python main interpreter initialized at 0x55f6264db990
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 166752 bytes (162 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55f6264db990 pid: 1 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1)
+spawned uWSGI worker 1 (pid: 9, cores: 2)
+spawned uWSGI http 1 (pid: 10)
+[pid: 9|app: 0|req: 1/1] 172.18.0.2 () {58 vars in 2202 bytes} [Tue Sep 13 19:14:06 2022] GET /weather/ => generated 13794 bytes in 44 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 9|app: 0|req: 2/2] 172.18.0.2 () {56 vars in 2153 bytes} [Tue Sep 13 19:14:06 2022] GET /favicon.ico => generated 2361 bytes in 8 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 1)
+X/X/X/X/X/X/X/X/X/
+dataString:  -1 -1 -1 -1 0 0 -1 -1 -1 -1 -1 -1 -1 -1 0 0 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+getString:  ['Start\n', '#MbMbRb#Me#Re#Rb#Me#Ab#Re#Rb#Ae#Mb#Mb#MeMeRe #AbMbMbRb#MeRe#RbRb#AeMe#ReRe#Mb#Mb#Me#Me\n', 'Finish\n']
+python3 compare_all_data.py MbMbRb#Me#Re#Rb#Me#Ab#Re#Rb#Ae#Mb#Mb#MeMeRe AbMbMbRb#MeRe#RbRb#AeMe#ReRe#Mb#Mb#Me#Me X/X/X/X/X/X/X/X/X/ ////
+Traceback (most recent call last):
+  File "compare_all_data.py", line 445, in <module>
+    main(sys.argv[1:])
+  File "compare_all_data.py", line 429, in main
+    now = time.strftime("%m-%d-%Y_%H-%M-%S", time.localtime())
+NameError: name 'time' is not defined
+['0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576', '0.7575757575757576']
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+0.7575757575757576
+[pid: 9|app: 0|req: 3/3] 172.18.0.2 () {66 vars in 2410 bytes} [Tue Sep 13 19:14:10 2022] POST /weather/getQuery => generated 30354 bytes in 41710 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 0)
+[pid: 9|app: 0|req: 4/4] 172.18.0.2 () {56 vars in 2164 bytes} [Tue Sep 13 19:14:52 2022] GET /static/js/pagination.js => generated 8608 bytes in 30 msecs via sendfile() (HTTP/1.1 200) 7 headers in 266 bytes (0 switches on core 1)
+[pid: 9|app: 0|req: 5/5] 172.18.0.2 () {56 vars in 2209 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2022-09-13-19-14_mix.png => generated 350015 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 266 bytes (0 switches on core 0)
+Tue Sep 13 19:14:52 2022 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) !!!
+[pid: 9|app: 0|req: 7/6] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-7-00-00.png => generated 1657 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 9|app: 0|req: 8/7] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-6-23-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+Tue Sep 13 19:14:52 2022 - uwsgi_response_sendfile_do(): Broken pipe [core/writer.c line 655] during GET /static/sis/2018-1-6-21-00.png (172.18.0.2)
+OSError: write error
+[pid: 9|app: 0|req: 8/8] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-6-21-00.png => generated 0 bytes in 6 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 9|app: 0|req: 9/9] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-6-22-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 9|app: 0|req: 10/10] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-7-01-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 9|app: 0|req: 11/11] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-7-02-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 9|app: 0|req: 12/12] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-7-05-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 9|app: 0|req: 14/13] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-7-03-00.png => generated 1657 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 9|app: 0|req: 14/14] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-7-04-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 9|app: 0|req: 15/15] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-8-15-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 9|app: 0|req: 16/16] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-7-06-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 9|app: 0|req: 17/17] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-8-14-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 9|app: 0|req: 18/18] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-8-13-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 9|app: 0|req: 19/19] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-7-07-00.png => generated 1657 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 9|app: 0|req: 21/21] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-9-07-00.png => generated 1657 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 9|app: 0|req: 21/21] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-8-16-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 9|app: 0|req: 22/22] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-9-06-00.png => generated 1657 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 9|app: 0|req: 23/23] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-9-01-00.png => generated 1657 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 9|app: 0|req: 24/24] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-9-00-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 9|app: 0|req: 25/25] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-9-05-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 9|app: 0|req: 27/26] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-9-04-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 9|app: 0|req: 28/27] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-8-20-00.png => generated 1657 bytes in 4 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 9|app: 0|req: 29/29] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-9-02-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 9|app: 0|req: 29/29] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:14:52 2022] GET /static/sis/2018-1-9-03-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 9|app: 0|req: 30/30] 172.18.0.2 () {58 vars in 2202 bytes} [Tue Sep 13 19:21:48 2022] GET /weather/ => generated 13794 bytes in 7 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 1)
+[pid: 9|app: 0|req: 31/31] 172.18.0.2 () {52 vars in 811 bytes} [Tue Sep 13 19:22:45 2022] GET /weather/ => generated 13794 bytes in 3 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 0)
+[pid: 9|app: 0|req: 32/32] 172.18.0.2 () {54 vars in 2102 bytes} [Tue Sep 13 19:22:48 2022] GET /static/css/index.css => generated 1549 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 248 bytes (0 switches on core 1)
+gateway "uWSGI http 1" has been buried (pid: 10)
+...brutally killing workers...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /app
+closing all non-uwsgi socket fds > 2 (max_fd = 1048576)...
+found fd 6 mapped to socket 0 (127.0.0.1:40619)
+running /usr/local/bin/uwsgi
+[uWSGI] getting INI configuration from run.ini
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Sep 13 19:26:09 2022] ***
+compiled with version: 10.2.1 20210110 on 13 September 2022 11:12:56
+os: Linux-4.15.0-188-generic #199-Ubuntu SMP Wed Jun 15 20:42:56 UTC 2022
+nodename: 411020b0c5ef
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 9
+uwsgi socket 0 bound to TCP address 127.0.0.1:34777 (port auto-assigned) fd 8
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.8.14 (default, Sep  7 2022, 23:40:02)  [GCC 10.2.1 20210110]
+Python main interpreter initialized at 0x561da1182b60
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 166752 bytes (162 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x561da1182b60 pid: 1 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 1)
+spawned uWSGI worker 1 (pid: 59, cores: 2)
+spawned uWSGI http 1 (pid: 60)
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Sep 13 11:27:01 2022] ***
+compiled with version: 10.2.1 20210110 on 13 September 2022 11:12:56
+os: Linux-4.15.0-188-generic #199-Ubuntu SMP Wed Jun 15 20:42:56 UTC 2022
+nodename: 512b14e2b88a
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 7
+uwsgi socket 0 bound to TCP address 127.0.0.1:42411 (port auto-assigned) fd 6
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.8.14 (default, Sep  7 2022, 23:40:02)  [GCC 10.2.1 20210110]
+Python main interpreter initialized at 0x5612d7ada990
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 166752 bytes (162 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x5612d7ada990 pid: 1 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1)
+spawned uWSGI worker 1 (pid: 8, cores: 2)
+spawned uWSGI http 1 (pid: 9)
+[pid: 8|app: 0|req: 1/1] 172.18.0.2 () {56 vars in 2183 bytes} [Tue Sep 13 19:27:03 2022] GET /weather/ => generated 13794 bytes in 355 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 2/2] 172.18.0.2 () {56 vars in 2183 bytes} [Tue Sep 13 19:27:05 2022] GET /weather/ => generated 13794 bytes in 3 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 1)
+[pid: 8|app: 0|req: 3/3] 172.18.0.2 () {56 vars in 2183 bytes} [Tue Sep 13 19:27:05 2022] GET /weather/ => generated 13794 bytes in 2 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 4/4] 172.18.0.2 () {56 vars in 2183 bytes} [Tue Sep 13 19:27:05 2022] GET /weather/ => generated 13794 bytes in 2 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 1)
+[pid: 8|app: 0|req: 5/5] 172.18.0.2 () {56 vars in 2183 bytes} [Tue Sep 13 19:27:05 2022] GET /weather/ => generated 13794 bytes in 2 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 6/6] 172.18.0.2 () {56 vars in 2183 bytes} [Tue Sep 13 19:27:06 2022] GET /weather/ => generated 13794 bytes in 2 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 1)
+[pid: 8|app: 0|req: 7/7] 172.18.0.2 () {60 vars in 2236 bytes} [Tue Sep 13 19:27:49 2022] GET /weather/ => generated 13794 bytes in 3 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 8/8] 172.18.0.2 () {60 vars in 2217 bytes} [Tue Sep 13 19:27:49 2022] GET /static/css/index.css => generated 1550 bytes in 7 msecs via sendfile() (HTTP/1.1 200) 7 headers in 248 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 9/9] 172.18.0.2 () {60 vars in 2224 bytes} [Tue Sep 13 19:27:49 2022] GET /static/map.png => generated 1074508 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 250 bytes (0 switches on core 0)
+Not Found: /favicon.ico
+[pid: 8|app: 0|req: 10/10] 172.18.0.2 () {60 vars in 2206 bytes} [Tue Sep 13 19:27:50 2022] GET /favicon.ico => generated 2361 bytes in 18 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 1)
+X/X/X/X/X/X/X/X/X/
+dataString:  -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 10 10 -1 -1 -1 -1 50 50 50 0 10 10 -1 -1 -1 -1 50 50 50 10 10 10 -1 -1 -1 -1 -1 -1 50 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+getString:  ['Start\n', '#MbMbRb#Me#Fb#Re#Rb#Me#Fe#AbBb#AeRe#Rb#Be#Mb#Mb#MeMeRe #MbMbRb#MeRe#RbRb#Me#Bb#ReRe#AbFbMb#Ae#Be#Mb#Fe#Me#Me\n', 'Finish\n']
+python3 compare_all_data.py MbMbRb#Me#Fb#Re#Rb#Me#Fe#AbBb#AeRe#Rb#Be#Mb#Mb#MeMeRe MbMbRb#MeRe#RbRb#Me#Bb#ReRe#AbFbMb#Ae#Be#Mb#Fe#Me#Me X/X/X/X/X/X/X/X/X/ ////
+Traceback (most recent call last):
+  File "compare_all_data.py", line 445, in <module>
+    main(sys.argv[1:])
+  File "compare_all_data.py", line 429, in main
+    now = time.strftime("%m-%d-%Y_%H-%M-%S", time.localtime())
+NameError: name 'time' is not defined
+['0.5975609756097562', '0.5975609756097562', '0.5975609756097562', '0.5975609756097562', '0.5853658536585367', '0.5731707317073171', '0.5609756097560976', '0.5609756097560976', '0.5609756097560976', '0.5609756097560976', '0.5609756097560976', '0.5609756097560976', '0.5609756097560976', '0.5609756097560976', '0.5609756097560976', '0.5609756097560976', '0.5609756097560976', '0.5609756097560976', '0.5487804878048781', '0.5487804878048781', '0.5487804878048781', '0.5487804878048781', '0.5487804878048781', '0.5487804878048781', '0.5487804878048781', '0.5487804878048781', '0.5487804878048781', '0.5487804878048781', '0.5487804878048781', '0.5487804878048781', '0.5487804878048781', '0.5487804878048781', '0.5487804878048781', '0.5487804878048781', '0.5487804878048781', '0.5487804878048781', '0.5487804878048781', '0.5487804878048781', '0.5487804878048781', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.5365853658536586', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439', '0.524390243902439']
+0.5975609756097562
+0.5975609756097562
+0.5975609756097562
+0.5975609756097562
+0.5853658536585367
+0.5731707317073171
+0.5609756097560976
+0.5609756097560976
+0.5609756097560976
+0.5609756097560976
+0.5609756097560976
+0.5609756097560976
+0.5609756097560976
+0.5609756097560976
+0.5609756097560976
+0.5609756097560976
+0.5609756097560976
+0.5609756097560976
+0.5487804878048781
+0.5487804878048781
+0.5487804878048781
+0.5487804878048781
+0.5487804878048781
+0.5487804878048781
+0.5487804878048781
+0.5487804878048781
+0.5487804878048781
+0.5487804878048781
+0.5487804878048781
+0.5487804878048781
+0.5487804878048781
+0.5487804878048781
+0.5487804878048781
+0.5487804878048781
+0.5487804878048781
+0.5487804878048781
+0.5487804878048781
+0.5487804878048781
+0.5487804878048781
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.5365853658536586
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+0.524390243902439
+[pid: 8|app: 0|req: 11/11] 172.18.0.2 () {66 vars in 2410 bytes} [Tue Sep 13 19:28:14 2022] POST /weather/getQuery => generated 30346 bytes in 51675 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 12/12] 172.18.0.2 () {56 vars in 2209 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2022-09-13-19-29_mix.png => generated 346093 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 266 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 14/13] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-6-16-08-00.png => generated 1690 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 15/15] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-2-2-18-00.png => generated 1705 bytes in 8 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 15/15] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-6-15-22-00.png => generated 1690 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 17/16] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-1-6-15-00.png => generated 1691 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 18/17] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-2-3-20-00.png => generated 1705 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 19/18] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-5-6-16-00.png => generated 1686 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 19/19] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-2-2-19-00.png => generated 1705 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 21/20] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-10-25-15-00.png => generated 1703 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 260 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 22/21] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-7-9-10-00.png => generated 1700 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 23/22] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-6-22-08-00.png => generated 1706 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 24/23] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-6-18-15-00.png => generated 1690 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 25/24] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-8-18-15-00.png => generated 1690 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 26/25] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-8-16-22-00.png => generated 1729 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 27/26] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-8-17-23-00.png => generated 1690 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 28/27] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-6-30-11-00.png => generated 1706 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 29/28] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-2-12-00-00.png => generated 1680 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 30/29] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-2-2-20-00.png => generated 1697 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 31/30] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-11-26-14-00.png => generated 1691 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 260 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 32/31] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-8-19-15-00.png => generated 1690 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 33/32] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-2-11-23-00.png => generated 1680 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 34/33] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-9-5-10-00.png => generated 1716 bytes in 4 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 34/34] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-3-10-00-00.png => generated 1680 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 36/35] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-2-19-11-00.png => generated 1686 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 36/36] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:29:06 2022] GET /static/sis/2018-2-23-17-00.png => generated 1680 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 37/37] 172.18.0.2 () {58 vars in 2202 bytes} [Tue Sep 13 19:34:22 2022] GET /weather/ => generated 13794 bytes in 4 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 38/38] 172.18.0.2 () {58 vars in 2219 bytes} [Tue Sep 13 19:34:22 2022] GET /static/css/index.css => generated 0 bytes in 2 msecs (HTTP/1.1 304) 4 headers in 134 bytes (0 switches on core 1)
+X/X/X/X/X/X/X/X/X/
+dataString:  -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 50 40 40 -1 -1 -1 -1 -1 -1 -1 50 40 40 40 -1 -1 -1 -1 -1 -1 50 40 40 40 -1 -1 -1 -1 -1 -1 50 50 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+getString:  ['Start\n', '#MbMbRb#Me#Re#FbRb#Me#Eb#Fe#Re#Rb#Ee#Mb#Mb#MeMeRe #MbMbRb#MeRe#RbRb#Me#EbFb#ReRe#Mb#Ee#Mb#Fe#Me#Me\n', 'Finish\n']
+python3 compare_all_data.py MbMbRb#Me#Re#FbRb#Me#Eb#Fe#Re#Rb#Ee#Mb#Mb#MeMeRe MbMbRb#MeRe#RbRb#Me#EbFb#ReRe#Mb#Ee#Mb#Fe#Me#Me X/X/X/X/X/X/X/X/X/ ////
+Traceback (most recent call last):
+  File "compare_all_data.py", line 445, in <module>
+    main(sys.argv[1:])
+  File "compare_all_data.py", line 429, in main
+    now = time.strftime("%m-%d-%Y_%H-%M-%S", time.localtime())
+NameError: name 'time' is not defined
+['0.6621621621621622', '0.6621621621621622', '0.6621621621621622', '0.6621621621621622', '0.6621621621621622', '0.6621621621621622', '0.6621621621621622', '0.6621621621621622', '0.6621621621621622', '0.6621621621621622', '0.6621621621621622', '0.6486486486486487', '0.6486486486486487', '0.6486486486486487', '0.6486486486486487', '0.6486486486486487', '0.6486486486486487', '0.6486486486486487', '0.6486486486486487', '0.6486486486486487', '0.6351351351351351', '0.6351351351351351', '0.6351351351351351', '0.6351351351351351', '0.6351351351351351', '0.6351351351351351', '0.6351351351351351', '0.6351351351351351', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081']
+0.6621621621621622
+0.6621621621621622
+0.6621621621621622
+0.6621621621621622
+0.6621621621621622
+0.6621621621621622
+0.6621621621621622
+0.6621621621621622
+0.6621621621621622
+0.6621621621621622
+0.6621621621621622
+0.6486486486486487
+0.6486486486486487
+0.6486486486486487
+0.6486486486486487
+0.6486486486486487
+0.6486486486486487
+0.6486486486486487
+0.6486486486486487
+0.6486486486486487
+0.6351351351351351
+0.6351351351351351
+0.6351351351351351
+0.6351351351351351
+0.6351351351351351
+0.6351351351351351
+0.6351351351351351
+0.6351351351351351
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+[pid: 8|app: 0|req: 39/39] 172.18.0.2 () {66 vars in 2410 bytes} [Tue Sep 13 19:34:40 2022] POST /weather/getQuery => generated 30386 bytes in 45747 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 40/40] 172.18.0.2 () {56 vars in 2209 bytes} [Tue Sep 13 19:35:25 2022] GET /static/sis/2022-09-13-19-35_mix.png => generated 347287 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 266 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 41/41] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-1-19-07-00.png => generated 1702 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 43/42] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-1-12-00-00.png => generated 1675 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 43/43] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-2-2-05-00.png => generated 1675 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 45/44] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-2-2-08-00.png => generated 1675 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 46/45] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-3-3-05-00.png => generated 1716 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 46/46] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-2-12-15-00.png => generated 1675 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 48/47] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-1-28-11-00.png => generated 1688 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 48/48] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-12-18-09-00.png => generated 1675 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 260 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 50/50] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-4-5-21-00.png => generated 1688 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 50/50] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-4-2-13-00.png => generated 1688 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 52/51] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-3-7-18-00.png => generated 1688 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 53/52] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-10-8-14-00.png => generated 1675 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 54/53] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-10-6-00-00.png => generated 1688 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 55/54] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-12-17-08-00.png => generated 1675 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 260 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 56/55] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-5-29-20-00.png => generated 1676 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 57/56] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-4-6-09-00.png => generated 1727 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 58/57] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-11-24-15-00.png => generated 1675 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 260 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 59/58] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-5-19-18-00.png => generated 1683 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 60/59] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-10-19-05-00.png => generated 1688 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 260 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 61/60] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-10-9-20-00.png => generated 1680 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 62/62] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-1-1-01-00.png => generated 1704 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 63/62] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-1-1-08-00.png => generated 1715 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 64/64] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-4-15-00-00.png => generated 1683 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 64/64] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 13 19:35:26 2022] GET /static/sis/2018-1-19-08-00.png => generated 1683 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 0)
+Not Found: /
+[pid: 8|app: 0|req: 65/65] 172.18.0.2 () {42 vars in 621 bytes} [Wed Sep 14 04:35:52 2022] GET / => generated 2310 bytes in 10 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 1)
+Not Found: /
+[pid: 8|app: 0|req: 66/66] 172.18.0.2 () {42 vars in 621 bytes} [Wed Sep 14 04:35:53 2022] GET / => generated 2310 bytes in 4 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 67/67] 172.18.0.2 () {64 vars in 1463 bytes} [Wed Sep 14 09:10:56 2022] GET /weather/ => generated 13794 bytes in 6 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 1)
+[pid: 8|app: 0|req: 68/68] 172.18.0.2 () {60 vars in 1320 bytes} [Wed Sep 14 09:10:56 2022] GET /static/css/index.css => generated 1550 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 248 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 69/69] 172.18.0.2 () {60 vars in 1366 bytes} [Wed Sep 14 09:10:57 2022] GET /static/map.png => generated 1074508 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 250 bytes (0 switches on core 1)
+Not Found: /favicon.ico
+[pid: 8|app: 0|req: 70/70] 172.18.0.2 () {60 vars in 1348 bytes} [Wed Sep 14 09:10:57 2022] GET /favicon.ico => generated 2361 bytes in 5 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 71/71] 172.18.0.2 () {64 vars in 1463 bytes} [Thu Sep 15 08:29:21 2022] GET /weather/ => generated 13794 bytes in 6 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 1)
+[pid: 8|app: 0|req: 72/72] 172.18.0.2 () {60 vars in 1320 bytes} [Thu Sep 15 08:29:21 2022] GET /static/css/index.css => generated 1550 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 248 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 73/73] 172.18.0.2 () {60 vars in 1366 bytes} [Thu Sep 15 08:29:22 2022] GET /static/map.png => generated 1074508 bytes in 11 msecs via sendfile() (HTTP/1.1 200) 7 headers in 250 bytes (0 switches on core 1)
+Not Found: /favicon.ico
+[pid: 8|app: 0|req: 74/74] 172.18.0.2 () {60 vars in 1348 bytes} [Thu Sep 15 08:29:22 2022] GET /favicon.ico => generated 2361 bytes in 5 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 75/75] 172.18.0.2 () {64 vars in 1463 bytes} [Thu Sep 15 19:39:21 2022] GET /weather/ => generated 13794 bytes in 7 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 1)
+[pid: 8|app: 0|req: 76/76] 172.18.0.2 () {60 vars in 1320 bytes} [Thu Sep 15 19:39:21 2022] GET /static/css/index.css => generated 1550 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 248 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 77/77] 172.18.0.2 () {60 vars in 1366 bytes} [Thu Sep 15 19:39:22 2022] GET /static/map.png => generated 1074508 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 250 bytes (0 switches on core 1)
+Not Found: /favicon.ico
+[pid: 8|app: 0|req: 78/78] 172.18.0.2 () {60 vars in 1348 bytes} [Thu Sep 15 19:39:22 2022] GET /favicon.ico => generated 2361 bytes in 5 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 79/79] 172.18.0.2 () {64 vars in 1462 bytes} [Fri Sep 16 12:01:31 2022] GET /weather/ => generated 13794 bytes in 7 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 1)
+[pid: 8|app: 0|req: 80/80] 172.18.0.2 () {60 vars in 1319 bytes} [Fri Sep 16 12:01:31 2022] GET /static/css/index.css => generated 1550 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 248 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 81/81] 172.18.0.2 () {60 vars in 1365 bytes} [Fri Sep 16 12:01:32 2022] GET /static/map.png => generated 1074508 bytes in 9 msecs via sendfile() (HTTP/1.1 200) 7 headers in 250 bytes (0 switches on core 1)
+Not Found: /favicon.ico
+[pid: 8|app: 0|req: 82/82] 172.18.0.2 () {60 vars in 1347 bytes} [Fri Sep 16 12:01:32 2022] GET /favicon.ico => generated 2361 bytes in 5 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 83/83] 172.18.0.2 () {64 vars in 1456 bytes} [Sun Sep 18 09:06:45 2022] GET /weather/ => generated 13794 bytes in 5 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 1)
+[pid: 8|app: 0|req: 84/84] 172.18.0.2 () {60 vars in 1313 bytes} [Sun Sep 18 09:06:46 2022] GET /static/css/index.css => generated 1550 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 248 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 85/85] 172.18.0.2 () {60 vars in 1359 bytes} [Sun Sep 18 09:06:48 2022] GET /static/map.png => generated 1074508 bytes in 4 msecs via sendfile() (HTTP/1.1 200) 7 headers in 250 bytes (0 switches on core 1)
+Not Found: /favicon.ico
+[pid: 8|app: 0|req: 86/86] 172.18.0.2 () {60 vars in 1341 bytes} [Sun Sep 18 09:06:49 2022] GET /favicon.ico => generated 2361 bytes in 6 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 0)
+gateway "uWSGI http 1" has been buried (pid: 9)
+...brutally killing workers...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /app
+closing all non-uwsgi socket fds > 2 (max_fd = 1048576)...
+found fd 6 mapped to socket 0 (127.0.0.1:42411)
+running /usr/local/bin/uwsgi
+[uWSGI] getting INI configuration from run.ini
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Sep 20 01:36:30 2022] ***
+compiled with version: 10.2.1 20210110 on 13 September 2022 11:12:56
+os: Linux-4.15.0-188-generic #199-Ubuntu SMP Wed Jun 15 20:42:56 UTC 2022
+nodename: 512b14e2b88a
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 9
+uwsgi socket 0 bound to TCP address 127.0.0.1:41225 (port auto-assigned) fd 8
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.8.14 (default, Sep  7 2022, 23:40:02)  [GCC 10.2.1 20210110]
+Python main interpreter initialized at 0x55643a8d3b60
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 166752 bytes (162 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55643a8d3b60 pid: 1 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 1)
+spawned uWSGI worker 1 (pid: 101, cores: 2)
+spawned uWSGI http 1 (pid: 102)
+*** Starting uWSGI 2.0.20 (64bit) on [Mon Sep 19 18:07:47 2022] ***
+compiled with version: 10.2.1 20210110 on 19 September 2022 18:04:58
+os: Linux-4.15.0-188-generic #199-Ubuntu SMP Wed Jun 15 20:42:56 UTC 2022
+nodename: 15021cf094be
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 7
+uwsgi socket 0 bound to TCP address 127.0.0.1:32777 (port auto-assigned) fd 6
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.8.14 (default, Sep 13 2022, 15:03:48)  [GCC 10.2.1 20210110]
+Python main interpreter initialized at 0x55da77492990
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 166752 bytes (162 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x55da77492990 pid: 1 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1)
+spawned uWSGI worker 1 (pid: 8, cores: 2)
+spawned uWSGI http 1 (pid: 9)
+[pid: 8|app: 0|req: 1/1] 172.18.0.2 () {58 vars in 2201 bytes} [Tue Sep 20 02:07:51 2022] GET /weather/ => generated 13794 bytes in 580 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 2/2] 172.18.0.2 () {56 vars in 2163 bytes} [Tue Sep 20 02:07:52 2022] GET /static/css/index.css => generated 1550 bytes in 29 msecs via sendfile() (HTTP/1.1 200) 7 headers in 248 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 3/3] 172.18.0.2 () {56 vars in 2170 bytes} [Tue Sep 20 02:07:53 2022] GET /static/map.png => generated 1074508 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 250 bytes (0 switches on core 0)
+east/X/X/X/X/X/X/X/X/
+dataString:  -1 -1 -1 0 50 50 -1 -1 -1 -1 -1 -1 -1 -1 0 50 50 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+getString:  ['Start\n', '#MbMbRb#Me#Re#AbRb#Me#Fb#Ae#Re#Rb#Fe#Mb#Mb#MeMeRe #AbFbMbMbRb#MeRe#RbRb#AeFeMe#ReRe#Mb#Mb#Me#Me\n', 'Finish\n']
+python3 compare_all_data.py MbMbRb#Me#Re#AbRb#Me#Fb#Ae#Re#Rb#Fe#Mb#Mb#MeMeRe AbFbMbMbRb#MeRe#RbRb#AeFeMe#ReRe#Mb#Mb#Me#Me east/X/X/X/X/X/X/X/X/ ////
+Traceback (most recent call last):
+  File "compare_all_data.py", line 445, in <module>
+    main(sys.argv[1:])
+  File "compare_all_data.py", line 429, in main
+    now = time.strftime("%m-%d-%Y_%H-%M-%S", time.localtime())
+NameError: name 'time' is not defined
+['0.6621621621621622', '0.6486486486486487', '0.6486486486486487', '0.6486486486486487', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.5945945945945945', '0.5945945945945945', '0.5945945945945945', '0.581081081081081', '0.581081081081081', '0.581081081081081', '0.5675675675675675', '0.5540540540540541', '0.5540540540540541', '0.5540540540540541', '0.554054054054054', '0.554054054054054', '0.554054054054054', '0.554054054054054', '0.5405405405405406', '0.5405405405405406', '0.5405405405405406', '0.5405405405405406', '0.5405405405405406', '0.5405405405405406', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.5135135135135135', '0.5135135135135135', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5']
+0.6621621621621622
+0.6486486486486487
+0.6486486486486487
+0.6486486486486487
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.5945945945945945
+0.5945945945945945
+0.5945945945945945
+0.581081081081081
+0.581081081081081
+0.581081081081081
+0.5675675675675675
+0.5540540540540541
+0.5540540540540541
+0.5540540540540541
+0.554054054054054
+0.554054054054054
+0.554054054054054
+0.554054054054054
+0.5405405405405406
+0.5405405405405406
+0.5405405405405406
+0.5405405405405406
+0.5405405405405406
+0.5405405405405406
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.5135135135135135
+0.5135135135135135
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+[pid: 8|app: 0|req: 4/4] 172.18.0.2 () {66 vars in 2409 bytes} [Tue Sep 20 02:08:05 2022] POST /weather/getQuery => generated 29009 bytes in 9133 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 1)
+[pid: 8|app: 0|req: 5/5] 172.18.0.2 () {56 vars in 2164 bytes} [Tue Sep 20 02:08:14 2022] GET /static/js/pagination.js => generated 8608 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 266 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 6/6] 172.18.0.2 () {56 vars in 2209 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2022-09-20-02-08_mix.png => generated 349620 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 266 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 7/7] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-8-3-14-00.png => generated 1709 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 8/8] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-7-23-02-00.png => generated 1709 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 9/9] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-7-23-00-00.png => generated 1710 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 10/10] 172.18.0.2 () {56 vars in 2201 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-11-26-20-00.png => generated 1756 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 260 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 11/11] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-1-9-07-00.png => generated 1657 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 12/12] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-1-7-03-00.png => generated 1657 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 14/13] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-1-8-16-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 15/14] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-1-9-05-00.png => generated 1657 bytes in 4 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 15/15] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-8-28-22-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 16/16] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-8-20-00-00.png => generated 1657 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 17/17] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-8-16-20-00.png => generated 1657 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 18/18] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-8-4-09-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 19/19] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-7-8-09-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 20/20] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-7-2-13-00.png => generated 1657 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 21/21] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-6-23-10-00.png => generated 1657 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 22/22] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-8-19-09-00.png => generated 1657 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 23/23] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-8-18-19-00.png => generated 1657 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 25/24] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-8-20-05-00.png => generated 1657 bytes in 9 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 26/25] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-6-20-05-00.png => generated 1657 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 27/26] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-6-19-18-00.png => generated 1657 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 28/27] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-6-20-07-00.png => generated 1657 bytes in 7 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 29/28] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-5-9-02-00.png => generated 1657 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 30/29] 172.18.0.2 () {56 vars in 2197 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-5-8-12-00.png => generated 1657 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 7 headers in 258 bytes (0 switches on core 0)
+[pid: 8|app: 0|req: 30/30] 172.18.0.2 () {56 vars in 2199 bytes} [Tue Sep 20 02:08:14 2022] GET /static/sis/2018-6-19-11-00.png => generated 1657 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 7 headers in 259 bytes (0 switches on core 1)
+gateway "uWSGI http 1" has been buried (pid: 9)
+...brutally killing workers...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /app
+closing all non-uwsgi socket fds > 2 (max_fd = 1048576)...
+found fd 6 mapped to socket 0 (127.0.0.1:32777)
+running /usr/local/bin/uwsgi
+[uWSGI] getting INI configuration from run.ini
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Sep 20 02:10:24 2022] ***
+compiled with version: 10.2.1 20210110 on 19 September 2022 18:04:58
+os: Linux-4.15.0-188-generic #199-Ubuntu SMP Wed Jun 15 20:42:56 UTC 2022
+nodename: 15021cf094be
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 9
+uwsgi socket 0 bound to TCP address 127.0.0.1:34125 (port auto-assigned) fd 8
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.8.14 (default, Sep 13 2022, 15:03:48)  [GCC 10.2.1 20210110]
+Python main interpreter initialized at 0x55710eb0bb60
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 166752 bytes (162 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x55710eb0bb60 pid: 1 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 1)
+spawned uWSGI worker 1 (pid: 58, cores: 2)
+spawned uWSGI http 1 (pid: 59)
+*** Starting uWSGI 2.0.20 (64bit) on [Mon Sep 19 18:10:38 2022] ***
+compiled with version: 10.2.1 20210110 on 19 September 2022 18:04:58
+os: Linux-4.15.0-188-generic #199-Ubuntu SMP Wed Jun 15 20:42:56 UTC 2022
+nodename: 7824c6b6d227
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 7
+uwsgi socket 0 bound to TCP address 127.0.0.1:36995 (port auto-assigned) fd 6
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.8.14 (default, Sep 13 2022, 15:03:48)  [GCC 10.2.1 20210110]
+Python main interpreter initialized at 0x55a83051a990
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 166752 bytes (162 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55a83051a990 pid: 1 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1)
+spawned uWSGI worker 1 (pid: 8, cores: 2)
+spawned uWSGI http 1 (pid: 9)
+gateway "uWSGI http 1" has been buried (pid: 9)
+...brutally killing workers...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /app
+closing all non-uwsgi socket fds > 2 (max_fd = 1048576)...
+found fd 6 mapped to socket 0 (127.0.0.1:36995)
+running /usr/local/bin/uwsgi
+[uWSGI] getting INI configuration from run.ini
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Sep 20 02:11:00 2022] ***
+compiled with version: 10.2.1 20210110 on 19 September 2022 18:04:58
+os: Linux-4.15.0-188-generic #199-Ubuntu SMP Wed Jun 15 20:42:56 UTC 2022
+nodename: 7824c6b6d227
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 9
+uwsgi socket 0 bound to TCP address 127.0.0.1:36147 (port auto-assigned) fd 8
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.8.14 (default, Sep 13 2022, 15:03:48)  [GCC 10.2.1 20210110]
+Python main interpreter initialized at 0x55b126922b60
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 166752 bytes (162 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x55b126922b60 pid: 1 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 1)
+spawned uWSGI worker 1 (pid: 12, cores: 2)
+spawned uWSGI http 1 (pid: 13)
+*** Starting uWSGI 2.0.20 (64bit) on [Mon Sep 19 18:12:59 2022] ***
+compiled with version: 10.2.1 20210110 on 19 September 2022 18:04:58
+os: Linux-4.15.0-188-generic #199-Ubuntu SMP Wed Jun 15 20:42:56 UTC 2022
+nodename: e4eeee79744b
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 7
+uwsgi socket 0 bound to TCP address 127.0.0.1:46049 (port auto-assigned) fd 6
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.8.14 (default, Sep 13 2022, 15:03:48)  [GCC 10.2.1 20210110]
+Python main interpreter initialized at 0x55616fd21990
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 166752 bytes (162 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x55616fd21990 pid: 1 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1)
+spawned uWSGI worker 1 (pid: 8, cores: 2)
+spawned uWSGI http 1 (pid: 9)
+east/X/X/X/X/X/X/X/X/
+dataString:  -1 -1 -1 0 50 50 -1 -1 -1 -1 -1 -1 -1 -1 0 50 50 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+getString:  ['Start\n', '#MbMbRb#Me#Re#AbRb#Me#Fb#Ae#Re#Rb#Fe#Mb#Mb#MeMeRe #AbFbMbMbRb#MeRe#RbRb#AeFeMe#ReRe#Mb#Mb#Me#Me\n', 'Finish\n']
+python3 compare_all_data.py MbMbRb#Me#Re#AbRb#Me#Fb#Ae#Re#Rb#Fe#Mb#Mb#MeMeRe AbFbMbMbRb#MeRe#RbRb#AeFeMe#ReRe#Mb#Mb#Me#Me east/X/X/X/X/X/X/X/X/ ////
+Traceback (most recent call last):
+  File "compare_all_data.py", line 445, in <module>
+    main(sys.argv[1:])
+  File "compare_all_data.py", line 429, in main
+    now = time.strftime("%m-%d-%Y_%H-%M-%S", time.localtime())
+NameError: name 'time' is not defined
+['0.6621621621621622', '0.6486486486486487', '0.6486486486486487', '0.6486486486486487', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6216216216216216', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.6081081081081081', '0.5945945945945945', '0.5945945945945945', '0.5945945945945945', '0.581081081081081', '0.581081081081081', '0.581081081081081', '0.5675675675675675', '0.5540540540540541', '0.5540540540540541', '0.5540540540540541', '0.554054054054054', '0.554054054054054', '0.554054054054054', '0.554054054054054', '0.5405405405405406', '0.5405405405405406', '0.5405405405405406', '0.5405405405405406', '0.5405405405405406', '0.5405405405405406', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.527027027027027', '0.5135135135135135', '0.5135135135135135', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5']
+0.6621621621621622
+0.6486486486486487
+0.6486486486486487
+0.6486486486486487
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6216216216216216
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.6081081081081081
+0.5945945945945945
+0.5945945945945945
+0.5945945945945945
+0.581081081081081
+0.581081081081081
+0.581081081081081
+0.5675675675675675
+0.5540540540540541
+0.5540540540540541
+0.5540540540540541
+0.554054054054054
+0.554054054054054
+0.554054054054054
+0.554054054054054
+0.5405405405405406
+0.5405405405405406
+0.5405405405405406
+0.5405405405405406
+0.5405405405405406
+0.5405405405405406
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.527027027027027
+0.5135135135135135
+0.5135135135135135
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+0.5
+[pid: 8|app: 0|req: 1/1] 172.18.0.2 () {64 vars in 2385 bytes} [Tue Sep 20 02:13:01 2022] POST /weather/getQuery => generated 29009 bytes in 6718 msecs (HTTP/1.1 200) 7 headers in 350 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 2/2] 172.18.0.2 () {56 vars in 2172 bytes} [Tue Sep 20 02:13:08 2022] GET /static/css/score.css => generated 607 bytes in 28 msecs via sendfile() (HTTP/1.1 200) 7 headers in 247 bytes (0 switches on core 1)
+[pid: 8|app: 0|req: 3/3] 172.18.0.2 () {56 vars in 2209 bytes} [Tue Sep 20 02:13:08 2022] GET /static/sis/2022-09-20-02-13_mix.png => generated 349620 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 7 headers in 266 bytes (0 switches on core 0)
