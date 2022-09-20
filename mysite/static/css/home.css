@@ -1,0 +1,160 @@
+body,
+html {
+  background-color: rgb(255, 149, 26);
+  height: 100%;
+  padding: 0%;
+  /* margin: 0; */
+  /* padding: 0; */
+  /* box-sizing: border-box; */
+  scroll-behavior: smooth;
+}
+
+
+#titleDiv {
+  background-image: url("/static/home.png");
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-y:scroll;
+  height: 80%;
+  padding: 5em;
+  /* max-width: 100%; */
+}
+
+#titleText {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  /* background-color: brown; */
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+
+h1 {
+  text-align: left;
+  font-size: 370%;
+  font-weight: bold;
+  color: rgb(255, 149, 26);
+
+}
+
+h2 {
+  /* margin: auto; */
+  padding-left: 10%;
+  padding-top: 1em;
+  font-size: 250%;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+
+}
+
+#bookmarks {
+  margin: auto;
+  margin-top: 3em;
+  /* background-color: aquamarine; */
+  color: white;
+  text-align: center;
+  font-size: 1.3em;
+}
+
+#bookmarks td {
+  padding-left: 1.3em;
+  padding-right: 1.3em;
+  text-decoration: underline;
+}
+
+#bookmarks td a {
+  color: rgb(255, 255, 255);
+}
+
+#bookmarks td a:hover {
+  color: rgb(255, 149, 26);
+}
+
+.parts {
+  padding-top: 2%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 5%;
+  margin: auto;
+  text-align: center;
+
+}
+
+h3 {
+  color: white;
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+
+/* #subSystemDiv {
+  background-color: aquamarine;
+} */
+
+.boxes {
+  padding-top: 1  em;
+  padding-bottom: 2em;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+ .box {
+  margin: auto;
+  background-color: rgb(136, 180, 193);
+  width: 20%;    /*80/4*/
+  height: 100%;
+  /* padding-left: 1em;
+  padding-right: 1em; */
+  padding-top: 3em;
+  padding-bottom: 3em;
+  margin-top: 3em;
+  box-shadow: 0.5em 0.7em 0.5em rgba(212, 113, 0, 0.6);
+  color: white;
+  font-size: 1.3em;
+}
+
+.box:hover {
+  background-color: aliceblue;
+  color: darkslateblue;
+}
+
+.box a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.box a:hover {
+  text-decoration: none;
+  color: rgb(255, 149, 26)
+}
+
+
+
+#systemDiagramDiv {
+  /* height: 50vh; */
+  background-color: rgb(255, 138, 0);
+  overflow: hidden;
+}
+
+
+
+img {
+  /* width: auto;
+  height: auto;
+  margin: auto; */
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  max-width: 100%;
+  max-height: 100%;
+  box-shadow: 1em 1em 1em rgba(212, 113, 0, 0.6)
+}
+
+#labMembersDiv {
+  height: 50vh;
+  /* background-color: rgb(15, 53, 41); */
+}

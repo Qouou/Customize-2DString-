@@ -1,12 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Home</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/css/home.css' %}">
 </head>
+
 <body>
+  {% include 'navbar.html' %}
+  <div class="row" id="titleDiv">
+    <div id="titleText">
+      <h1>Spatiotemporal Analysis System </h1>
+      <h2>for <span style="color:rgb(0, 124, 164)">PM2.5</span> Concentration and Dispersion Patterns</h2>
+      <table id="bookmarks">
+        <tr>
+          <td><a href="#subSystemDiv">Sub Systems</a></td>
+          <td><a href="#systemDiagramDiv">System Diagram</a></td>
+          <td><a href="#labMembersDiv">Lab Members</a></td></tr>
+      </table>
+
+    </div>
+  </div>
+
+  <div id="subSystemDiv" class="parts">
+    <h3>Sub Systems</h3>
+    <div class="row" class="boxes">
+          <div class="box"><a href="https://pyyin-mask.im.ncnu.edu.tw/mask.html">Mask</a></div>
+          <div class="box"><a href="https://pyyin-2dstring.im.ncnu.edu.tw/weather/">QBS</a></div>
+          <div class="box"><a href="https://pyyin-gei.im.ncnu.edu.tw/">GEI</a></div>
+          <div class="box"><a href="">?</a></div>
+    </div>
+    <div class="row" class="boxes">
+      <div class="box"><a href="">?</a></div>
+      <div class="box"><a href="">?</a></div>
+      <div class="box"><a href="">?</a></div>
+      <div class="box"><a href="">?</a></div>
+</div>
+  </div>
+  <div id="systemDiagramDiv" class="parts">
+    <h3>System Diagram</h3>
+    <div id="diagram">
+      <img src="/static/diagram.png" /> <!-- from the media url -->
+    </div>
+  </div>
+  <div id="labMembersDiv" class="parts">
+    <h3>Lab Members</h3>
+  </div>
+
   This is AAAAAAAAAAAAAAAhhhhhhhhhhhhhhhhhhhhhhhhhh
+  <!-- jQuery CDN - Slim version (=without AJAX) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <!-- Popper.JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+    integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+    integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
