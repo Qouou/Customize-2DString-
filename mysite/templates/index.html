@@ -16,6 +16,7 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   {% load static %}
   <link rel="stylesheet" href="{% static '/css/index.css' %}">
+  <link rel="stylesheet" href="{% static '/css/navbar.css' %}">
 
   <title>2DString</title>
 
@@ -24,8 +25,8 @@
 <body class="bg-light">
   {% include 'navbar.html' %}
   <!--（FIXME）變整齊-->
-  <main class="container-fluid">
-    <div class="row m-auto">
+  <div class="container-fluid" style="margin-top: 1.5em;">
+    <div class="row m-auto" style="padding-bottom:1.5em;">
       <div class="col-md-1"></div>
       <div class="forPointer col-md-1 centerBox" onclick="changeColor(this.id)" id="A"
         style="background-color: lightgreen;">
@@ -70,11 +71,10 @@
         style="background-color: lightgray;"> button <br>to <br />clear
       </div> {% endcomment %}
     </div>
-
     <form novalidate id="userDataForm" action="getQuery" method="POST">{% csrf_token %}
       <div class=" row m-auto">
-        <div class="col-md-1"></div>
-        <div class="col-md-2">
+        <!-- <div class="col-md-1"></div> -->
+        <div class="col-md-3">
           <table id="weatherEle" class="" style="padding:2em;">
             <tr>
               <td><span class="input-group-text" id="inputGroup-sizing-default">起始時間</span></td>
@@ -163,7 +163,9 @@
         <button type="button" onclick="processData()" class="btn m-5 btn btn-primary btn-lg" id="enter">ENTER</button>
       </div>
     </form>
-  </main>
+
+
+  </div>
   <!-- <div id="demo"></div> -->
   <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -263,6 +265,26 @@
         dataContainer.html(html);
       }
     })
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
+  <script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "35vw";
+      // document.getElementById("main").style.marginLeft = "25vw";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      // document.getElementById("main").style.marginLeft = "0";
+    }
+
+    $("#subMenuTitle").click(function () {
+      $("#subMenu").toggle("slow");
+    });
+
+
+
   </script>
 
 </body>

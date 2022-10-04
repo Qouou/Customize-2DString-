@@ -1,59 +1,53 @@
-<nav class="navbar navbar-dark bg-dark" style="padding-left: 2em;">
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
-    aria-expanded="false" aria-controls="collapseExample">
-    Menu
-  </button>
-  <a class="navbar-brand m-auto" href="#">
-    Customize your own 2DString
+<nav class="navbar" style="width: 100%;
+ padding-top: 0.2em; padding-bottom: 0.4em;">
+  <button class="openbtn" onclick="openNav()">☰</button>
+  <a class="navbar-brand m-auto" href="https://pyyin-2dstring.im.ncnu.edu.tw/home/" id="title"
+    style="background-color: rgb(251, 139, 12); border-color: rgb(251, 139, 12);">
+    Spatiotemporal Analysis System
   </a>
-  <span class="navbar-text">
-    This is a simple demo! Which makes you more convenient
-  </span>
 </nav>
-
-<div class="collapse bg-light" id="collapseExample">
-  <div class="card-body">
-    <ul class="list-unstyled components" style="text-align: left;">
-      <li>
-        <li>
-          <a href="http://127.0.0.1:8000/home/" class="list-group-item list-group-item-action">
-            HOME
-          </a>
-        </li>
-        <a href="#pageSubmenu" class="list-group-item list-group-item-action" data-toggle="collapse"
-          aria-expanded="false" class="dropdown-toggle">
-          Puli PM2.5 分析 ▼
-        </a>
-        <div id="subMenu" style="text-align: left; padding: 0em;">
-          <ul class="collapse list-unstyled" id="pageSubmenu">
-            <li>
-              <a class="list-group-item list-group-item-action" href="https://pyyin-mask.im.ncnu.edu.tw/mask.html"
-                style="padding-left: 3em;">
-                <strong>MASK 分析</strong></a>
-            </li>
-            <li>
-              <a class="list-group-item list-group-item-action" href="https://pyyin-mask.im.ncnu.edu.tw/GEI.html"
-                style="padding-left: 3em;">
-                GEI分析</a>
-            </li>
-            <li>
-              <a class="list-group-item list-group-item-action" href="https://pyyin-mask.im.ncnu.edu.tw/contact.html"
-                style="padding-left: 3em;">Puli Map</a>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <a href="https://pyyin-gei.im.ncnu.edu.tw/" class="list-group-item list-group-item-action">
-          GEI 分群觀察
-        </a>
-      </li>
-      <li>
-        <a href="https://pyyin-2dstring.im.ncnu.edu.tw/weather/" class="list-group-item list-group-item-action">
-          QBS
-        </a>
-      </li>
-    </ul>
-    </nav>
+<div id="mySidebar" class="sidebar" style="padding: 0;">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="font-size: 3em; margin-top: -0.6em;">×</a>
+  <a href="https://pyyin-2dstring.im.ncnu.edu.tw/home/">Home</a>
+  <a href="#">About(未完成)</a>
+  <a href="#">Shot Detection Engine(未完成)</a>
+  <a href="https://pyyin-gei.im.ncnu.edu.tw/">Shot/GEI Clustering Engine</a>
+  <a href="#">Browse by Time Window(未完成)</a>
+  <a href="#">Browse by Cluster</a>
+  <a href="https://pyyin-2dstring.im.ncnu.edu.tw/weather/">Query by String</a>
+  <a href="#">Query by Frame(未完成)</a>
+  <a href="#">Query by GEI(未完成)</a>
+  <a href="#" onclick="openSub()" id="subMenuTitle">Feature Detection Engine Puli <span>▼</span> </a>
+  <div id="subMenu">
+    <a class="" href="https://pyyin-mask.im.ncnu.edu.tw/mask.html" style="padding-left: 3em;">
+      <strong>MASK 分析</strong></a>
+    <a class="" href="https://pyyin-mask.im.ncnu.edu.tw/GEI.html" style="padding-left: 3em;">
+      GEI分析</a>
+    <a class="" href="https://pyyin-mask.im.ncnu.edu.tw/contact.html" style="padding-left: 3em;">Puli Map</a>
+    <!-- list-group-item list-group-item-action -->
   </div>
+  <a href="#">Association and Regression(未完成)</a>
+  <!-- <a href="#">Contact</a> -->
 </div>
+<div id="upArrow"><a href="#"><img src="/static/up.png" alt="" srcset=""></a></div>
+
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+  crossorigin="anonymous"></script>
+<script>
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "35vw";
+    // document.getElementById("main").style.marginLeft = "25vw";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    // document.getElementById("main").style.marginLeft = "0";
+  }
+
+  $("#subMenuTitle").click(function () {
+    $("#subMenu").toggle("slow");
+  });
+
+
+
+</script>

@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 #bg {
   background-image: url("/static/map.png");
   background-repeat: no-repeat;
@@ -9,7 +13,7 @@
   padding: 0%;
 }
 
-div {
+.dest_copy {
   margin: 0em;
   padding: 1em;
   text-align: center;

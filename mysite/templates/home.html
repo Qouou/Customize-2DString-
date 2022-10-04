@@ -12,6 +12,7 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   {% load static %}
   <link rel="stylesheet" href="{% static '/css/home.css' %}">
+  <link rel="stylesheet" href="{% static '/css/navbar.css' %}">
 </head>
 
 <body>
@@ -34,16 +35,20 @@
   <div id="subSystemDiv" class="parts">
     <h3>Sub Systems</h3>
     <div class="row" class="boxes">
-      <div class="box"><a href="https://pyyin-mask.im.ncnu.edu.tw/mask.html">Mask</a></div>
-      <div class="box"><a href="https://pyyin-2dstring.im.ncnu.edu.tw/weather/">QBS</a></div>
-      <div class="box"><a href="https://pyyin-gei.im.ncnu.edu.tw/">GEI 分群觀察</a></div>
-      <div class="box"><a href="https://pyyin-gei.im.ncnu.edu.tw/bbg">BBG</a></div>
+      <div class="box"><a href="">Shot Detection<br>Engine(未完成)</a></div>
+      <div class="box"><a href="https://pyyin-gei.im.ncnu.edu.tw/">Shot/GEI<br>Clustering Engine</a></div>
+      <div class="box"><a href="">Browse by<br>Time Window(未完成)</a></div>
+      <div class="box"><a href="https://pyyin-gei.im.ncnu.edu.tw/bbc">Browse by<br>Cluster</a></div>
     </div>
     <div class="row" class="boxes">
-      <div class="box"><a href="https://pyyin-gei.im.ncnu.edu.tw/bbc">BBC</a></div>
-      <div class="box"><a href="">?</a></div>
-      <div class="box"><a href="">?</a></div>
-      <div class="box"><a href="">?</a></div>
+      <div class="box"><a href="https://pyyin-2dstring.im.ncnu.edu.tw/weather/">Query by<br>String</a></div>
+      <div class="box"><a href="">Query by<br>Frame(未完成)</a></div>
+      <div class="box"><a href="">Query by<br>GEI(未完成)</a></div>
+      <div class="box"><a href="https://pyyin-gei.im.ncnu.edu.tw/bbg">BBG<br>?</a></div>
+    </div>
+    <div class="row" class="boxes">
+      <div class="box"><a href="https://pyyin-mask.im.ncnu.edu.tw/mask.html">Feature Detection<br>Engine</a></div>
+      <div class="box"><a href="">Association and Regression(未完成)</a></div>
     </div>
   </div>
   <div id="systemDiagramDiv" class="parts">
@@ -56,43 +61,64 @@
     <h3>Lab Members</h3>
     <div id="memberList">
       <div class="row">
-        <div class="member teacher">
-          <!-- <div class="teacherPNG"><img src="/static/teacher.png" /></div> -->
+        <div class="teacher">
+          <img src="/static/teacher.png"  class="teacherPNG"/>
+          <br>
           尹邦嚴教授<div class="mail">abc@gmail.com</div>
         </div>
       </div>
       <div class="row">
-        <div class="studentPNG"><img src="/static/student.png" /></div>
-        <div class="member">
-          <div>陳秉鈞<br><span class="mail">abc@gmail.com</span></div>
-        </div>
-        <div class="studentPNG"><img src="/static/student.png" /></div>
-        <div class="member">
-          <div>王珮如<br><span class="mail">abc@gmail.com</span></div>
-        </div>
-        <div class="studentPNG"><img src="/static/student.png" /></div>
-        <div class="member">
-          <div>郭子緯<br><span class="mail">abc@gmail.com</span></div>
-        </div>
+        <table id="memberTable">
+          <tr>
+            <td>
+              <img src="/static/student.png" class="studentPNG"/>
+            </td>
+            <td class="studentTD">
+                <div class="student left">陳秉鈞<br><span class="mail">abc@gmail.com</span></div>
+            </td>
+            <td class="studentTD">
+              <div class="student right">王珮如<br><span class="mail">pei.ruuu.wang@gmail.com</span></div>
+            </td>
+            <td>
+              <img src="/static/student.png" class="studentPNG"/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src="/static/student.png" class="studentPNG"/>
+            </td>
+            <td class="studentTD">
+                <div class="student left">郭子緯<br><span class="mail">ncnu@vincentintsh.tw</span></div>
+            </td>
+            <td class="studentTD">
+              <div class="student right">王婷誼<br><span class="mail">s108213027@mail1.ncnu.edu.tw</span></div>
+            </td>
+            <td>
+              <img src="/static/student.png" class="studentPNG"/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src="/static/student.png" class="studentPNG"/>
+            </td>
+            <td class="studentTD">
+                <div class="student left">鄭采禎<br><span class="mail">s108213029@mail1.ncnu.edu.tw</span></div>
+            </td>
+            <td class="studentTD">
+              <div class="student right">陳琪樺<br><span class="mail">s108213042@mail1.ncnu.edu.tw</span></div>
+            </td>
+            <td>
+              <img src="/static/student.png" class="studentPNG"/>
+            </td>
+          </tr>
+        </table>
       </div>
-      <div class="row">
-        <div class="studentPNG"><img src="/static/student.png" /></div>
-        <div class="member">
-          <div>王婷誼<br><span class="mail">abc@gmail.com</span></div>
-        </div>
-        <div class="studentPNG"><img src="/static/student.png" /></div>
-        <div class="member">
-          <div>鄭采禎<br><span class="mail">abc@gmail.com</span></div>
-        </div>
-        <div class="studentPNG"><img src="/static/student.png" /></div>
-        <div class="member">
-          <div>陳琪樺<br><span class="mail">abc@gmail.com</span></div>
-        </div>
-      </div>
+
+
+
     </div>
   </div>
 
-  This is AAAAAAAAAAAAAAAhhhhhhhhhhhhhhhhhhhhhhhhhh
   <!-- jQuery CDN - Slim version (=without AJAX) -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

@@ -1,3 +1,12 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  margin-top: 7vh;
+  margin-bottom: 7vh;
+}
+
 .containerPic {
   text-align: center;
   width: 95%;
@@ -41,4 +50,26 @@ img {
 .info:hover {
   -webkit-transition: 500ms;
   opacity: 1;
+}
+
+button a {
+  cursor: pointer;
+} 
+
+#pageBar {
+  /* margin: auto; */
+  /* background-color: brown; */
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-top: 2em;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-bottom: 3em;
+}
+
+.page-item {
+  /* color: black; */
+  color: gray;
+  border-radius: 2px;
+  cursor: pointer;
 }

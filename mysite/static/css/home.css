@@ -108,29 +108,32 @@ h3 {
   background-color: rgb(136, 180, 193);
   width: 20%;    /*80/4*/
   height: 100%;
-  /* padding-left: 1em;
-  padding-right: 1em; */
-  padding-top: 3em;
-  padding-bottom: 3em;
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+  padding-top: 2em;
+  padding-bottom: 2em;
   margin-top: 3em;
   box-shadow: 0.5em 0.7em 0.5em rgba(212, 113, 0, 0.6);
+  border-radius: 5px;
   color: white;
   font-size: 1.3em;
 }
 
 .box:hover {
-  background-color: aliceblue;
-  color: darkslateblue;
+  background-color: rgb(145, 145, 145);
+  font-size: 1.5em;
+  margin-top: 2em;
+  transition: 0.2s;
 }
 
 .box a {
   text-decoration: none;
   color: #ffffff;
+  font-weight: bolder;
 }
 
 .box a:hover {
   text-decoration: none;
-  color: rgb(255, 149, 26)
 }
 
 
@@ -151,7 +154,6 @@ img {
   margin-bottom: 0.5em;
   max-width: 100%;
   max-height: 100%;
-  /* box-shadow: 1em 1em 1em rgba(212, 113, 0, 0.6) */
 }
 
 #labMembersDiv {
@@ -159,8 +161,41 @@ img {
   
 }
 
+.teacher {
+  margin: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: #ffffff;
+  font-size: 1.5em;
+  font-weight: bolder;
+}
 
-#memberList {
+
+#memberTable {
+  margin: auto;
+  color: #ffffff;
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
+#memberTable tr{
+  padding-top: 1em;
+}
+
+.studentTD {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+/* #memberList {
   margin: auto;
   text-align: center;
   margin-left: 10%;
@@ -172,19 +207,19 @@ img {
   margin: auto;
   text-align: center;
   color: #ffffff;
-  font-size: 2em;
+  font-size: 1.5em;
   margin-top: 1em;
   font-weight: bold;
   padding-left: 0.3em;
   padding-right: 0.3em;
-}
+} */
 
 .studentPNG {
-  height: 7em;
+  height: 6em;
 }
 
 .teacherPNG {
-  height: 7em;
+  height: 6em;
 }
 
 
@@ -194,7 +229,5 @@ img {
   font-weight: normal;
 }
 
-#teacher {
-  margin: auto;
-}
+
 
