@@ -119,8 +119,8 @@ USE_L10N = True
 USE_TZ = False
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
+# # Static files (CSS, JavaScript, Images)
+# # https://docs.djangoproject.com/en/3.0/howto/static-files/
 # STATIC_ROOT = os.path.join(BASE_DIR, "static_file")
 # STATIC_URL = '/static/'
 # STATICFILES_DIRS = (
@@ -131,7 +131,7 @@ USE_TZ = False
 #     "django.contrib.staticfiles.finders.AppDirectoriesFinder"
 # )
 
-#ghjkl
+#-----------------
 
 
 STATIC_URL = '/static/'
