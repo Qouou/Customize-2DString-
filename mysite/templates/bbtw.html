@@ -1,1 +1,234 @@
-This bbtw.html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse by Time Window</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/css/bbtw.css' %}">
+  <link rel="stylesheet" href="{% static '/css/navbar.css' %}">
+</head>
+
+<body>
+  {% include 'navbar.html' %}
+  <!--search-->
+  <div class="row">
+    <div id="searchBox">
+      <h4 id="bbtw">
+        BBTW（Browse-by-Time-Window）
+      </h4>
+      <h5 id="description">
+        Select a time duration which you want to browse frames!
+      </h5>
+      <form action="">
+        <div class="form-group row">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-2 col-form-label">Data Set:</label>
+          <div class="col-sm-5">
+            <select class="form-control" name="year" id="exampleFormControlSelect1">
+              <option value="2018" selected>2018</option>
+            </select>
+          </div>
+          <label class="col-sm-1 col-form-label">year</label>
+          <div class="col-sm-2"></div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-1"></div>
+          <label class="col-sm-2 col-form-label">Start Date:</label>
+          <div class="col-sm-2">
+            <select class="form-control" name="month" id="exampleFormControlSelect1">
+              <option selected>--</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
+          </div>
+          <label class="col-form-label">month</label>
+          <div class="col-sm-2">
+            <select class="form-control" name="day" id="exampleFormControlSelect1">
+              <option selected>--</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+              <option value="31">31</option>
+            </select>
+          </div>
+          <label class="col-form-label">day</label>
+          <div class="col-sm-2">
+            <select class="form-control" name="hour" id="exampleFormControlSelect1">
+              <option selected>--</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+            </select>
+          </div>
+          <label class="col-form-label">hour</label>
+          <div class="col-sm-1"></div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-1"></div>
+          <label class="col-sm-2 col-form-label">End Date:</label>
+          <div class="col-sm-2">
+            <select class="form-control" name="month" id="exampleFormControlSelect1">
+              <option selected>--</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
+          </div>
+          <label class="col-form-label">month</label>
+          <div class="col-sm-2">
+            <select class="form-control" name="day" id="exampleFormControlSelect1">
+              <option selected>--</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+              <option value="31">31</option>
+            </select>
+          </div>
+          <label class="col-form-label">day</label>
+          <div class="col-sm-2">
+            <select class="form-control" name="hour" id="exampleFormControlSelect1">
+              <option selected>--</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+            </select>
+          </div>
+          <label class="col-form-label">hour</label>
+          <div class="col-sm-1"></div>
+        </div>
+        <button type="submit" class="btn btn-primary" id="submit">SEARCH</button>
+      </form>
+    </div>
+  </div>
+
+
+  </div>
+  <!--result-->
+
+
+
+</body>
+
+</html>

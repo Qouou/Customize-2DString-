@@ -1,0 +1,42 @@
+body{
+  background-color: rgb(245, 245, 245);
+}
+
+#searchBox {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  margin-left: 13vw;
+  margin-right: 13vw;
+  width: 76vw;
+  /* height: 50vh; */
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 12vw;
+  padding-right: 12vw;
+  background-color: rgb(162, 202, 215);
+  text-align: center;
+  /* overflow: auto; */
+}
+
+
+#bbtw {
+  color: rgb(54, 118, 137);
+  font-weight: bold;
+}
+
+#description {
+  color: rgb(133, 133, 133);
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+form {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+
+#submit {
+  margin-top: 1em;
+  background-color: rgb(237, 128, 0);
+}
