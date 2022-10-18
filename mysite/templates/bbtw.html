@@ -241,6 +241,39 @@
     <div class="show"></div>
   </div>
 
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+  </div>
+
+  <script>
+
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById("myImg");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    img.onclick = function () {
+      console.log("ghjkl");
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      captionText.innerHTML = this.alt;
+    }
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+  </script>
+
+
 
 
 
@@ -304,7 +337,7 @@
     // let pages = Math.ceil(total/24)
     function showCount() {
       let resultCount = document.getElementById("resultCount");
-      resultCount.innerHTML = `<br> There is ${date_data.length} results`;
+      resultCount.innerHTML = `<br> There are ${date_data.length} results`;
       resultCount.style.display = "";
     }
 
@@ -371,12 +404,15 @@
         console.log("index:", index);
         // console.log(getFileName(Xst))
         elements[index].innerHTML += `
-        <img src="${getImageName(index)}">
+        <img src="${getImageName(index)}" id="${getImageName(index)}" onclick="print()">
         <p>${getDate(index)} ${getHour(index)}H</p>  
         <p>${getWD(index)}/${getWS(index)}/${getPS(index)}/${getTP(index)}/${getRH(index)}</p>
         `;
         // num = num + 1;
       }
+    }
+    function print() {
+      console.log("hhhhhh");
     }
 
     // function isShowPicture() {
