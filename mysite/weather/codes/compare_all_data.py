@@ -3,6 +3,7 @@ import csv
 from collections import defaultdict
 import sys
 from datetime import date
+import time
 
 # os.system("")
 #該版本是返回最長公共子串和其長度，若只返回長度，則可以簡化

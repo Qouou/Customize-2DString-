@@ -1,6 +1,7 @@
-/* body {
-  font-family: "Lato", sans-serif;
-} */
+body {
+  /* font-family: "Lato", sans-serif; */
+  scroll-behavior: smooth;
+}
 
 nav {
   background-color: rgb(251, 139, 12);

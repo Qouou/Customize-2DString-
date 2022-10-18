@@ -26,7 +26,13 @@
       <h5 id="description">
         Select a time duration which you want to browse frames!
       </h5>
-      <form action="">
+      <!-- <form novalidate id="userDataForm" action="getQuery" method="POST">{% csrf_token %}
+        輸入：<input type="text" name="a">
+        <button type="button" onclick="processData()" class="btn m-5 btn btn-primary btn-lg" id="enter">ENTER</button>
+        <input type="submit">
+      </form> -->
+
+      <form action="getQuery" method="POST">{% csrf_token %}
         <div class="form-group row">
           <div class="col-sm-2"></div>
           <label class="col-sm-2 col-form-label">Data Set:</label>
@@ -42,9 +48,9 @@
           <div class="col-sm-1"></div>
           <label class="col-sm-2 col-form-label">Start Date:</label>
           <div class="col-sm-2">
-            <select class="form-control" name="month" id="exampleFormControlSelect1">
-              <option selected>--</option>
-              <option value="1">1</option>
+            <select class="form-control" name="startMonth" id="startMonth">
+              <option>--</option>
+              <option value="1" selected>1</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -60,9 +66,9 @@
           </div>
           <label class="col-form-label">month</label>
           <div class="col-sm-2">
-            <select class="form-control" name="day" id="exampleFormControlSelect1">
+            <select class="form-control" name="startDay" id="startDay">
               <option selected>--</option>
-              <option value="1">1</option>
+              <option value="1" selected>1</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -97,9 +103,9 @@
           </div>
           <label class="col-form-label">day</label>
           <div class="col-sm-2">
-            <select class="form-control" name="hour" id="exampleFormControlSelect1">
+            <select class="form-control" name="startHour" id="startHour">
               <option selected>--</option>
-              <option value="0">0</option>
+              <option value="0" selected>0</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -132,9 +138,9 @@
           <div class="col-sm-1"></div>
           <label class="col-sm-2 col-form-label">End Date:</label>
           <div class="col-sm-2">
-            <select class="form-control" name="month" id="exampleFormControlSelect1">
+            <select class="form-control" name="endMonth" id="endMonth">
               <option selected>--</option>
-              <option value="1">1</option>
+              <option value="1" selected>1</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -150,9 +156,9 @@
           </div>
           <label class="col-form-label">month</label>
           <div class="col-sm-2">
-            <select class="form-control" name="day" id="exampleFormControlSelect1">
+            <select class="form-control" name="endDay" id="endDay">
               <option selected>--</option>
-              <option value="1">1</option>
+              <option value="1" selected>1</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -187,7 +193,7 @@
           </div>
           <label class="col-form-label">day</label>
           <div class="col-sm-2">
-            <select class="form-control" name="hour" id="exampleFormControlSelect1">
+            <select class="form-control" name="endHour" id="endHour">
               <option selected>--</option>
               <option value="0">0</option>
               <option value="1">1</option>
@@ -212,22 +218,178 @@
               <option value="20">20</option>
               <option value="21">21</option>
               <option value="22">22</option>
-              <option value="23">23</option>
+              <option value="23" selected>23</option>
             </select>
           </div>
           <label class="col-form-label">hour</label>
           <div class="col-sm-1"></div>
         </div>
         <button type="submit" class="btn btn-primary" id="submit">SEARCH</button>
+        <div style="padding: 0;">
+          <span style="display: none;" id="resultCount"></span>
+        </div>
       </form>
     </div>
   </div>
 
 
-  </div>
   <!--result-->
+  <div class="row mt-3" id="matchPic"></div>
+  <div class="row" id="pageBar">
+    <ul class="pagination justify-content-center" id="page" style="margin: auto;">
+    </ul>
+    <div class="show"></div>
+  </div>
 
 
+
+
+  <script>
+    let date_data = "{{ resultDate }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+    let hour_data = "{{ resultHour }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+    let image_data = "{{ resultImage }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+    let WD_data = "{{ resultWD }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+    let WS_data = "{{ resultWS }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+    let PS_data = "{{ resultPS }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+    let TP_data = "{{ resultTP }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+    let RH_data = "{{ resultRH }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+
+    console.log("{{ startMonth }}");
+    console.log("{{ startDay }}");
+    console.log("{{ startHour }}");
+    console.log("{{ endMonth }}");
+    console.log("{{ endDay }}");
+    console.log("{{ endHour }}");
+    console.log(date_data);
+    console.log(hour_data);
+    console.log(image_data);
+    console.log(WD_data);
+    console.log(WS_data);
+    console.log(PS_data);
+    console.log(TP_data);
+    console.log(RH_data);
+
+    function getDate(index) {
+      // return date_data[index].substring(0, date_data[index].length - 10);
+      return date_data[index];
+    }
+    function getHour(index) {
+      return hour_data[index];
+    }
+    function getImageName(index) {
+      return "/static/sis/" + image_data[index];
+    }
+    function getWD(index) {
+      return WD_data[index];
+    }
+    function getWS(index) {
+      return WS_data[index];
+    }
+    function getPS(index) {
+      return PS_data[index];
+    }
+    function getTP(index) {
+      return TP_data[index];
+    }
+    function getRH(index) {
+      return RH_data[index];
+    }
+  </script>
+
+  <script>
+    let total = date_data.length;
+
+
+    let count = 0;
+    // let pages = Math.ceil(total/24)
+    function showCount() {
+      let resultCount = document.getElementById("resultCount");
+      resultCount.innerHTML = `<br> There is ${date_data.length} results`;
+      resultCount.style.display = "";
+    }
+
+    function showCards() {
+      let placeOfPic = document.getElementById("matchPic");
+
+      // create rows (8 images = 1 row)
+      for (let index = 0; index < Math.ceil(total / 8); index++) {
+        placeOfPic.innerHTML += `
+        <div class="containerPic"></div>`;
+      }
+      let placeOfCard = document.getElementsByClassName("containerPic");
+      for (let index = 0; index < placeOfCard.length; index++) {
+        for (let j = 0; j < 8; j++) {
+          if (index * 8 + j == total) {
+            break;
+          }
+          console.log(index * 8 + j);
+          placeOfCard[index].innerHTML += `
+        <div class="card"><div class="info"></div></div>`;
+        }
+      }
+    }
+
+    //set select value
+    function selectElement(id, value) {
+      let element = document.getElementById(id);
+      element.value = value;
+    }
+    function selectDate() {
+      selectElement("startMonth", "{{ startMonth }}");
+      selectElement("startDay", "{{ startDay }}");
+      selectElement("startHour", "{{ startHour }}");
+      selectElement("endMonth", "{{ endMonth }}");
+      selectElement("endDay", "{{ endDay }}");
+      selectElement("endHour", "{{ endHour }}");
+    }
+
+    function isSelectDate() {
+      if ("{{startMonth}}" != "" || date_data[0] != "") {
+        selectDate();
+        showCount();
+        showCards();
+        showPicture();
+      }
+    }
+
+    function showPicture() {
+      let elements = document.getElementsByClassName("card");
+      // let elementsInfo = document.getElementsByClassName("info");
+      // var num = 0;
+      console.log("count: ", count);
+      if (count != 0) {
+        for (let index = 0; index < elements.length; index++) {
+          elements[index].innerHTML = "";
+        }
+      }
+
+      for (let index = 0; index < elements.length; index++) {
+        // Xst = num + (currentPage - 1) * 24
+        // if (Xst >= 100) {
+        //   break;
+        // }
+        console.log("index:", index);
+        // console.log(getFileName(Xst))
+        elements[index].innerHTML += `
+        <img src="${getImageName(index)}">
+        <p>${getDate(index)} ${getHour(index)}H</p>  
+        <p>${getWD(index)}/${getWS(index)}/${getPS(index)}/${getTP(index)}/${getRH(index)}</p>
+        `;
+        // num = num + 1;
+      }
+    }
+
+    // function isShowPicture() {
+    //   if(date_data[0] != "") {
+    //     showPicture();
+    //   }
+    // }
+
+
+
+    isSelectDate();
+    // isShowPicture();
+  </script>
 
 </body>
 
