@@ -35,7 +35,7 @@
       <form action="getQuery" method="POST">{% csrf_token %}
         <div class="form-group row">
           <div class="col-sm-2"></div>
-          <label class="col-sm-2 col-form-label">Data Set:</label>
+          <label class="col-sm-2 col-form-label">Year:</label>
           <div class="col-sm-5">
             <select class="form-control" name="year" id="exampleFormControlSelect1">
               <option value="2018" selected>2018</option>
@@ -224,6 +224,20 @@
           <label class="col-form-label">hour</label>
           <div class="col-sm-1"></div>
         </div>
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-2">
+            Dataset: 
+          </div>
+          <div class="col-sm-6">
+            <input type="radio" name="dataset" id="level" value="level" checked>
+            <label for="level"> level </label>
+            <span style="margin-left: 1em;margin-right: 1em;"> </span>
+            <input type="radio" name="dataset" id="original" value="original">
+            <label for="original"> original </label>
+          </div>
+          <div class="col-sm-3"></div>
+        </div>
         <button type="submit" class="btn btn-primary" id="submit">SEARCH</button>
         <div style="padding: 0;">
           <span style="display: none;" id="resultCount"></span>
@@ -311,6 +325,7 @@
 
 
   <script>
+    // get search result from backend
     let date_data = "{{ resultDate }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     let hour_data = "{{ resultHour }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     let image_data = "{{ resultImage }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
@@ -319,21 +334,24 @@
     let PS_data = "{{ resultPS }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     let TP_data = "{{ resultTP }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     let RH_data = "{{ resultRH }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+    let dataset = "{{ dataset }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
 
-    console.log("{{ startMonth }}");
-    console.log("{{ startDay }}");
-    console.log("{{ startHour }}");
-    console.log("{{ endMonth }}");
-    console.log("{{ endDay }}");
-    console.log("{{ endHour }}");
-    console.log(date_data);
-    console.log(hour_data);
-    console.log(image_data);
-    console.log(WD_data);
-    console.log(WS_data);
-    console.log(PS_data);
-    console.log(TP_data);
-    console.log(RH_data);
+    // console.log("{{ dataset }}");
+    // console.log("{{ startMonth }}");
+    // console.log("{{ startDay }}");
+    // console.log("{{ startHour }}");
+    // console.log("{{ endMonth }}");
+    // console.log("{{ endDay }}");
+    // console.log("{{ endHour }}");
+    // console.log(date_data);
+    // console.log(hour_data);
+    // console.log(image_data);
+    // console.log(WD_data);
+    // console.log(WS_data);
+    // console.log(PS_data);
+    // console.log(TP_data);
+    // console.log(RH_data);
+    // console.log(dataset);
 
     function getDate(index) {
       // return date_data[index].substring(0, date_data[index].length - 10);
@@ -343,7 +361,11 @@
       return hour_data[index];
     }
     function getImageName(index) {
-      return "/static/sis/" + image_data[index];
+      if ("{{ dataset }}" == "level") {
+        return "/static/sis/" + image_data[index];
+      } else {
+        return "/static/sis_origin/" + image_data[index];
+      }
     }
     function getWD(index) {
       return WD_data[index];
@@ -364,16 +386,16 @@
 
   <script>
     let total = date_data.length;
-
-
     let count = 0;
     // let pages = Math.ceil(total/24)
+    // show the total number of result
     function showCount() {
       let resultCount = document.getElementById("resultCount");
       resultCount.innerHTML = `<br> There are ${date_data.length} results`;
       resultCount.style.display = "";
     }
 
+    // show the images
     function showCards() {
       let placeOfPic = document.getElementById("matchPic");
 
@@ -394,12 +416,14 @@
         }
       }
     }
-
-    //set select value
+  </script>
+  <script>
+    // set the value in select boxes
     function selectElement(id, value) {
       let element = document.getElementById(id);
       element.value = value;
     }
+    // set dates
     function selectDate() {
       selectElement("startMonth", "{{ startMonth }}");
       selectElement("startDay", "{{ startDay }}");
@@ -408,10 +432,15 @@
       selectElement("endDay", "{{ endDay }}");
       selectElement("endHour", "{{ endHour }}");
     }
-
-    function isSelectDate() {
+    // set dataset
+    function selectDataset() {
+      document.getElementById("{{ dataset }}").checked = true;
+    }
+    function selectQuery() {
+      // if there are search result, set the value of form element to query
       if ("{{startMonth}}" != "" || date_data[0] != "") {
         selectDate();
+        selectDataset();
         showCount();
         showCards();
         showPicture();
@@ -445,20 +474,8 @@
         // num = num + 1;
       }
     }
-    function print() {
-      console.log("hhhhhh");
-    }
 
-    // function isShowPicture() {
-    //   if(date_data[0] != "") {
-    //     showPicture();
-    //   }
-    // }
-
-
-
-    isSelectDate();
-    // isShowPicture();
+    selectQuery();
   </script>
 
 </body>

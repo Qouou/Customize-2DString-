@@ -88,6 +88,7 @@ def getQuery(request):
         ctx['resultRH'] = RHdata
         ctx['resultWS'] = WSdata
         ctx['resultWD'] = WDdata
+        ctx['dataset'] = request.POST['dataset']
         # jsonDate = json.dumps(ctx['resultDate'])
         # ctx['jsonDate'] = jsonDate
         # print(type(ctx))
