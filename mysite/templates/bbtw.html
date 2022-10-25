@@ -243,34 +243,67 @@
 
   <!-- The Modal -->
   <div id="myModal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="img01">
-    <div id="caption"></div>
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="row">
+      <!-- <div class="col-1"></div> -->
+      <div class="col-7">
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+      </div>
+      <div class="col-4">
+        <div id="information">
+          <h2 id="timeText"></h2>
+          <ul>
+            <li id="WDText"></li>
+            <li id="WSText"></li>
+            <li id="PSText"></li>
+            <li id="TPText"></li>
+            <li id="RHText"></li>
+          </ul>
+          
+          <button class="btn btn-primary" id="qbeBtn">QBE</button>
+          
+        </div>
+      </div>
+      <div class="col-1"></div>
+    </div>
+    
   </div>
 
   <script>
-
-    // Get the modal
-    var modal = document.getElementById("myModal");
-
-    // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img = document.getElementById("myImg");
-    var modalImg = document.getElementById("img01");
-    var captionText = document.getElementById("caption");
-    img.onclick = function () {
-      console.log("ghjkl");
+    // showModal(): show image and the information
+    // index: the number of picture
+    function showModal(index) {
+      // get the modal
+      var modal = document.getElementById("myModal");
+      // show the modal
       modal.style.display = "block";
-      modalImg.src = this.src;
-      captionText.innerHTML = this.alt;
+
+      // get the image and insert it
+      var img = document.getElementById(getImageName(index));
+      var modalImg = document.getElementById("img01");
+      modalImg.src = img.src;
+
+      // get the information about the image and insert it
+      document.getElementById('caption').innerHTML = img.alt;
+      document.getElementById('timeText').innerHTML = getDate(index) + " " + getHour(index) + "H";
+      document.getElementById('WDText').innerHTML = "Wind direction: " + getWD(index);
+      document.getElementById('WSText').innerHTML = "Wind speed: " + getWS(index);
+      document.getElementById('PSText').innerHTML = "Pressure: " + getPS(index) + " Pa";
+      document.getElementById('TPText').innerHTML = "Temperature: " + getTP(index) + " °C";
+      document.getElementById('RHText').innerHTML = "Humidity: " + getRH(index) +" %";
     }
 
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
+    //closeModal(): close the image modal
+    function closeModal() {
+      // Get the <span> element that closes the modal
+      // var span = document.getElementsByClassName("close")[0];
+      var modal = document.getElementById("myModal");
 
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
+      // When the user clicks on <span> (x), close the modal
       modal.style.display = "none";
     }
+
   </script>
 
 
@@ -355,9 +388,9 @@
           if (index * 8 + j == total) {
             break;
           }
-          console.log(index * 8 + j);
+          // console.log(index * 8 + j);
           placeOfCard[index].innerHTML += `
-        <div class="card"><div class="info"></div></div>`;
+        <div class="card" onclick="showModal(${index*8+j})""><div class="info"></div></div>`;
         }
       }
     }
@@ -401,10 +434,11 @@
         // if (Xst >= 100) {
         //   break;
         // }
-        console.log("index:", index);
+        // console.log("index:", index);
         // console.log(getFileName(Xst))
+        let imageName = getImageName(index);
         elements[index].innerHTML += `
-        <img src="${getImageName(index)}" id="${getImageName(index)}" onclick="print()">
+        <img src="${imageName}" id="${imageName}" alt="${getDate(index) + " " +getHour(index)+"H"}">
         <p>${getDate(index)} ${getHour(index)}H</p>  
         <p>${getWD(index)}/${getWS(index)}/${getPS(index)}/${getTP(index)}/${getRH(index)}</p>
         `;

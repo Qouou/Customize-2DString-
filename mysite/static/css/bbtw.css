@@ -110,6 +110,110 @@ img {
   margin-bottom: 0ch;
 }
 
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 4em;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 3; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 60%;
+  max-width: 70vw;
+  font-size: 3em;
+  text-align: center;
+  color: hsl(0, 0%, 80%);
+  padding: 0.2em;
+  height: 1.5em;
+}
+
+
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+
+#information {
+  /* background-color: aqua; */
+  color: aliceblue;
+  font-size: 1.9em;
+  text-align: left;
+  line-height: 1.5em;
+  float:left; 
+  position:absolute; 
+  bottom:15vh;
+}
+
+
+#timeText {
+  margin-bottom: 1.5em;
+  margin-left: 2vw;
+}
+
+#qbeBtn {
+  background-color: rgb(237, 128, 0);
+  width: max-content;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  margin-top: 1em;
+  margin-left: 3vw;
+}
+
 /* .info:hover {
   -webkit-transition: 500ms;
   opacity: 1;
