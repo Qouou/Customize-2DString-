@@ -40,7 +40,7 @@ select {
   text-align: center;
 }
 
-#submit {
+#submitBtn {
   margin-top: 1em;
   background-color: rgb(237, 128, 0);
 }

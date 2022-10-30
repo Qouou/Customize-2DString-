@@ -26,17 +26,13 @@
       <h5 id="description">
         Select a time duration which you want to browse frames!
       </h5>
-      <!-- <form novalidate id="userDataForm" action="getQuery" method="POST">{% csrf_token %}
-        輸入：<input type="text" name="a">
-        <button type="button" onclick="processData()" class="btn m-5 btn btn-primary btn-lg" id="enter">ENTER</button>
-        <input type="submit">
-      </form> -->
 
-      <form action="getQuery" method="POST">{% csrf_token %}
+      <form id="myForm" action="getQuery" method="POST">{% csrf_token %}
         <div class="form-group row">
           <div class="col-sm-2"></div>
           <label class="col-sm-2 col-form-label">Year:</label>
           <div class="col-sm-5">
+            <!--year-->
             <select class="form-control" name="year" id="exampleFormControlSelect1">
               <option value="2018" selected>2018</option>
             </select>
@@ -48,88 +44,18 @@
           <div class="col-sm-1"></div>
           <label class="col-sm-2 col-form-label">Start Date:</label>
           <div class="col-sm-2">
-            <select class="form-control" name="startMonth" id="startMonth">
-              <option>--</option>
-              <option value="1" selected>1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-            </select>
+            <!--startMonth-->
+            <select class="form-control month" name="startMonth" id="startMonth" onchange="changeDays('start');detectMonth()"></select>
           </div>
           <label class="col-form-label">month</label>
           <div class="col-sm-2">
-            <select class="form-control" name="startDay" id="startDay">
-              <option selected>--</option>
-              <option value="1" selected>1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-              <option value="13">13</option>
-              <option value="14">14</option>
-              <option value="15">15</option>
-              <option value="16">16</option>
-              <option value="17">17</option>
-              <option value="18">18</option>
-              <option value="19">19</option>
-              <option value="20">20</option>
-              <option value="21">21</option>
-              <option value="22">22</option>
-              <option value="23">23</option>
-              <option value="24">24</option>
-              <option value="25">25</option>
-              <option value="26">26</option>
-              <option value="27">27</option>
-              <option value="28">28</option>
-              <option value="29">29</option>
-              <option value="30">30</option>
-              <option value="31">31</option>
-            </select>
+            <!--startDay-->
+            <select class="form-control day" name="startDay" id="startDay"></select>
           </div>
           <label class="col-form-label">day</label>
           <div class="col-sm-2">
-            <select class="form-control" name="startHour" id="startHour">
-              <option selected>--</option>
-              <option value="0" selected>0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-              <option value="13">13</option>
-              <option value="14">14</option>
-              <option value="15">15</option>
-              <option value="16">16</option>
-              <option value="17">17</option>
-              <option value="18">18</option>
-              <option value="19">19</option>
-              <option value="20">20</option>
-              <option value="21">21</option>
-              <option value="22">22</option>
-              <option value="23">23</option>
-            </select>
+            <!--startHour-->
+            <select class="form-control hour" name="startHour" id="startHour"></select>
           </div>
           <label class="col-form-label">hour</label>
           <div class="col-sm-1"></div>
@@ -138,88 +64,18 @@
           <div class="col-sm-1"></div>
           <label class="col-sm-2 col-form-label">End Date:</label>
           <div class="col-sm-2">
-            <select class="form-control" name="endMonth" id="endMonth">
-              <option selected>--</option>
-              <option value="1" selected>1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-            </select>
+            <!--endMonth-->
+            <select class="form-control month" name="endMonth" id="endMonth" onchange="changeDays('end')"></select>
           </div>
           <label class="col-form-label">month</label>
           <div class="col-sm-2">
-            <select class="form-control" name="endDay" id="endDay">
-              <option selected>--</option>
-              <option value="1" selected>1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-              <option value="13">13</option>
-              <option value="14">14</option>
-              <option value="15">15</option>
-              <option value="16">16</option>
-              <option value="17">17</option>
-              <option value="18">18</option>
-              <option value="19">19</option>
-              <option value="20">20</option>
-              <option value="21">21</option>
-              <option value="22">22</option>
-              <option value="23">23</option>
-              <option value="24">24</option>
-              <option value="25">25</option>
-              <option value="26">26</option>
-              <option value="27">27</option>
-              <option value="28">28</option>
-              <option value="29">29</option>
-              <option value="30">30</option>
-              <option value="31">31</option>
-            </select>
+            <!--endDay-->
+            <select class="form-control day" name="endDay" id="endDay"></select>
           </div>
           <label class="col-form-label">day</label>
           <div class="col-sm-2">
-            <select class="form-control" name="endHour" id="endHour">
-              <option selected>--</option>
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-              <option value="13">13</option>
-              <option value="14">14</option>
-              <option value="15">15</option>
-              <option value="16">16</option>
-              <option value="17">17</option>
-              <option value="18">18</option>
-              <option value="19">19</option>
-              <option value="20">20</option>
-              <option value="21">21</option>
-              <option value="22">22</option>
-              <option value="23" selected>23</option>
-            </select>
+            <!--endHour-->
+            <select class="form-control hour" name="endHour" id="endHour"></select>
           </div>
           <label class="col-form-label">hour</label>
           <div class="col-sm-1"></div>
@@ -238,15 +94,13 @@
           </div>
           <div class="col-sm-3"></div>
         </div>
-        <button type="submit" class="btn btn-primary" id="submit">SEARCH</button>
+        <input type="button" class="btn btn-primary" id="submitBtn" onclick="submitData()" value="SEARCH">
         <div style="padding: 0;">
           <span style="display: none;" id="resultCount"></span>
         </div>
       </form>
     </div>
   </div>
-
-
   <!--result-->
   <div class="row mt-3" id="matchPic"></div>
   <div class="row" id="pageBar">
@@ -274,7 +128,6 @@
             <li id="TPText"></li>
             <li id="RHText"></li>
           </ul>
-          
           <button class="btn btn-primary" id="qbeBtn">QBE</button>
           
         </div>
@@ -283,7 +136,104 @@
     </div>
     
   </div>
+  <!-- date -->
+  <script>
+    // check if a year is leap year
+    function isLeap(y) {
+      if ((y%4 ==0 && y%100 != 100) || (y%100==0 && y%400 == 0)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    
+    // printOption(): print option in selection box
+    function printOption() {
+      // month
+      let monthSelectItems = document.getElementsByClassName('month');
+      for (let item = 0; item < monthSelectItems.length; item++) {
+        for (let i = 0; i < 12; i++) {
+          monthSelectItems[item].innerHTML += `<option value="${i+1}">${i+1}</option>`;
+        }
+      }
+      // day
+      let daySelectItems = document.getElementsByClassName('day');
+      for (let item = 0; item < daySelectItems.length; item++) {
+        for (let i = 0; i < 31; i++) {
+          daySelectItems[item].innerHTML += `<option value="${i+1}">${i+1}</option>`;
+        }
+      }
+      // hour
+      let hourSelectItems = document.getElementsByClassName('hour');
+      for (let item = 0; item < hourSelectItems.length; item++) {
+        for (let i = 0; i < 24; i++) {
+          hourSelectItems[item].innerHTML += `<option value="${i}">${i}</option>`;
+        }
+      }
+    }
+    printOption();
 
+    // changeDays(): set days for each month
+    // option: start/end
+    function changeDays(option) {
+      // monthData: how many days in each month
+      let monthData = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+      let year = 2018;
+      if (isLeap(year)) {
+        // there are 29 days in Febuary in leap year
+        monthData[1] = 29;
+      }
+
+      let monthItem = document.getElementById(option + 'Month');
+      let dayItem = document.getElementById(option + 'Day');
+      let html = "";
+      // new options 
+      for (let i=0; i<monthData[monthItem.value - 1]; i++) {
+        html += `<option value="${i+1}">${i+1}</option>`;
+      }
+      dayItem.innerHTML = html;
+    }
+
+    function detectMonth() {
+      document.getElementById('endMonth').value = document.getElementById('startMonth').value;
+      changeDays('end');
+    }
+
+    // checkDate(): check if the date user select is correct
+    // start < end
+    function checkDate() {
+      let startMonth = document.getElementById('startMonth').value;
+      let startDay = document.getElementById('startDay').value;
+      let startHour = document.getElementById('startHour').value;
+      let endMonth = document.getElementById('endMonth').value;
+      let endDay = document.getElementById('endDay').value;
+      let endHour = document.getElementById('endHour').value;
+      if (endMonth < startDay) {
+        return false;
+      }
+      else {
+        if (endDay < startDay) {
+          return false;
+        } else {
+          if (endHour < startHour) {
+            return false;
+          } else {
+            return true;
+          }
+        }
+      }
+    }
+
+    function submitData() {
+      // console.log(checkDate());
+      if (checkDate()) {
+        document.getElementById('myForm').submit();
+      } else {
+        alert("Please select an appropriate time!")
+      }
+    }
+
+  </script>
   <script>
     // showModal(): show image and the information
     // index: the number of picture
