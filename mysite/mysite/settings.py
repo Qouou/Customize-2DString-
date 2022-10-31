@@ -123,7 +123,8 @@ USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
+
+# my PC
 # STATIC_ROOT = os.path.join(BASE_DIR, "static_file")
 # STATIC_URL = '/static/'
 # STATICFILES_DIRS = (
@@ -135,8 +136,7 @@ USE_TZ = False
 # )
 
 #-----------------
-
-
+# VM Server
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_FINDERS = (

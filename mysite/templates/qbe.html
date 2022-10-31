@@ -22,16 +22,119 @@
       <form>
         <div class="form-group row">
           <div class="col-sm-3"></div>
-          <label class="col-sm-2">Frame</label>
+          <label class="col-sm-2 label">year</label>
           <div class="col-sm-6">
-            <input type="text" class="form-control" id="imageName" value=""
-            placeholder="2018-1-1-00-00.png" onchange="preview()">
+            <!-- <input type="text" class="form-control" id="imageName" value=""
+            placeholder="2018-1-1-00-00.png" onchange="preview()"> -->
+            <select class="form-control" name="year" id="year" onchange="preview()">
+              <option value="2018">2018</option>
+            </select>
           </div>
           <div class="col-sm-1"></div>
         </div>
         <div class="form-group row">
           <div class="col-sm-3"></div>
-          <label class="col-sm-2">Dataset</label>
+          <label class="col-sm-2 label">month</label>
+          <div class="col-sm-6">
+            <!-- <input type="text" class="form-control" id="imageName" value=""
+            placeholder="2018-1-1-00-00.png" onchange="preview()"> -->
+            <select class="form-control" name="month" id="month" onchange="preview()">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
+          </div>
+          <div class="col-sm-1"></div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-3"></div>
+          <label class="col-sm-2 label">day</label>
+          <div class="col-sm-6">
+            <!-- <input type="text" class="form-control" id="imageName" value=""
+            placeholder="2018-1-1-00-00.png" onchange="preview()"> -->
+            <select class="form-control" name="day" id="day" onchange="preview()">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+              <option value="31">31</option>
+            </select>
+          </div>
+          <div class="col-sm-1"></div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-3"></div>
+          <label class="col-sm-2 label">hour</label>
+          <div class="col-sm-6">
+            <!-- <input type="text" class="form-control" id="imageName" value=""
+            placeholder="2018-1-1-00-00.png" onchange="preview()"> -->
+            <select class="form-control" name="hour" id="hour" onchange="preview()">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+            </select>
+          </div>
+          <div class="col-sm-1"></div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-3"></div>
+          <label class="col-sm-2 label">Dataset</label>
           <div class="col-sm-6">
             <input type="radio" name="dataset" id="level" value="level" checked onchange="preview()">
             <label for="level"> level </label>
@@ -63,21 +166,37 @@
     function checkImage(imageSrc) {
       let img = new Image();
       img.onload = () => {
+        // console.log("good");
         document.getElementById('imageBox').classList.remove('empty');
         document.getElementById('image').src = imageSrc;
       }; 
       img.onerror = () => {
-        console.log("bad");
+        // console.log("bad");
         document.getElementById('imageBox').classList.add('empty');
         document.getElementById('image').src = "/static/emptyImage.svg";
       };
       img.src = imageSrc;
     }
 
+    function convertName() {
+      let year = document.getElementById('year').value;
+      let month = document.getElementById('month').value;
+      let day = document.getElementById('day').value;
+      let hour = document.getElementById('hour').value;
+      if (hour < 10){
+        hour = '0' + hour
+      }
+      
+      let name = "";
+      name = year + '-' + month + '-' + day + '-' + hour + '-00.png';
+      return name;
+    }
+    
     function preview() {
-      console.log("pre");
       let path = "";
-      let imageName = document.getElementById('imageName').value;
+      // let imageName = document.getElementById('imageName').value;
+      // convert image name
+      let imageName = convertName();
       if (document.getElementById('level').checked == true) {
         path = "/static/sis/" + imageName;
       } else {
