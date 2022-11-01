@@ -19,10 +19,10 @@
   <div class="row" id="contant">
     <!--searchBox-->
     <div class="col-6" id="searchBox">
-      <form>
+      <form id="myForm" novalidate action="getQuery" method="POST">{% csrf_token %}
         <div class="form-group row">
           <div class="col-sm-3"></div>
-          <label class="col-sm-2 label">year</label>
+          <label class="col-sm-2 label">Year</label>
           <div class="col-sm-6">
             <!-- <input type="text" class="form-control" id="imageName" value=""
             placeholder="2018-1-1-00-00.png" onchange="preview()"> -->
@@ -34,7 +34,7 @@
         </div>
         <div class="form-group row">
           <div class="col-sm-3"></div>
-          <label class="col-sm-2 label">month</label>
+          <label class="col-sm-2 label">Month</label>
           <div class="col-sm-6">
             <!-- <input type="text" class="form-control" id="imageName" value=""
             placeholder="2018-1-1-00-00.png" onchange="preview()"> -->
@@ -57,7 +57,7 @@
         </div>
         <div class="form-group row">
           <div class="col-sm-3"></div>
-          <label class="col-sm-2 label">day</label>
+          <label class="col-sm-2 label">Day</label>
           <div class="col-sm-6">
             <!-- <input type="text" class="form-control" id="imageName" value=""
             placeholder="2018-1-1-00-00.png" onchange="preview()"> -->
@@ -99,7 +99,7 @@
         </div>
         <div class="form-group row">
           <div class="col-sm-3"></div>
-          <label class="col-sm-2 label">hour</label>
+          <label class="col-sm-2 label">Hour</label>
           <div class="col-sm-6">
             <!-- <input type="text" class="form-control" id="imageName" value=""
             placeholder="2018-1-1-00-00.png" onchange="preview()"> -->
@@ -160,9 +160,14 @@
     
   </div>
   <div class="row">
-    <button type="submit" class="btn btn-primary" id="search">Search</button>
+    <input type="submit" class="btn btn-primary" id="submitBtn" onclick="submitData()" value="SEARCH">Search</input>
   </div>
   <script>
+    function submitData() {
+      document.getElementById('myForm').submit();
+    }
+
+
     function checkImage(imageSrc) {
       let img = new Image();
       img.onload = () => {
