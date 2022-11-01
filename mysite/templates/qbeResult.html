@@ -24,11 +24,11 @@
         <div class="row">
           <div class="col-md-12">
             <form class="needs-validation" novalidate action="score" method="post">{% csrf_token %}
-              <label>Wind Direction : </label> {{ sourceWD }}<br>
-              <label>Wind Direction : </label> {{ sourceWS }}<br>
-              <label>Wind Direction : </label> {{ sourcePS }}<br>
-              <label>Wind Direction : </label> {{ sourceTP }}<br>
-              <label>Wind Direction : </label> {{ sourceRH }}
+              <label>Wind Direction : </label> {{ sourceWD }}<br />
+              <label>Wind Speed : </label> {{ sourceWS }}<br />
+              <label>Pressure : </label> {{ sourcePS }}<br />
+              <label>Temperature : </label> {{ sourceTP }}<br />
+              <label>Humidity : </label> {{ sourceRH }}<br />
             </form>
           </div>
         </div>
@@ -44,6 +44,7 @@
     </div>
 
   </div>
+  <script type="text/javascript" src="/static/js/pagination.js"></script>
   <script>
     // get search result from backend
     let date_data = "{{ resultDate }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
@@ -56,21 +57,6 @@
     let RH_data = "{{ resultRH }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     // let dataset = "{{ dataset }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
 
-    console.log("{{ sourceImage }}");
-    console.log("{{ sourceWD }}");
-    console.log("{{ sourceWS }}");
-    console.log("{{ sourcePS }}");
-    console.log("{{ sourceTP }}");
-    console.log("{{ sourceRH }}");
-    console.log(date_data);
-    console.log(hour_data);
-    console.log(image_data);
-    console.log(WD_data);
-    console.log(WS_data);
-    console.log(PS_data);
-    console.log(TP_data);
-    console.log(RH_data);
-    // console.log(dataset);
 
     function getDate(index) {
       // return date_data[index].substring(0, date_data[index].length - 10);
@@ -79,7 +65,7 @@
     function getHour(index) {
       return hour_data[index];
     }
-    function getImageName(index) {
+    function getFileName(index) {
       // if ("{{ dataset }}" == "level") {
       //   return "/static/sis/" + image_data[index];
       // } else {
@@ -102,6 +88,69 @@
     function getRH(index) {
       return RH_data[index];
     }
+
+    function findParams(date, time) {
+      day = new Date(date);
+      // console.log("day: ", day);
+
+      yesterday = new Date(date);
+      yesterday.setDate(yesterday.getDate() - 1);
+      // console.log("yesterday: ", yesterday);
+
+      tomorrow = new Date(date);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      // console.log("tomorrow: ", tomorrow);
+
+      hour = parseInt(time.split('-')[0]);
+      console.log("hour: ", hour);
+
+      let year = day.getFullYear();
+      let startMonth = yesterday.getMonth() + 1;
+      let startDay = yesterday.getDate();
+      let startHour = 0;
+      let endMonth = tomorrow.getMonth() + 1;
+      let endDay = tomorrow.getDate();
+      let endHour = 23;
+
+      console.log("year=" + year + "&startMonth=" + startMonth + "&startDay=" +
+        startDay + "&startHour=" + startHour +
+        "&endMonth=" + endMonth + "&endDay=" + endDay + "&endHour=" + endHour);
+      return "year=" + year + "&startMonth=" + startMonth + "&startDay=" +
+        startDay + "&startHour=" + startHour +
+        "&endMonth=" + endMonth + "&endDay=" + endDay + "&endHour=" + endHour;
+    }function findParams(date, time) {
+      day = new Date(date);
+      // console.log("day: ", day);
+
+      yesterday = new Date(date);
+      yesterday.setDate(yesterday.getDate() - 1);
+      // console.log("yesterday: ", yesterday);
+
+      tomorrow = new Date(date);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      // console.log("tomorrow: ", tomorrow);
+
+      hour = parseInt(time.split('-')[0]);
+      console.log("hour: ", hour);
+
+      let year = day.getFullYear();
+      let startMonth = yesterday.getMonth() + 1;
+      let startDay = yesterday.getDate();
+      let startHour = 0;
+      let endMonth = tomorrow.getMonth() + 1;
+      let endDay = tomorrow.getDate();
+      let endHour = 23;
+
+      console.log("year=" + year + "&startMonth=" + startMonth + "&startDay=" +
+        startDay + "&startHour=" + startHour +
+        "&endMonth=" + endMonth + "&endDay=" + endDay + "&endHour=" + endHour);
+      return "year=" + year + "&startMonth=" + startMonth + "&startDay=" +
+        startDay + "&startHour=" + startHour +
+        "&endMonth=" + endMonth + "&endDay=" + endDay + "&endHour=" + endHour;
+    }
+    // function getRank(index) {
+    //   return ranking_data[index];
+    // }
     userPic = document.getElementById("userPic");
     userPic.innerHTML += `<img src=/static/sis/{{ sourceImage }}>`;
   </script>
@@ -124,6 +173,7 @@
     }
 
     function showPicture(currentPage) {
+      console.log("currentPage", currentPage);
       let elements = document.getElementsByClassName("card");
       let elementsInfo = document.getElementsByClassName("info");
       var num = 0;
@@ -134,16 +184,15 @@
       }
 
       for (let index = 0; index < elements.length; index++) {
+        console.log("som");
         Xst = num + (currentPage - 1) * 24
         if (Xst >= 100) {
           break;
         }
         console.log(Xst)
-        console.log(getFileName(Xst))
-        elements[index].innerHTML += `
-        <img src="${getFileName(Xst)}">
-        <p><strong>NO.${getRank(Xst)} / ${getContent(Xst).substring(0, 8)}</strong></p>
-        <p>${getDate(Xst)} ${getTime(Xst).substring(0, 2)}H</p>  
+        // <p><strong>NO.${getRank(Xst)} / ${getContent(Xst).substring(0, 8)}</strong></p>
+        elements[index].innerHTML = `<img src="${getFileName(Xst)}">
+        <p>${getDate(Xst)} ${getHour(Xst).substring(0, 2)}H</p>  
         <p>${getWD(Xst)}/${getWS(Xst)}/${getPS(Xst)}/${getTP(Xst)}/${getRH(Xst)}</p>
         `;
         num = num + 1;
@@ -152,6 +201,7 @@
 
 
       for (let index = 1; index <= elementsInfo.length; index++) {
+        console.log("sommm");
         var num = 0;
         Xst = num + (currentPage - 1) * 24
         if (Xst >= 100) {
@@ -160,7 +210,7 @@
 
         console.log("index: ", index);
         // console.log(getDate(index));
-        url = "http://pyyin-mask.im.ncnu.edu.tw/mask.html?" + findParams(getDate(index - 1), getTime(index - 1));
+        url = "http://pyyin-mask.im.ncnu.edu.tw/mask.html?" + findParams(getDate(index - 1), getHour(index - 1));
 
         elementsInfo[index - 1].innerHTML += `
         <button class="btn btn-light"><a href="${url}">View More</a></button>
@@ -198,7 +248,7 @@
         } else {
           showPicture(options.current);
         }
-        $target.next(".show").text('Current Page：Page '+options.current);
+        // $target.next(".show").text('Current Page：Page '+options.current);
       }
     });
     showPicture(1);
