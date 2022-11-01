@@ -28,6 +28,7 @@ def getQuery(request):
         os.chdir(pwd)
         command = "python3 HD_A_toWeb.py " + source
         print(command)
+
         tmp = os.popen(command).readlines()
         result = []
         for i in range(len(tmp)):
@@ -49,14 +50,18 @@ def getQuery(request):
             csvfile.close()
 
         # match weather data with result
+        dateData = []
+        hourData = []
+        imageData = []
         WDdata = []
         WSdata = []
         PSdata = []
         TPdata = []
         RHdata = []
-        imageData = []
         for i in range(len(ctx['result'])):
             time = ctx['result'][i]
+            dateData.append(time.split(' ')[0])
+            hourData.append(time.split(' ')[1])
             imageData.append(getImageSrc(time))
             WDdata.append(library[time]['WD'])
             WSdata.append(library[time]['WS'])
@@ -64,22 +69,24 @@ def getQuery(request):
             TPdata.append(library[time]['TP'])
             RHdata.append(library[time]['RH'])
 
+        ctx['resultDate'] = dateData
+        ctx['resultHour'] = hourData
+        ctx['resultImage'] = imageData
         ctx['resultWD'] = WDdata
         ctx['resultWS'] = WSdata
         ctx['resultPS'] = PSdata
         ctx['resultTP'] = TPdata
         ctx['resultRH'] = RHdata
-        ctx['images'] = imageData
 
+        ctx['sourceDate'] = source
         ctx['sourceImage'] = getImageSrc(source)
-        ctx['sourceData'] = [library[source]['WD'], library[source]['WS'], 
-                             library[source]['PS'], library[source]['TP'], 
-                             library[source]['RH']]
+        ctx['sourceWD'] = library[source]['WD']
+        ctx['sourceWS'] = library[source]['WS']
+        ctx['sourcePS'] = library[source]['PS']
+        ctx['sourceTP'] = library[source]['TP']
+        ctx['sourceRH'] = library[source]['RH']
 
         print(ctx)
-
-
-
 
     return render(request, 'qbeResult.html', ctx)
 

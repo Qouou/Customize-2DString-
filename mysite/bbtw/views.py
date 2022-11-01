@@ -40,10 +40,8 @@ def getQuery(request):
                 library[index]['PS'] = float(tmp[5])
                 library[index]['TP'] = float(tmp[6])
                 library[index]['RH'] = int(tmp[7])
-        # print(library['2018/12/31-11'])
-        # print(library['2018/1/4-2']['PS'])
+
         #ctx: a dict will be sent to frontend as result
-        # print(library.keys())
         ctx = {}
         ctx['startMonth'] = startMonth
         ctx['startDay'] = startDay
@@ -51,8 +49,6 @@ def getQuery(request):
         ctx['endMonth'] = endMonth
         ctx['endDay'] = endDay
         ctx['endHour'] = endHour
-        # ctx['start'] = [startMonth, startDay, startHour]
-        # ctx['end'] = [endMonth, endDay, endHour]
         
         # dataset store in ctx
         dateData = []
