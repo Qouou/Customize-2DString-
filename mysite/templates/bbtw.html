@@ -208,24 +208,47 @@
       let endMonth = document.getElementById('endMonth').value;
       let endDay = document.getElementById('endDay').value;
       let endHour = document.getElementById('endHour').value;
-      if (endMonth < startDay) {
+      // console.log(startMonth)
+      // console.log(startDay)
+      // console.log(startHour)
+      // console.log(endMonth)
+      // console.log(endDay)
+      // console.log(endHour)
+      // console.log(endMonth < startDay);
+      if (endMonth < startMonth) {
+        console.log(1);
         return false;
       }
-      else {
-        if (endDay < startDay) {
-          return false;
-        } else {
-          if (endHour < startHour) {
+      // same month
+      else if (endMonth == startMonth){
+          if (startDay > endDay) {
+            console.log(21);
             return false;
-          } else {
-            return true;
           }
-        }
+          // same day
+          else if (startDay == endDay) {
+            if (startHour > endHour) {
+              console.log(22);
+              return false;
+            } else {
+              console.log(221);
+              return true;
+            }
+          }
+          else {
+              console.log(23);
+              return true;
+          }
+      } 
+      // different month
+      else{
+        console.log(3);
+        return true;
       }
     }
 
     function submitData() {
-      // console.log(checkDate());
+      console.log(checkDate());
       if (checkDate()) {
         document.getElementById('myForm').submit();
       } else {
