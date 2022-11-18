@@ -50,6 +50,8 @@
     let date_data = "{{ resultDate }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     let hour_data = "{{ resultHour }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     let image_data = "{{ resultImage }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+    let score_data = "{{ resultScore }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+    let rank_data = "{{ resultRank }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     let WD_data = "{{ resultWD }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     let WS_data = "{{ resultWS }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     let PS_data = "{{ resultPS }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
@@ -57,6 +59,16 @@
     let RH_data = "{{ resultRH }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     // let dataset = "{{ dataset }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
 
+    console.log(date_data);
+    console.log(hour_data);
+    console.log(image_data);
+    console.log(score_data);
+    console.log(rank_data);
+    console.log(WD_data);
+    console.log(WS_data);
+    console.log(PS_data);
+    console.log(TP_data);
+    console.log(RH_data);
 
     function getDate(index) {
       // return date_data[index].substring(0, date_data[index].length - 10);
@@ -64,6 +76,12 @@
     }
     function getHour(index) {
       return hour_data[index];
+    }
+    function getScore(index) {
+      return score_data[index];
+    }
+    function getRank(index) {
+      return rank_data[index];
     }
     function getFileName(index) {
       // if ("{{ dataset }}" == "level") {
@@ -184,14 +202,13 @@
       }
 
       for (let index = 0; index < elements.length; index++) {
-        console.log("som");
         Xst = num + (currentPage - 1) * 24
         if (Xst >= 100) {
           break;
         }
         console.log(Xst)
-        // <p><strong>NO.${getRank(Xst)} / ${getContent(Xst).substring(0, 8)}</strong></p>
         elements[index].innerHTML = `<img src="${getFileName(Xst)}">
+        <p><strong>NO.${getRank(Xst)} / ${getScore(Xst).substring(0, 8)}</strong></p>
         <p>${getDate(Xst)} ${getHour(Xst).substring(0, 2)}H</p>  
         <p>${getWD(Xst)}/${getWS(Xst)}/${getPS(Xst)}/${getTP(Xst)}/${getRH(Xst)}</p>
         `;

@@ -18,7 +18,7 @@ def getQuery(request):
         month = request.POST['month']
         day = request.POST['day']
         hour = request.POST['hour']
-        dataset = request.POST['dataset']
+        # dataset = request.POST['dataset']
 
         source = year + '/' + month + '/' + day + ' ' + hour.zfill(2) + ':00'
         
@@ -52,6 +52,8 @@ def getQuery(request):
         # match weather data with result
         dateData = []
         hourData = []
+        scoreData = []
+        rankData = []
         imageData = []
         WDdata = []
         WSdata = []
@@ -59,9 +61,14 @@ def getQuery(request):
         TPdata = []
         RHdata = []
         for i in range(len(ctx['result'])):
-            time = ctx['result'][i]
-            dateData.append(time.split(' ')[0])
-            hourData.append(time.split(' ')[1])
+            # print(ctx['result'][i])
+            tmp =  ctx['result'][i]
+            scoreData.append(tmp.split(' ')[0])
+            dateData.append(tmp.split(' ')[1])
+            hourData.append(tmp.split(' ')[2])
+            rankData.append(tmp.split(' ')[3])
+            time = tmp.split(' ')[1] + " " + tmp.split(' ')[2]
+            # print("time:", time)
             imageData.append(getImageSrc(time))
             WDdata.append(library[time]['WD'])
             WSdata.append(library[time]['WS'])
@@ -71,6 +78,8 @@ def getQuery(request):
 
         ctx['resultDate'] = dateData
         ctx['resultHour'] = hourData
+        ctx['resultScore'] = scoreData
+        ctx['resultRank'] = rankData
         ctx['resultImage'] = imageData
         ctx['resultWD'] = WDdata
         ctx['resultWS'] = WSdata
@@ -86,7 +95,7 @@ def getQuery(request):
         ctx['sourceTP'] = library[source]['TP']
         ctx['sourceRH'] = library[source]['RH']
 
-        print(ctx)
+        # print(ctx)
 
     return render(request, 'qbeResult.html', ctx)
 

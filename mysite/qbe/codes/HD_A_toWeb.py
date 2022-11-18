@@ -18,6 +18,7 @@ def combine(data, MainDataHis) :
         HisDif = 0
         for pos in range(10) :
             dif[i][pos] = data[i][pos] - MainDataHis[pos]
+            # print(data[i][pos], MainDataHis[pos])
             if (dif[i][pos] < 0) :
                 dif[i][pos] = dif[i][pos] *(-1)
             HisDif += dif[i][pos]
@@ -84,10 +85,28 @@ def ranking(ans, dataSelect) :
 
     # 拿 list 中的第 0 項排列
     newdata = sorted(newdata, key=itemgetter(0))
+    # , reverse=True
     finaldata = []
-    for i in range(len(newdata)) :
-        if (i < 100) :
-            finaldata.append(newdata[i][1])
+    for i in range(len(newdata)-1, len(newdata)-101, -1) :
+        finaldata.append(newdata[i])
+    # for i in range(len(newdata)+1, 0, -1) :
+    #     if (i <= 100) :
+    #     # if (i > len(newdata) - 101 ) :
+    #         finaldata.append(newdata[i])
+    # print(len(finaldata))
+    rank = 0
+    backdataScore = -1
+    manySame = 0
+    for i in range(100) :
+        if (finaldata[i][0] == backdataScore) :
+            finaldata[i].append(rank)
+            manySame = manySame + 1
+        else :
+            backdataScore = finaldata[i][0]
+            rank = rank + manySame + 1
+            finaldata[i].append(rank)
+            manySame = 0
+
     # print("data", finaldata)
     return finaldata
 
@@ -106,12 +125,20 @@ def takepm25(data, MainData) :
     # print("need" , data[i][1:])
     return need
 
+def turnScore(data) :
+    minScore = min(data)
+    maxScore = max(data)
+    standard = maxScore - minScore
+    for i in range(len(data)) :
+        data[i] = 1 - ((data[i] - minScore) / standard)
+    return data
+
+
 
 def main(argv) :
     # 主要比對圖片
-    # MainData = '2018/12/31 17:00'
-    MainData = argv[0]    # the frame want to be compared
-    # list 裝要比對的時間
+    MainData = argv[0]
+    # # list 裝要比對的時間
     # dataSelect = ['2018/12/31 22:00', '2018/12/31 17:00', '2018/12/30 22:00', '2018/12/20 22:00', '2018/12/30 10:00', '2018/12/5 09:00', '2018/11/9 06:00', '2018/11/2 22:00', '2018/11/2 20:00', '2018/10/17 10:00']
     # 裝每小時的100筆空汙資料
     data = []
@@ -131,12 +158,17 @@ def main(argv) :
     ans = []
     ans = HD(data, PicData)
     DataTime = takeDataTime(data)
-    # print(DataTime)
+    # print("get in change ans")
+    ans = turnScore(ans)
+    # print("ans", ans)
+    
 
     # 排名
     result = ranking(ans, DataTime)
+    # print(result)
     for time in result:
-        print(time)
+        print(*time)
+
     
 if __name__ == '__main__' :
     main(sys.argv[1:])
