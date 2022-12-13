@@ -20,6 +20,7 @@
     <!--searchBox-->
     <div class="col-6" id="searchBox">
       <form id="myForm" novalidate action="getQuery" method="POST">{% csrf_token %}
+        <p style="color: rgb(102, 102, 102); font-size: 0.7em; text-align: center;">分成10等級的方法是 HD_A，不分的方法是 rasterScan_D</p>
         <div class="form-group row">
           <div class="col-sm-3"></div>
           <label class="col-sm-2 label">Year</label>
@@ -141,6 +142,15 @@
             <span style="margin-left: 1em;margin-right: 1em;"> </span>
             <input type="radio" name="dataset" id="original" value="original"  onchange="preview()">
             <label for="original"> original </label>
+          </div>
+          <div class="col-sm-1"></div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-3"></div>
+          <label class="col-sm-2 label">Contrast</label>
+          <div class="col-sm-6">
+            <input type="checkbox" name="contrast" id="contrast" onchange="loadContrast()">
+            enhance
           </div>
           <div class="col-sm-1"></div>
         </div>

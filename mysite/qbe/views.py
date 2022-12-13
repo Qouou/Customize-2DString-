@@ -18,7 +18,7 @@ def getQuery(request):
         month = request.POST['month']
         day = request.POST['day']
         hour = request.POST['hour']
-        # dataset = request.POST['dataset']
+        mode = request.POST['dataset']
 
         source = year + '/' + month + '/' + day + ' ' + hour.zfill(2) + ':00'
         
@@ -26,11 +26,17 @@ def getQuery(request):
         ctx = {}
         pwd=settings.BASE_DIR + "/qbe/codes/"
         os.chdir(pwd)
-        command = "python3 HD_A_toWeb.py " + source
+        print("mode:", mode)
+        command = ""
+        if mode == "level":    #level
+            command = "python3 HD_A_toWeb.py " + source
+        else:    #original
+            command = "python3 rasterScan_D_toWeb.py " + source
         print(command)
 
         tmp = os.popen(command).readlines()
         result = []
+        # print("result:", tmp)
         for i in range(len(tmp)):
             result.append(tmp[i].replace('\n', ''))
         ctx['result'] = result
@@ -94,6 +100,7 @@ def getQuery(request):
         ctx['sourcePS'] = library[source]['PS']
         ctx['sourceTP'] = library[source]['TP']
         ctx['sourceRH'] = library[source]['RH']
+        ctx['sourceDataset'] = mode
 
         # print(ctx)
 

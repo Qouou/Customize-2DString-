@@ -84,12 +84,13 @@
       return rank_data[index];
     }
     function getFileName(index) {
-      // if ("{{ dataset }}" == "level") {
-      //   return "/static/sis/" + image_data[index];
-      // } else {
-      //   return "/static/sis_origin/" + image_data[index];
-      // }
-      return "/static/sis/" + image_data[index];
+      console.log("dataset", `{{sourceDataset}}`);
+      if ("{{ sourceDataset }}" == "level") {
+        return "/static/sis/" + image_data[index];
+      } else {
+        return "/static/sis_origin/" + image_data[index];
+      }
+      // return "/static/sis/" + image_data[index];
     }
     function getWD(index) {
       return WD_data[index];
@@ -105,6 +106,15 @@
     }
     function getRH(index) {
       return RH_data[index];
+    }
+
+    function getUserPic() {
+      let sourceImage = `{{ sourceImage }}`;
+      if ("{{ sourceDataset }}" == "level") {
+        return "/static/sis/" + sourceImage;
+      } else {
+        return "/static/sis_origin/" + sourceImage;
+      }
     }
 
     function findParams(date, time) {
@@ -170,7 +180,8 @@
     //   return ranking_data[index];
     // }
     userPic = document.getElementById("userPic");
-    userPic.innerHTML += `<img src=/static/sis/{{ sourceImage }}>`;
+    // userPic.innerHTML += `<img src=/static/sis/{{ sourceImage }}>`;
+    userPic.innerHTML += `<img src=${getUserPic()}>`;
   </script>
   <script>
     let count = 0;
@@ -210,7 +221,7 @@
         elements[index].innerHTML = `<img src="${getFileName(Xst)}">
         <p><strong>NO.${getRank(Xst)} / ${getScore(Xst).substring(0, 8)}</strong></p>
         <p>${getDate(Xst)} ${getHour(Xst).substring(0, 2)}H</p>  
-        <p>${getWD(Xst)}/${getWS(Xst)}/${getPS(Xst)}/${getTP(Xst)}/${getRH(Xst)}</p>
+        <p>${getWD(Xst)}/${getWS(Xst)}/${getPS(Xst)}/<br>${getTP(Xst)}/${getRH(Xst)}</p>
         `;
         num = num + 1;
       }
@@ -218,7 +229,6 @@
 
 
       for (let index = 1; index <= elementsInfo.length; index++) {
-        console.log("sommm");
         var num = 0;
         Xst = num + (currentPage - 1) * 24
         if (Xst >= 100) {
