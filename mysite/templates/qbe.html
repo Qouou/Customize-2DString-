@@ -20,7 +20,7 @@
     <!--searchBox-->
     <div class="col-6" id="searchBox">
       <form id="myForm" novalidate action="getQuery" method="POST">{% csrf_token %}
-        <p style="color: rgb(102, 102, 102); font-size: 0.7em; text-align: center;">分成10等級的方法是 HD_A，不分的方法是 rasterScan_D</p>
+        <!-- <p style="color: rgb(102, 102, 102); font-size: 0.7em; text-align: center;">分成10等級的方法是 HD_A，不分的方法是 rasterScan_D</p> -->
         <div class="form-group row">
           <div class="col-sm-3"></div>
           <label class="col-sm-2 label">Year</label>
@@ -173,6 +173,11 @@
     <input type="submit" class="btn btn-primary" id="submitBtn" onclick="submitData()" value="SEARCH">
   </div>
   <script>
+    // const queryString = window.location.search;
+    // console.log(queryString);
+    // const urlParams = new URLSearchParams(queryString);
+    // const product = urlParams.get('product')
+    // console.log(product);
     function submitData() {
       document.getElementById('myForm').submit();
     }

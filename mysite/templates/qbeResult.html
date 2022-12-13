@@ -20,6 +20,7 @@
   <div class="container">
     <div class="row mt-3">
       <div class="col-md-8 mt-5">
+        <div><p id="method" style="color: gray;">Ranking method: </p></div>
         <h4 class="mb-3">{{ sourceDate }}</h4>
         <div class="row">
           <div class="col-md-12">
@@ -65,7 +66,7 @@
     let PS_data = "{{ resultPS }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     let TP_data = "{{ resultTP }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     let RH_data = "{{ resultRH }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
-    // let dataset = "{{ dataset }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+    let dataset = "{{ dataset }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
 
     console.log(date_data);
     console.log(hour_data);
@@ -162,7 +163,9 @@
       return "year=" + year + "&startMonth=" + startMonth + "&startDay=" +
         startDay + "&startHour=" + startHour +
         "&endMonth=" + endMonth + "&endDay=" + endDay + "&endHour=" + endHour;
-    }function findParams(date, time) {
+    }
+    
+    function findParams(date, time) {
       day = new Date(date);
       // console.log("day: ", day);
 
@@ -198,6 +201,15 @@
     userPic = document.getElementById("userPic");
     // userPic.innerHTML += `<img src=/static/sis/{{ sourceImage }}>`;
     userPic.innerHTML += `<img src=${getUserPic()} id="sisUserPic">`;
+
+    let method = "";
+    console.log(9999999);
+    if (dataset == "level") {
+      method = "HD_A";
+    } else {
+      method = "rasterScan_D";
+    }
+    document.getElementById('method').innerHTML += method;
   </script>
   <script>
     let count = 0;
