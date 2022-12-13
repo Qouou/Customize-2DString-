@@ -30,6 +30,14 @@
               <label>Temperature : </label> {{ sourceTP }}<br />
               <label>Humidity : </label> {{ sourceRH }}<br />
             </form>
+            <div class="form-group row" id="contrastDiv" style="margin-top: 1em;">
+              <!-- <div class="col-sm-3"></div> -->
+              <label class="col-sm-1 label">Contrast</label>
+              <div class="col-sm-6">
+                <input type="checkbox" name="contrast" id="contrast" onchange="loadContrast()">
+                <label for="contrast"> enhance </label>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -84,11 +92,15 @@
       return rank_data[index];
     }
     function getFileName(index) {
-      console.log("dataset", `{{sourceDataset}}`);
+      // console.log("dataset", `{{sourceDataset}}`);
       if ("{{ sourceDataset }}" == "level") {
         return "/static/sis/" + image_data[index];
       } else {
-        return "/static/sis_origin/" + image_data[index];
+        if (document.getElementById('contrast').checked) {
+          return "/static/sis_origin_contrast/" + image_data[index];
+        } else {
+          return "/static/sis_origin/" + image_data[index];
+        }
       }
       // return "/static/sis/" + image_data[index];
     }
@@ -113,7 +125,11 @@
       if ("{{ sourceDataset }}" == "level") {
         return "/static/sis/" + sourceImage;
       } else {
-        return "/static/sis_origin/" + sourceImage;
+        if (document.getElementById('contrast').checked) {
+          return "/static/sis_origin_contrast/" + sourceImage;
+        } else {
+          return "/static/sis_origin/" + sourceImage;
+        }
       }
     }
 
@@ -181,7 +197,7 @@
     // }
     userPic = document.getElementById("userPic");
     // userPic.innerHTML += `<img src=/static/sis/{{ sourceImage }}>`;
-    userPic.innerHTML += `<img src=${getUserPic()}>`;
+    userPic.innerHTML += `<img src=${getUserPic()} id="sisUserPic">`;
   </script>
   <script>
     let count = 0;
@@ -218,7 +234,7 @@
           break;
         }
         console.log(Xst)
-        elements[index].innerHTML = `<img src="${getFileName(Xst)}">
+        elements[index].innerHTML = `<img src="${getFileName(Xst)}" id=${Xst} class="sis">
         <p><strong>NO.${getRank(Xst)} / ${getScore(Xst).substring(0, 8)}</strong></p>
         <p>${getDate(Xst)} ${getHour(Xst).substring(0, 2)}H</p>  
         <p>${getWD(Xst)}/${getWS(Xst)}/${getPS(Xst)}/<br>${getTP(Xst)}/${getRH(Xst)}</p>
@@ -248,6 +264,19 @@
       $("li").addClass("page-link");
       count += 1;
     }
+
+    function loadContrast() {
+      userPic = document.getElementById("sisUserPic");
+      userPic.src = getUserPic();
+
+      let sisList = document.getElementsByClassName('sis');
+      for (let i = 0; i < sisList.length; i++) {
+        // console.log(sisList[i].id);
+        let sisID = sisList[i].id
+        document.getElementById(sisID).src = getFileName(sisID);
+      }
+    }
+
 
 
 

@@ -150,7 +150,7 @@
           <label class="col-sm-2 label">Contrast</label>
           <div class="col-sm-6">
             <input type="checkbox" name="contrast" id="contrast" onchange="loadContrast()">
-            enhance
+            <label for="contrast"> enhance </label>
           </div>
           <div class="col-sm-1"></div>
         </div>
@@ -214,6 +214,21 @@
       let imageName = convertName();
       if (document.getElementById('level').checked == true) {
         path = "/static/sis/" + imageName;
+        document.getElementById('contrast').disabled = true;
+        checkImage(path);
+      } else {
+        document.getElementById('contrast').style.checked = false;
+        // path = "/static/sis_origin/" + imageName;
+        document.getElementById('contrast').disabled = false;
+        loadContrast();
+      }
+    }
+
+    function loadContrast() {
+      let path = "";
+      let imageName = convertName();
+      if (document.getElementById('contrast').checked == true) {
+        path = "/static/sis_origin_contrast/" + imageName;
       } else {
         path = "/static/sis_origin/" + imageName;
       }
