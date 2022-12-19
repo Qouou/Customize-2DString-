@@ -3,12 +3,10 @@ import re
 import matplotlib.pyplot as plt # plt 用於顯示圖片
 import matplotlib.image as mpimg # mpimg 用於讀取圖片
 import numpy as np
-# import cv2
-import os
 from operator import itemgetter
 import sys
 
-filename = "HD1_forweb"
+filename = "HD1_toweb"
 
 def combine(data, MainDataHis) :
     # 比較
@@ -30,12 +28,13 @@ def HD(data, MainData) :
     HisData = []
     for r in range(1, len(data)) :
         His = plt.hist(data[r][1:], bins=10, range=[0, 10])
-        # 直方圖的y軸值
         y = His[0]
         HisData.append(y)
     MainDataHis = []
-    His = plt.hist(MainData, bins=10, range=[0, 10])
+    His = plt.hist(MainData[1:], bins=10, range=[0, 10])
     MainDataHis = His[0] # 直方圖的y軸值
+    # print("MainDataHis ))))))))", MainDataHis)
+    # print("HisData !!!!!!", HisData[0:10])
 
     # 裝cut的list
     return combine(HisData, MainDataHis)
@@ -84,28 +83,22 @@ def ranking(ans, dataSelect) :
         newdata.append([ans[i], dataSelect[i]])
 
     # 拿 list 中的第 0 項排列
-    newdata = sorted(newdata, key=itemgetter(0))
+    # print("newdata[0:10] front ", newdata[0:10])
+    newdata = sorted(newdata)#, key=itemgetter(0)
     # , reverse=True
     finaldata = []
     for i in range(len(newdata)-1, len(newdata)-101, -1) :
         finaldata.append(newdata[i])
-    # for i in range(len(newdata)+1, 0, -1) :
-    #     if (i <= 100) :
-    #     # if (i > len(newdata) - 101 ) :
-    #         finaldata.append(newdata[i])
     # print(len(finaldata))
-    rank = 0
-    backdataScore = -1
-    manySame = 0
+    rank = 1
+    backdataScore = finaldata[0][0]
     for i in range(100) :
         if (finaldata[i][0] == backdataScore) :
             finaldata[i].append(rank)
-            manySame = manySame + 1
         else :
             backdataScore = finaldata[i][0]
-            rank = rank + manySame + 1
+            rank = rank + 1
             finaldata[i].append(rank)
-            manySame = 0
 
     # print("data", finaldata)
     return finaldata
@@ -117,28 +110,34 @@ def takeDataTime(data) :
     return newdata
 
 def takepm25(data, MainData) :
-    need = 0
+    need = []
     for i in range(len(data)) :
+        # print(data[i][0])
         if (data[i][0] == MainData) :
             need = data[i][1:]
-            break
-    # print("need" , data[i][1:])
+            # break
+            # print("MainData", data[i][1:])
+            return data[i][1:]
+
+        # print("MainData", data[i][1:])
     return need
+    
 
 def turnScore(data) :
+    # print("data _____", data[0:10])
     minScore = min(data)
     maxScore = max(data)
     standard = maxScore - minScore
     for i in range(len(data)) :
         data[i] = 1 - ((data[i] - minScore) / standard)
+    # print(data)
     return data
-
 
 
 def main(argv) :
     # 主要比對圖片
     MainData = argv[0] + " " + argv[1]
-    # print(MainData)
+    # print(MainData, len(MainData))
     # # list 裝要比對的時間
     # dataSelect = ['2018/12/31 22:00', '2018/12/31 17:00', '2018/12/30 22:00', '2018/12/20 22:00', '2018/12/30 10:00', '2018/12/5 09:00', '2018/11/9 06:00', '2018/11/2 22:00', '2018/11/2 20:00', '2018/10/17 10:00']
     # 裝每小時的100筆空汙資料
@@ -154,14 +153,19 @@ def main(argv) :
 
     changeType(data)
     part(data)
+    changeTypeTwo(PicData)
+    partTwo(PicData)
 
     # 轉換成Histogram
     ans = []
+
     ans = HD(data, PicData)
-    DataTime = takeDataTime(data)
-    # print("get in change ans")
-    ans = turnScore(ans)
     # print("ans", ans)
+
+    DataTime = takeDataTime(data)
+    # print("DataTime ????", DataTime)
+    ans = turnScore(ans)
+    # print("ans  ____", ans[0:10])
     
 
     # 排名

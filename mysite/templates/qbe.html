@@ -145,7 +145,7 @@
           </div>
           <div class="col-sm-1"></div>
         </div>
-        <div class="form-group row">
+        <div class="form-group row" id="contrastDiv">
           <div class="col-sm-2"></div>
           <div class="col-sm-3 label">
             <input type="checkbox" name="contrast" id="contrast" onchange="loadContrast()">
@@ -215,11 +215,12 @@
       if (document.getElementById('level').checked == true) {
         path = "/static/sis/" + imageName;
         document.getElementById('contrast').disabled = true;
+        document.getElementById('contrastDiv').classList.add('hideDiv')
         checkImage(path);
       } else {
         document.getElementById('contrast').style.checked = false;
-        // path = "/static/sis_origin/" + imageName;
         document.getElementById('contrast').disabled = false;
+        document.getElementById('contrastDiv').classList.remove('hideDiv')
         loadContrast();
       }
     }

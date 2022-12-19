@@ -28,6 +28,10 @@ select {
   text-align: right;
 }
 
+.hideDiv {
+  display: none;
+}
+
 option { 
   text-align: center; 
 }

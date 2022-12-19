@@ -2,10 +2,6 @@ import csv
 import matplotlib.pyplot as plt # plt 用於顯示圖片
 import matplotlib.image as mpimg # mpimg 用於讀取圖片
 import numpy as np
-# import cv2
-# import os
-# import score
-# import readOutFile
 import sys
 
 filename = "rasterScan_D_toWeb"
@@ -54,18 +50,15 @@ def ranking(ans, dataSelect) :
     for i in range(len(newdata)-1, len(newdata)-101, -1) :
         finaldata.append(newdata[i])
     # print(len(finaldata))
-    rank = 0
-    backdataScore = -1
-    manySame = 0
+    rank = 1
+    backdataScore = finaldata[0][0]
     for i in range(100) :
         if (finaldata[i][0] == backdataScore) :
             finaldata[i].append(rank)
-            manySame = manySame + 1
         else :
             backdataScore = finaldata[i][0]
-            rank = rank + manySame + 1
+            rank = rank + 1
             finaldata[i].append(rank)
-            manySame = 0
 
     # print("data", finaldata)
     return finaldata
@@ -175,7 +168,6 @@ def checkDate(data) :
 
 def main(argv) :
     # 主要比對圖片
-    # print(argv)
     # MainData = argv[0]
     MainData = argv[0] + " " + argv[1]
     data = []
