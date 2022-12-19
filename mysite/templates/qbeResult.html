@@ -14,13 +14,16 @@
 
   <title>QBE</title>
 </head>
+
 <body>
   {% include 'navbar.html' %}
-  <!-- <h4 id="qbe">QBE(Query-by-Frame)</h4> -->
+  <!-- description of query -->
   <div class="container">
     <div class="row mt-3">
       <div class="col-md-8 mt-5">
-        <div><p id="method" style="color: gray;">Ranking method: </p></div>
+        <div>
+          <p id="method" style="color: gray;">Ranking method: </p>
+        </div>
         <h4 class="mb-3">{{ sourceDate }}</h4>
         <div class="row">
           <div class="col-md-12">
@@ -31,20 +34,20 @@
               <label>Temperature : </label> {{ sourceTP }}<br />
               <label>Humidity : </label> {{ sourceRH }}<br />
             </form>
-            <div class="form-group row" id="contrastDiv" style="margin-top: 1em;">
-              <!-- <div class="col-sm-3"></div> -->
-              <label class="col-sm-1 label">Contrast</label>
-              <div class="col-sm-6">
+            <div class="form-group row" id="contrastDiv">
+              <div class="col-sm-12">
                 <input type="checkbox" name="contrast" id="contrast" onchange="loadContrast()">
-                <label for="contrast"> enhance </label>
+                <label for="contrast"> Contrast Enhancement </label>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div id="userPic" class="col-md-4">
-      </div>
+      <!-- image of query -->
+      <div id="userPic" class="col-md-4"></div>
+      <!-- show result images -->
       <div class="row mt-3" id="matchPic"></div>
+      <!-- page bar -->
       <div class="row" id="pageBar">
         <ul class="pagination justify-content-center" id="page" style="margin: auto;">
         </ul>
@@ -55,7 +58,8 @@
   </div>
   <script type="text/javascript" src="/static/js/pagination.js"></script>
   <script>
-    // get search result from backend
+    /* get search result from backend*/
+    // there are 100 search result
     let date_data = "{{ resultDate }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     let hour_data = "{{ resultHour }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     let image_data = "{{ resultImage }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
@@ -66,19 +70,22 @@
     let PS_data = "{{ resultPS }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     let TP_data = "{{ resultTP }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
     let RH_data = "{{ resultRH }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
-    let dataset = "{{ dataset }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
+    let sourceDataset = "{{ sourceDataset }}".replaceAll('&#x27;', '').replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',')
 
-    console.log(date_data);
-    console.log(hour_data);
-    console.log(image_data);
-    console.log(score_data);
-    console.log(rank_data);
-    console.log(WD_data);
-    console.log(WS_data);
-    console.log(PS_data);
-    console.log(TP_data);
-    console.log(RH_data);
+    // console.log("date_data:", date_data);
+    // console.log("hour_data:", hour_data);
+    // console.log("image_data:", image_data);
+    // console.log("score_data:", score_data);
+    // console.log("rank_data:", rank_data);
+    // console.log("WD_data:", WD_data);
+    // console.log("WS_data:", WS_data);
+    // console.log("PS_data:", PS_data);
+    // console.log("TP_data:", TP_data);
+    // console.log("RH_data:", RH_data);
+    // console.log("sourceDataset:", sourceDataset);
 
+    /* get__(): get information of each result by index*/
+    // index: from 0 to 100
     function getDate(index) {
       // return date_data[index].substring(0, date_data[index].length - 10);
       return date_data[index];
@@ -93,8 +100,9 @@
       return rank_data[index];
     }
     function getFileName(index) {
-      // console.log("dataset", `{{sourceDataset}}`);
-      if ("{{ sourceDataset }}" == "level") {
+      // there are 3 type of frame: level, origin and origin_contrast, 
+      // images showed by different type based on the dataset(level/origin) and contrast emhancement(true/false)
+      if (sourceDataset == "level") {
         return "/static/sis/" + image_data[index];
       } else {
         if (document.getElementById('contrast').checked) {
@@ -103,7 +111,6 @@
           return "/static/sis_origin/" + image_data[index];
         }
       }
-      // return "/static/sis/" + image_data[index];
     }
     function getWD(index) {
       return WD_data[index];
@@ -121,9 +128,10 @@
       return RH_data[index];
     }
 
+    // getUserPic(): show the frame of user's query
     function getUserPic() {
       let sourceImage = `{{ sourceImage }}`;
-      if ("{{ sourceDataset }}" == "level") {
+      if (sourceDataset == "level") {
         return "/static/sis/" + sourceImage;
       } else {
         if (document.getElementById('contrast').checked) {
@@ -134,20 +142,22 @@
       }
     }
 
+    // findParams(): find parameters which will send to mask
+    // date: the date of result
+    // time: the time of result
     function findParams(date, time) {
+      // current day
       day = new Date(date);
-      // console.log("day: ", day);
 
+      // previous day
       yesterday = new Date(date);
       yesterday.setDate(yesterday.getDate() - 1);
-      // console.log("yesterday: ", yesterday);
 
+      // next day
       tomorrow = new Date(date);
       tomorrow.setDate(tomorrow.getDate() + 1);
-      // console.log("tomorrow: ", tomorrow);
 
       hour = parseInt(time.split('-')[0]);
-      console.log("hour: ", hour);
 
       let year = day.getFullYear();
       let startMonth = yesterday.getMonth() + 1;
@@ -157,69 +167,42 @@
       let endDay = tomorrow.getDate();
       let endHour = 23;
 
-      console.log("year=" + year + "&startMonth=" + startMonth + "&startDay=" +
-        startDay + "&startHour=" + startHour +
-        "&endMonth=" + endMonth + "&endDay=" + endDay + "&endHour=" + endHour);
+      // return the params
       return "year=" + year + "&startMonth=" + startMonth + "&startDay=" +
         startDay + "&startHour=" + startHour +
         "&endMonth=" + endMonth + "&endDay=" + endDay + "&endHour=" + endHour;
     }
-    
-    function findParams(date, time) {
-      day = new Date(date);
-      // console.log("day: ", day);
 
-      yesterday = new Date(date);
-      yesterday.setDate(yesterday.getDate() - 1);
-      // console.log("yesterday: ", yesterday);
-
-      tomorrow = new Date(date);
-      tomorrow.setDate(tomorrow.getDate() + 1);
-      // console.log("tomorrow: ", tomorrow);
-
-      hour = parseInt(time.split('-')[0]);
-      console.log("hour: ", hour);
-
-      let year = day.getFullYear();
-      let startMonth = yesterday.getMonth() + 1;
-      let startDay = yesterday.getDate();
-      let startHour = 0;
-      let endMonth = tomorrow.getMonth() + 1;
-      let endDay = tomorrow.getDate();
-      let endHour = 23;
-
-      console.log("year=" + year + "&startMonth=" + startMonth + "&startDay=" +
-        startDay + "&startHour=" + startHour +
-        "&endMonth=" + endMonth + "&endDay=" + endDay + "&endHour=" + endHour);
-      return "year=" + year + "&startMonth=" + startMonth + "&startDay=" +
-        startDay + "&startHour=" + startHour +
-        "&endMonth=" + endMonth + "&endDay=" + endDay + "&endHour=" + endHour;
-    }
-    // function getRank(index) {
-    //   return ranking_data[index];
-    // }
+    /* init page*/
+    // show image of the user's query
     userPic = document.getElementById("userPic");
     // userPic.innerHTML += `<img src=/static/sis/{{ sourceImage }}>`;
     userPic.innerHTML += `<img src=${getUserPic()} id="sisUserPic">`;
 
-    let method = "";
-    console.log(9999999);
-    if (dataset == "level") {
-      method = "HD_A";
+    // show the text of method by the query and 
+    // show/hide by the query dataset
+    let method = document.getElementById('method');
+    let contrastDiv = document.getElementById('contrastDiv');
+    if (sourceDataset == "level") {
+      method.innerHTML += "HD_A";
+      contrastDiv.style.display = "none";
     } else {
-      method = "rasterScan_D";
+      method.innerHTML += "rasterScan_D";
     }
-    document.getElementById('method').innerHTML += method;
   </script>
   <script>
+    // place 100 results
+    // there are 5 pages, each page can show 24 results
     let count = 0;
 
+    // insert 3 rows in 'matchPic' called 'containerPic'
     let placeOfPic = document.getElementById("matchPic");
     for (let index = 0; index < 3; index++) {
       placeOfPic.innerHTML += `
       <div class="containerPic"></div>
       `;
     }
+    // insert 8 grids in each 'containerPic' called 'card'
     let placeOfCard = document.getElementsByClassName("containerPic");
     for (let index = 0; index < placeOfCard.length; index++) {
       for (let j = 0; j < 8; j++) {
@@ -229,23 +212,33 @@
       }
     }
 
+    // showPicture(): show information(image, decription and url) of results
+    // currentPage: current page, from 1 to 5
     function showPicture(currentPage) {
       console.log("currentPage", currentPage);
       let elements = document.getElementsByClassName("card");
       let elementsInfo = document.getElementsByClassName("info");
       var num = 0;
+      // clear data of previous page (這裡可能有 bug)
+      // index: which number of card (24 totally)
       if (count != 0) {
         for (let index = 0; index < elements.length; index++) {
           elements[index].innerHTML = "";
         }
       }
 
+      // show weather info
+      // Xst: which number of data (100 totally)
+      // index != Xst
       for (let index = 0; index < elements.length; index++) {
         Xst = num + (currentPage - 1) * 24
+        console.log("Xst: ", Xst, "index: ", index);
+        // there are 100 result total, so if Xst >= 100, then stop show weather info
         if (Xst >= 100) {
           break;
         }
-        console.log(Xst)
+
+        // weather info
         elements[index].innerHTML = `<img src="${getFileName(Xst)}" id=${Xst} class="sis">
         <p><strong>NO.${getRank(Xst)} / ${getScore(Xst).substring(0, 8)}</strong></p>
         <p>${getDate(Xst)} ${getHour(Xst).substring(0, 2)}H</p>  
@@ -256,6 +249,7 @@
 
 
 
+      // show link to mask (這裡有 bug 顯示不出來)
       for (let index = 1; index <= elementsInfo.length; index++) {
         var num = 0;
         Xst = num + (currentPage - 1) * 24
@@ -263,10 +257,7 @@
           break;
         }
 
-        console.log("index: ", index);
-        // console.log(getDate(index));
         url = "http://pyyin-mask.im.ncnu.edu.tw/mask.html?" + findParams(getDate(index - 1), getHour(index - 1));
-
         elementsInfo[index - 1].innerHTML += `
         <button class="btn btn-light"><a href="${url}">View More</a></button>
         <p> NO. ${index + (currentPage - 1) * 24}</p>
@@ -277,19 +268,18 @@
       count += 1;
     }
 
+
+    // loadContrast(): change pictures between origin and origin_contrast
     function loadContrast() {
       userPic = document.getElementById("sisUserPic");
       userPic.src = getUserPic();
 
       let sisList = document.getElementsByClassName('sis');
       for (let i = 0; i < sisList.length; i++) {
-        // console.log(sisList[i].id);
         let sisID = sisList[i].id
         document.getElementById(sisID).src = getFileName(sisID);
       }
     }
-
-
 
 
     $('#page').pagination({
@@ -322,4 +312,5 @@
     showPicture(1);
   </script>
 </body>
+
 </html>

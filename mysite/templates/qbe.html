@@ -22,9 +22,9 @@
       <form id="myForm" novalidate action="getQuery" method="POST">{% csrf_token %}
         <!-- <p style="color: rgb(102, 102, 102); font-size: 0.7em; text-align: center;">分成10等級的方法是 HD_A，不分的方法是 rasterScan_D</p> -->
         <div class="form-group row">
-          <div class="col-sm-3"></div>
-          <label class="col-sm-2 label">Year</label>
-          <div class="col-sm-6">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-3 label">Year</label>
+          <div class="col-sm-7">
             <!-- <input type="text" class="form-control" id="imageName" value=""
             placeholder="2018-1-1-00-00.png" onchange="preview()"> -->
             <select class="form-control" name="year" id="year" onchange="preview()">
@@ -34,9 +34,9 @@
           <div class="col-sm-1"></div>
         </div>
         <div class="form-group row">
-          <div class="col-sm-3"></div>
-          <label class="col-sm-2 label">Month</label>
-          <div class="col-sm-6">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-3 label">Month</label>
+          <div class="col-sm-7">
             <!-- <input type="text" class="form-control" id="imageName" value=""
             placeholder="2018-1-1-00-00.png" onchange="preview()"> -->
             <select class="form-control" name="month" id="month" onchange="preview()">
@@ -57,9 +57,9 @@
           <div class="col-sm-1"></div>
         </div>
         <div class="form-group row">
-          <div class="col-sm-3"></div>
-          <label class="col-sm-2 label">Day</label>
-          <div class="col-sm-6">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-3 label">Day</label>
+          <div class="col-sm-7">
             <!-- <input type="text" class="form-control" id="imageName" value=""
             placeholder="2018-1-1-00-00.png" onchange="preview()"> -->
             <select class="form-control" name="day" id="day" onchange="preview()">
@@ -99,9 +99,9 @@
           <div class="col-sm-1"></div>
         </div>
         <div class="form-group row">
-          <div class="col-sm-3"></div>
-          <label class="col-sm-2 label">Hour</label>
-          <div class="col-sm-6">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-3 label">Hour</label>
+          <div class="col-sm-7">
             <!-- <input type="text" class="form-control" id="imageName" value=""
             placeholder="2018-1-1-00-00.png" onchange="preview()"> -->
             <select class="form-control" name="hour" id="hour" onchange="preview()">
@@ -134,9 +134,9 @@
           <div class="col-sm-1"></div>
         </div>
         <div class="form-group row">
-          <div class="col-sm-3"></div>
-          <label class="col-sm-2 label">Dataset</label>
-          <div class="col-sm-6">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-3 label">Dataset</label>
+          <div class="col-sm-7">
             <input type="radio" name="dataset" id="level" value="level" checked onchange="preview()">
             <label for="level"> level </label>
             <span style="margin-left: 1em;margin-right: 1em;"> </span>
@@ -146,13 +146,13 @@
           <div class="col-sm-1"></div>
         </div>
         <div class="form-group row">
-          <div class="col-sm-3"></div>
-          <label class="col-sm-2 label">Contrast</label>
-          <div class="col-sm-6">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-3 label">
             <input type="checkbox" name="contrast" id="contrast" onchange="loadContrast()">
-            <label for="contrast"> enhance </label>
           </div>
-          <div class="col-sm-1"></div>
+          <div class="col-sm-7">
+            <label for="contrast"> Contrast Enhancement </label>
+          </div>
         </div>
       </form>
     </div>
@@ -173,11 +173,6 @@
     <input type="submit" class="btn btn-primary" id="submitBtn" onclick="submitData()" value="SEARCH">
   </div>
   <script>
-    // const queryString = window.location.search;
-    // console.log(queryString);
-    // const urlParams = new URLSearchParams(queryString);
-    // const product = urlParams.get('product')
-    // console.log(product);
     function submitData() {
       document.getElementById('myForm').submit();
     }
