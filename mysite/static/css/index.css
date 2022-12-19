@@ -19,17 +19,7 @@ html {
   text-align: center;
 }
 
-#Clear,
-#A,
-#B,
-#C,
-#D,
-#E,
-#F,
-#G,
-#H,
-#I,
-#J {
+#Clear, #A, #B, #C, #D, #E, #F, #G, #H, #I, #J {
   color: black;
   /* border: 3px dashed black; */
   text-align: center;
@@ -43,16 +33,18 @@ html {
 
 .dest_copy {
   /* border: 3px dashed blue; */
-  border: 0.5ch dashed blue;
+  border: 2px dashed rgb(210, 191, 185);
   width: 10ch;
   height: 8ch;
   text-align: center;
+  color: rgb(210, 191, 185);
 }
 
 .dest_copy:hover {
   cursor: pointer;
   /* border: 4px dashed rgba(128, 128, 128, 0.5); */
-  border: 0.5ch dashed rgba(128, 128, 128, 0.5);
+  border: 2px dashed rgba(28, 0, 162, 0.5);
+  color: #2c00ff;
 }
 
 .selected {
@@ -68,6 +60,11 @@ html {
   width: 200px;
   height: 50;
   text-align: center;
+}
+
+.A, .B, .C, .D, .E, .F, .G, .H, .I, .J {
+  border: 2px dashed rgba(28, 0, 162, 0.5);
+  color: #2c00ff;
 }
 
 .A {

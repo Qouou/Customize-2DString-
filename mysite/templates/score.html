@@ -239,10 +239,8 @@
         // console.log(getDate(index));
         url = "http://pyyin-mask.im.ncnu.edu.tw/mask.html?" + findParams(getDate(index - 1), getTime(index - 1));
 
-        elementsInfo[index - 1].innerHTML += `
-        <button class="btn btn-light"><a href="${url}">View More</a></button>
-        <p> NO. ${index + (currentPage - 1) * 24}</p>
-        `;
+        elementsInfo[index - 1].innerHTML += `<button class="btn btn-light"><a href="${url}">View More</a></button>`;
+        // <p> NO. ${index + (currentPage - 1) * 24}</p>
       }
       $("li").addClass("page-item");
       $("li").addClass("page-link");
