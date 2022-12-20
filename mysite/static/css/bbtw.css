@@ -10,10 +10,10 @@ body{
   margin-right: 13vw;
   width: 76vw;
   /* height: 50vh; */
-  padding-top: 1em;
+  padding-top: 2em;
   padding-bottom: 1em;
-  padding-left: 12vw;
-  padding-right: 12vw;
+  /* padding-left: 12vw;
+  padding-right: 12vw; */
   background-color: rgb(162, 202, 215);
   text-align: center;
   /* overflow: auto; */
@@ -225,7 +225,7 @@ img {
 /* .info:hover {
   -webkit-transition: 500ms;
   opacity: 1;
-}
+} */
 
 button a {
   cursor: pointer;
@@ -244,4 +244,4 @@ button a {
   color: gray;
   border-radius: 2px;
   cursor: pointer;
-} */
+}
