@@ -205,14 +205,22 @@ img {
   margin-left: 2vw;
 }
 
-#qbeBtn {
+#qbeBtn, #maskBtn {
   background-color: rgb(237, 128, 0);
   width: max-content;
-  padding: 0.5em 1em;
+  padding: 0.3em 1.1em;
   font-size: 1em;
-  margin-top: 1em;
-  margin-left: 3vw;
+  margin-top: 2em;
+  margin-left: 1vw;
 }
+
+.searchIcon {
+  width: 1em; 
+  float: left;
+  margin-right: 0.3em;
+  filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(306deg) brightness(106%) contrast(101%);
+}
+
 
 /* .info:hover {
   -webkit-transition: 500ms;

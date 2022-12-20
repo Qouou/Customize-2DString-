@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,6 +14,7 @@
   <link rel="stylesheet" href="{% static '/css/navbar.css' %}">
   <title>QBE</title>
 </head>
+
 <body>
   {% include 'navbar.html' %}
   <h4 id="qbe">QBE(Query-by-Frame)</h4>
@@ -140,7 +142,7 @@
             <input type="radio" name="dataset" id="level" value="level" checked onchange="preview()">
             <label for="level"> level </label>
             <span style="margin-left: 1em;margin-right: 1em;"> </span>
-            <input type="radio" name="dataset" id="original" value="original"  onchange="preview()">
+            <input type="radio" name="dataset" id="original" value="original" onchange="preview()">
             <label for="original"> original </label>
           </div>
           <div class="col-sm-1"></div>
@@ -165,14 +167,33 @@
         </div>
         <div class="col-sm-3"></div>
       </div>
-      
+
     </div>
-    
+
   </div>
   <div class="row">
     <input type="submit" class="btn btn-primary" id="submitBtn" onclick="submitData()" value="SEARCH">
   </div>
   <script>
+    function setParams() {
+      const urlSearchParams = new URLSearchParams(window.location.search);
+      const params = Object.fromEntries(urlSearchParams.entries());
+      if (params.year != null) {
+        document.getElementById("year").value = params.year;
+      }
+      if (params.month != null) {
+        document.getElementById("month").value = params.month;
+      }
+      if (params.day != null) {
+        document.getElementById("day").value = params.day;
+      }
+      if (params.hour != null) {
+        document.getElementById("hour").value = params.hour;
+      }
+    }
+
+
+
     function submitData() {
       document.getElementById('myForm').submit();
     }
@@ -184,7 +205,7 @@
         // console.log("good");
         document.getElementById('imageBox').classList.remove('empty');
         document.getElementById('image').src = imageSrc;
-      }; 
+      };
       img.onerror = () => {
         // console.log("bad");
         document.getElementById('imageBox').classList.add('empty');
@@ -198,15 +219,15 @@
       let month = document.getElementById('month').value;
       let day = document.getElementById('day').value;
       let hour = document.getElementById('hour').value;
-      if (hour < 10){
+      if (hour < 10) {
         hour = '0' + hour
       }
-      
+
       let name = "";
       name = year + '-' + month + '-' + day + '-' + hour + '-00.png';
       return name;
     }
-    
+
     function preview() {
       let path = "";
       // let imageName = document.getElementById('imageName').value;
@@ -236,10 +257,12 @@
       checkImage(path);
     }
 
+    setParams()
     preview()
 
   </script>
 
-  
+
 </body>
+
 </html>

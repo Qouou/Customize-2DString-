@@ -128,8 +128,16 @@
             <li id="TPText"></li>
             <li id="RHText"></li>
           </ul>
-          <button class="btn btn-primary" id="qbeBtn">QBE</button>
-          
+          <button class="btn btn-primary" id="qbeBtn" onclick="openQBE()">
+            <div class="row">
+              <img src="/static/lense.svg" class="searchIcon">QBE
+            </div>
+          </button>
+          <button class="btn btn-primary" id="maskBtn" onclick="openMask()">
+            <div class="row">
+              <img src="/static/lense.svg" class="searchIcon">Mask
+            </div>
+          </button>
         </div>
       </div>
       <div class="col-1"></div>
@@ -176,6 +184,7 @@
     // changeDays(): set days for each month
     // option: start/end
     function changeDays(option) {
+      console.log();
       // monthData: how many days in each month
       let monthData = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
       let year = 2018;
@@ -443,6 +452,50 @@
     }
 
     selectQuery();
+
+    function findMaskParams(date) {
+      day = new Date(date);
+
+      yesterday = new Date(date);
+      yesterday.setDate(yesterday.getDate() - 1);
+
+      tomorrow = new Date(date);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+
+      let year = day.getFullYear();
+      let startMonth = yesterday.getMonth() + 1;
+      let startDay = yesterday.getDate();
+      let startHour = 0;
+      let endMonth = tomorrow.getMonth() + 1;
+      let endDay = tomorrow.getDate();
+      let endHour = 23;
+
+      return "year=" + year + "&startMonth=" + startMonth + "&startDay=" +
+        startDay + "&startHour=" + startHour +
+        "&endMonth=" + endMonth + "&endDay=" + endDay + "&endHour=" + endHour;
+    }
+
+    function findQBEParams(date, hour) {
+      let year = parseInt(date.split("-")[0]);
+      let month = parseInt(date.split("-")[1]);
+      let day = parseInt(date.split("-")[2]);
+
+      return "year=" + year + "&month=" + month + "&day=" + day + "&hour=" + hour;
+    }
+    
+    function openMask(){
+      let stamp = document.getElementById('timeText').innerText;
+      let maskUrl = "https://pyyin-mask.im.ncnu.edu.tw/mask.html"
+      let params = findMaskParams(stamp.split(' ')[0])
+      window.open(maskUrl + "?" + params, "_blank");
+    }
+
+    function openQBE(){
+      let stamp = document.getElementById('timeText').innerText;
+      let maskUrl = "https://pyyin-2dstring.im.ncnu.edu.tw/qbe/"
+      let params = findQBEParams(stamp.split(' ')[0], parseInt(stamp.split(' ')[1].replace("H", "")))
+      window.open(maskUrl + "?" + params, "_blank");
+    }
   </script>
 
 </body>
