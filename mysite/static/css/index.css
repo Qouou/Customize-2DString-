@@ -13,11 +13,6 @@ html {
   padding: 0%;
 }
 
-.dest_copy {
-  margin: 0em;
-  padding: 1em;
-  text-align: center;
-}
 
 #Clear, #A, #B, #C, #D, #E, #F, #G, #H, #I, #J {
   color: black;
@@ -33,17 +28,20 @@ html {
 
 .dest_copy {
   /* border: 3px dashed blue; */
-  border: 2px dashed rgb(210, 191, 185);
+  margin: 0em;
+  padding: 1em;
+  text-align: center;
+  border: 2px dashed rgb(71, 120, 183);
   width: 10ch;
   height: 8ch;
   text-align: center;
-  color: rgb(210, 191, 185);
+  color: rgb(1, 54, 122);
 }
 
 .dest_copy:hover {
   cursor: pointer;
   /* border: 4px dashed rgba(128, 128, 128, 0.5); */
-  border: 2px dashed rgba(28, 0, 162, 0.5);
+  border: 3px dashed #2c00ff;
   color: #2c00ff;
 }
 
@@ -65,6 +63,10 @@ html {
 .A, .B, .C, .D, .E, .F, .G, .H, .I, .J {
   border: 2px dashed rgba(28, 0, 162, 0.5);
   color: #2c00ff;
+}
+
+.A:hover, .B:hover, .C:hover, .D:hover, .E:hover, .F:hover, .G:hover, .H:hover, .I:hover, .J:hover{
+  opacity: 0.4;
 }
 
 .A {

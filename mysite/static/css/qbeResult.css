@@ -57,21 +57,20 @@ button a {
 } 
 
 #pageBar {
-  /* margin: auto; */
-  /* background-color: brown; */
   padding-top: 1em;
   padding-bottom: 1em;
   margin-top: 2em;
   margin-left: 1em;
   margin-right: 1em;
   margin-bottom: 3em;
+  width: 100%;
 }
 
 .page-item {
   /* color: black; */
   color: gray;
   border-radius: 2px;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 

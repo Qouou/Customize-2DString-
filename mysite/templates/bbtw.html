@@ -95,6 +95,12 @@
           </div>
           <div class="col-sm-3"></div>
         </div>
+        <div class="form-group row" id="contrastDiv">
+          <div class="col-sm-12">
+            <input type="checkbox" name="contrast" id="contrast" onchange="loadContrast()">
+            <label for="contrast"> Contrast Enhancement </label>
+          </div>
+        </div>
         <input type="button" class="btn btn-primary" id="submitBtn" onclick="submitData()" value="SEARCH">
         <div style="padding: 0;">
           <span style="display: none;" id="resultCount"></span>
@@ -282,8 +288,12 @@
       modal.style.display = "block";
 
       // get the image and insert it
-      var img = document.getElementById(getImageName(index));
+      console.log(index);
+      // var img = document.getElementById(getImageName(index));
+      var img = document.getElementById(index);
+      console.log(img);
       var modalImg = document.getElementById("img01");
+      console.log(modalImg);
       modalImg.src = img.src;
 
       // get the information about the image and insert it
@@ -346,7 +356,12 @@
       if ("{{ dataset }}" == "level") {
         return "/static/sis/" + image_data[index];
       } else {
-        return "/static/sis_origin/" + image_data[index];
+        // return "/static/sis_origin/" + image_data[index];
+        if (document.getElementById('contrast').checked) {
+          return "/static/sis_origin_contrast/" + image_data[index];
+        } else {
+          return "/static/sis_origin/" + image_data[index];
+        }
       }
     }
     function getWD(index) {
@@ -400,6 +415,15 @@
         }
       }
     }
+
+    // loadContrast(): change pictures between origin and origin_contrast
+    function loadContrast() {
+      let sisList = document.getElementsByClassName('sis');
+      for (let i = 0; i < sisList.length; i++) {
+        let sisID = sisList[i].id;
+        document.getElementById(sisID).src = getImageName(sisID);
+      }
+    }
   </script>
   <script>
     // set the value in select boxes
@@ -420,6 +444,15 @@
     function selectDataset() {
       document.getElementById("{{ dataset }}").checked = true;
     }
+
+    // set contrastDiv
+    function setContrast() {
+      console.log("{{ dataset }}");
+      if ("{{ dataset }}" == "original") {
+        document.getElementById('contrastDiv').style.display = "block";
+      }
+    }
+
     function selectQuery() {
       // if there are search result, set the value of form element to query
       if ("{{startMonth}}" != "" || date_data[0] != "") {
@@ -427,6 +460,7 @@
         selectDataset();
         showCount();
         showCards();
+        setContrast();
         // showPicture();
       }
     }
@@ -453,7 +487,7 @@
         // console.log("Xst:", Xst);
         let imageName = getImageName(index);
         elements[index].innerHTML += `
-        <img src="${imageName}" id="${imageName}" alt="${getDate(Xst) + " " + getHour(Xst) + "H"}" onclick="showModal(${Xst})">
+        <img src="${imageName}" id="${Xst}" class="sis" alt="${getDate(Xst) + " " + getHour(Xst) + "H"}" onclick="showModal(${Xst})">
         <p>${getDate(Xst)} ${getHour(Xst)}H</p>  
         <p>${getWD(Xst)}/${getWS(Xst)}/${getPS(Xst)}/<br>
           ${getTP(Xst)}/${getRH(Xst)}</p>
@@ -461,7 +495,7 @@
         num = num + 1;
       }
       $("li").addClass("page-item");
-      $("li").addClass("page-link");
+      $("li").addClass("my-page-link");
       count += 1;
     }
 
@@ -493,8 +527,14 @@
       let year = parseInt(date.split("-")[0]);
       let month = parseInt(date.split("-")[1]);
       let day = parseInt(date.split("-")[2]);
+      let dataset = "";
+      if (document.querySelector('input[name="dataset"]:checked').value == "level") {
+        dataset = "level";
+      } else {
+        dataset = "original";
+      }
 
-      return "year=" + year + "&month=" + month + "&day=" + day + "&hour=" + hour;
+      return "year=" + year + "&month=" + month + "&day=" + day + "&hour=" + hour + "&dataset=" + dataset + "&submit=1";
     }
 
     function openMask() {
@@ -539,7 +579,7 @@
       }
     });
     $("li").addClass("page-item");
-    $("li").addClass("page-link");
+    $("li").addClass("my-page-link");
     showPicture(1);
   </script>
 

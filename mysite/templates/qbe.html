@@ -175,29 +175,10 @@
     <input type="submit" class="btn btn-primary" id="submitBtn" onclick="submitData()" value="SEARCH">
   </div>
   <script>
-    function setParams() {
-      const urlSearchParams = new URLSearchParams(window.location.search);
-      const params = Object.fromEntries(urlSearchParams.entries());
-      if (params.year != null) {
-        document.getElementById("year").value = params.year;
-      }
-      if (params.month != null) {
-        document.getElementById("month").value = params.month;
-      }
-      if (params.day != null) {
-        document.getElementById("day").value = params.day;
-      }
-      if (params.hour != null) {
-        document.getElementById("hour").value = params.hour;
-      }
-    }
-
-
 
     function submitData() {
       document.getElementById('myForm').submit();
     }
-
 
     function checkImage(imageSrc) {
       let img = new Image();
@@ -205,6 +186,7 @@
         // console.log("good");
         document.getElementById('imageBox').classList.remove('empty');
         document.getElementById('image').src = imageSrc;
+        console.log(imageSrc);
       };
       img.onerror = () => {
         // console.log("bad");
@@ -257,8 +239,54 @@
       checkImage(path);
     }
 
-    setParams()
-    preview()
+    setParams();
+
+    function promise() {
+      return new Promise((resolve, reject) => {
+        try {
+          const urlSearchParams = new URLSearchParams(window.location.search);
+          const params = Object.fromEntries(urlSearchParams.entries());
+          if (params.year != null) {
+            document.getElementById("year").value = params.year;
+          }
+          if (params.month != null) {
+            document.getElementById("month").value = params.month;
+          }
+          if (params.day != null) {
+            document.getElementById("day").value = params.day;
+          }
+          if (params.hour != null) {
+            document.getElementById("hour").value = params.hour;
+          }
+          if (params.dataset == "level") {
+            document.getElementsByName('dataset')[0].checked = true;
+          } else {
+            document.getElementsByName('dataset')[1].checked = true;
+          }
+          resolve('成功');
+        } catch (error) {
+          reject('失敗');
+        }
+      });
+    }
+
+    function setParams() {
+      const urlSearchParams = new URLSearchParams(window.location.search);
+      const params = Object.fromEntries(urlSearchParams.entries());
+      promise()
+        .then(() => {
+          preview()
+          if (params.submit == "1") {
+            setTimeout(() => {
+              document.getElementById('myForm').submit();
+            }, 500)
+          }
+          // console.log(success);
+        })
+        .catch(fail => {
+          console.log(fail);
+        });
+    }
 
   </script>
 

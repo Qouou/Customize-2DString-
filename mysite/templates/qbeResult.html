@@ -211,7 +211,6 @@
         `;
       }
     }
-
     // showPicture(): show information(image, decription and url) of results
     // currentPage: current page, from 1 to 5
     function showPicture(currentPage) {
@@ -264,7 +263,7 @@
         `;
       }
       $("li").addClass("page-item");
-      $("li").addClass("page-link");
+      $("li").addClass("my-page-link");
       count += 1;
     }
 
@@ -276,7 +275,7 @@
 
       let sisList = document.getElementsByClassName('sis');
       for (let i = 0; i < sisList.length; i++) {
-        let sisID = sisList[i].id
+        let sisID = sisList[i].id;
         document.getElementById(sisID).src = getFileName(sisID);
       }
     }

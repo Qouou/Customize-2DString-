@@ -3,6 +3,13 @@ body {
   scroll-behavior: smooth;
 }
 
+.row {
+  border:0px;
+  margin-right:0;
+  margin-left:0;
+  max-width:100%; 
+}
+
 nav {
   background-color: rgb(251, 139, 12);
   color: #f1f1f1;
@@ -47,6 +54,12 @@ nav {
   transition: 0.5s;
   padding-top: 2vh;
   padding-right: 0;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 .sidebar a {
@@ -56,24 +69,38 @@ nav {
   padding-right: 3vw;
   padding-top: 0.5em;
   text-decoration: none;
-  font-size: 1.5em;
+  font-size: 1.7em;
   color: #ffffff;
   display: block;
   transition: 0.2s;
 }
 
 .sidebar a:hover {
-  font-size: 1.7em;
-  -webkit-filter: drop-shadow(2px 2px 1px rgba(188, 105, 9, 0.885));
-  filter: drop-shadow(2px 2px rgba(188, 105, 9, 0.885));
+  /* font-size: 1.7em; */
+  text-shadow: 3px 2px 2px rgba(170, 93, 5, 0.885);
+  /* -webkit-filter: drop-shadow(2px 2px 1px rgba(188, 105, 9, 0.885)); */
+  /* filter: drop-shadow(2px 2px rgba(188, 105, 9, 0.885)); */
   transition: 0.2s;
 }
 
+.closebtn {
+  font-size: 3em;
+  margin-left: 0.5em;
+  padding-right: 3vw;
+  color: #ffffff;
+  display: block;
+  transition: 0.2s;
+  background: transparent;
+  border: 0px;
+  z-index: 3;
+}
+
+
 .closebtn:hover {
-  font-size: 4em;
+  font-size: 3.2em;
   -webkit-filter: drop-shadow(2px 2px 1px rgba(188, 105, 9, 0.885));
   filter: drop-shadow(2px 2px rgba(188, 105, 9, 0.885));
-  transition: 0.1s;
+  transition: 0.2s;
 }
 
 .sidebar .closebtn {

@@ -40,8 +40,16 @@ select {
   text-align: center;
 }
 
+#contrastDiv {
+  display: none;
+}
+
+.hideDiv {
+  display: none;
+}
+
 #submitBtn {
-  margin-top: 1em;
+  /* margin-top: 1em; */
   background-color: rgb(237, 128, 0);
 }
 
@@ -244,4 +252,22 @@ button a {
   color: gray;
   border-radius: 2px;
   cursor: pointer;
+}
+
+.my-page-link {
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+}
+
+.my-page-link a:hover {
+  color: rgb(255, 136, 0);
+  text-decoration: underline;
+}
+
+.active {
+  color: rgb(255, 136, 0);
+  font-weight: bold;
 }

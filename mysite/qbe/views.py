@@ -35,6 +35,7 @@ def getQuery(request):
         print(command)
 
         tmp = os.popen(command).readlines()
+        # print("tmp:", tmp)
         result = []
         # print("result:", tmp)
         for i in range(len(tmp)):

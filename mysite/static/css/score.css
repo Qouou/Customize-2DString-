@@ -65,6 +65,7 @@ button a {
   margin-left: 1em;
   margin-right: 1em;
   margin-bottom: 3em;
+  width: 100%;
 }
 
 .page-item {
@@ -74,3 +75,20 @@ button a {
   cursor: pointer;
 }
 
+.my-page-link {
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+}
+
+.my-page-link a:hover {
+  color: rgb(255, 136, 0);
+  text-decoration: underline;
+}
+
+.active {
+  color: rgb(255, 136, 0);
+  font-weight: bold;
+}
