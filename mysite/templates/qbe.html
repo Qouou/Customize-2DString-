@@ -39,21 +39,7 @@
           <div class="col-sm-2"></div>
           <label class="col-sm-3 label">Month</label>
           <div class="col-sm-7">
-            <!-- <input type="text" class="form-control" id="imageName" value=""
-            placeholder="2018-1-1-00-00.png" onchange="preview()"> -->
             <select class="form-control" name="month" id="month" onchange="preview()">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
             </select>
           </div>
           <div class="col-sm-1"></div>
@@ -62,40 +48,7 @@
           <div class="col-sm-2"></div>
           <label class="col-sm-3 label">Day</label>
           <div class="col-sm-7">
-            <!-- <input type="text" class="form-control" id="imageName" value=""
-            placeholder="2018-1-1-00-00.png" onchange="preview()"> -->
             <select class="form-control" name="day" id="day" onchange="preview()">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-              <option value="13">13</option>
-              <option value="14">14</option>
-              <option value="15">15</option>
-              <option value="16">16</option>
-              <option value="17">17</option>
-              <option value="18">18</option>
-              <option value="19">19</option>
-              <option value="20">20</option>
-              <option value="21">21</option>
-              <option value="22">22</option>
-              <option value="23">23</option>
-              <option value="24">24</option>
-              <option value="25">25</option>
-              <option value="26">26</option>
-              <option value="27">27</option>
-              <option value="28">28</option>
-              <option value="29">29</option>
-              <option value="30">30</option>
-              <option value="31">31</option>
             </select>
           </div>
           <div class="col-sm-1"></div>
@@ -104,33 +57,8 @@
           <div class="col-sm-2"></div>
           <label class="col-sm-3 label">Hour</label>
           <div class="col-sm-7">
-            <!-- <input type="text" class="form-control" id="imageName" value=""
-            placeholder="2018-1-1-00-00.png" onchange="preview()"> -->
             <select class="form-control" name="hour" id="hour" onchange="preview()">
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-              <option value="13">13</option>
-              <option value="14">14</option>
-              <option value="15">15</option>
-              <option value="16">16</option>
-              <option value="17">17</option>
-              <option value="18">18</option>
-              <option value="19">19</option>
-              <option value="20">20</option>
-              <option value="21">21</option>
-              <option value="22">22</option>
-              <option value="23">23</option>
+
             </select>
           </div>
           <div class="col-sm-1"></div>
@@ -175,6 +103,35 @@
     <input type="submit" class="btn btn-primary" id="submitBtn" onclick="submitData()" value="SEARCH">
   </div>
   <script>
+    // check if a year is leap year
+    function isLeap(y) {
+      if ((y % 4 == 0 && y % 100 != 100) || (y % 100 == 0 && y % 400 == 0)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    // printOption(): print option in selection box
+    function printOption() {
+      let year = 0;
+      // month
+      let monthSelect = document.getElementById('month');
+      for (let i = 0; i < 12; i++) {
+        monthSelect.innerHTML += `<option value="${i + 1}">${i + 1}</option>`;
+      }
+      // day
+      let daySelect = document.getElementById('day');
+      for (let i = 0; i < isLeap(year); i++) {
+        daySelect.innerHTML += `<option value="${i + 1}">${i + 1}</option>`;
+      }
+      // hour
+      let hourSelect = document.getElementById('hour');
+      for (let i = 0; i < 24; i++) {
+        hourSelect.innerHTML += `<option value="${i}">${i}</option>`;
+      }
+    }
+    printOption();
 
     function submitData() {
       document.getElementById('myForm').submit();
@@ -258,10 +215,12 @@
           if (params.hour != null) {
             document.getElementById("hour").value = params.hour;
           }
-          if (params.dataset == "level") {
-            document.getElementsByName('dataset')[0].checked = true;
-          } else {
+          if (params.dataset == "origin") {
+            console.log(1);
             document.getElementsByName('dataset')[1].checked = true;
+          } else {
+            console.log(0);
+            document.getElementsByName('dataset')[0].checked = true;
           }
           resolve('成功');
         } catch (error) {

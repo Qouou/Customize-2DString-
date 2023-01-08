@@ -119,10 +119,12 @@
   <!-- The Modal -->
   <div id="myModal" class="modal">
     <span class="close" onclick="closeModal()">&times;</span>
-    <div class="row">
+    <div class="row" id="modalContent">
       <!-- <div class="col-1"></div> -->
-      <div class="col-7">
-        <img class="modal-content" id="img01">
+      <div class="col-7" id="modalImgDiv">
+        <span class="helper">
+          <img class="modalImg" id="img01">
+        </span>
         <!-- <div id="caption"></div> -->
       </div>
       <div class="col-4">
@@ -285,7 +287,7 @@
       // get the modal
       var modal = document.getElementById("myModal");
       // show the modal
-      modal.style.display = "block";
+      modal.style.display = "flex";
 
       // get the image and insert it
       console.log(index);

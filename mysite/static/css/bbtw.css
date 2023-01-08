@@ -129,11 +129,11 @@ img {
 }
 
 /* The Modal (background) */
-.modal {
+#myModal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 3; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  /* padding-top: 100px; Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -141,14 +141,25 @@ img {
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+}
+
+#modalContent {
+  width: 100vw;
 }
 
 /* Modal Content (image) */
-.modal-content {
+.modalImg {
   margin: auto;
   display: block;
   width: 80%;
   max-width: 700px;
+}
+
+#modalImgDiv {
+  text-align: right;
 }
 
 /* Caption of Modal Image */
@@ -166,7 +177,7 @@ img {
 
 
 /* Add Animation */
-.modal-content, #caption {  
+.modalImg, #information {  
   -webkit-animation-name: zoom;
   -webkit-animation-duration: 0.6s;
   animation-name: zoom;
@@ -195,6 +206,16 @@ img {
   }
 }
 
+.helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+#myModal img {
+  vertical-align: middle;
+}
+
 
 #information {
   /* background-color: aqua; */
@@ -204,7 +225,7 @@ img {
   line-height: 1.5em;
   float:left; 
   position:absolute; 
-  bottom:15vh;
+  /* bottom:15vh; */
 }
 
 
@@ -216,10 +237,10 @@ img {
 #qbeBtn, #maskBtn {
   background-color: rgb(237, 128, 0);
   width: max-content;
-  padding: 0.3em 1.1em;
-  font-size: 1em;
-  margin-top: 2em;
-  margin-left: 1vw;
+  /* padding: 0.3em 1.1em; */
+  /* font-size: 1em; */
+  margin-top: 0.5em;
+  margin-left: 2em;
 }
 
 .searchIcon {
