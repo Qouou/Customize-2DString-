@@ -31,7 +31,8 @@ def turnScore(data) :
     maxScore = max(data)
     standard = maxScore - minScore
     for i in range(len(data)) :
-        data[i] = 1 - ((data[i] - minScore) / standard)
+        tmp = 1 - ((data[i] - minScore) / standard)
+        data[i] = format(tmp, '.6f')
     # print(data)
     return data
 

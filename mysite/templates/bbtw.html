@@ -16,145 +16,147 @@
 </head>
 
 <body>
-  {% include 'navbar.html' %}
-  <!--search-->
-  <div class="row">
-    <div id="searchBox">
-      <h4 id="bbtw">
-        BBTW（Browse-by-Time-Window）
-      </h4>
-      <h5 id="description">
-        Select a time duration which you want to browse frames!
-      </h5>
+  <div id="container">
+    {% include 'navbar.html' %}
+    <!--search-->
+    <div class="row">
+      <div id="searchBox">
+        <h4 id="bbtw">
+          BBTW（Browse-by-Time-Window）
+        </h4>
+        <h5 id="description">
+          Select a time duration which you want to browse frames!
+        </h5>
 
-      <form id="myForm" action="getQuery" method="POST">{% csrf_token %}
-        <div class="form-group row">
-          <div class="col-sm-2"></div>
-          <label class="col-sm-2 col-form-label">Year:</label>
-          <div class="col-sm-5">
-            <!--year-->
-            <select class="form-control" name="year" id="exampleFormControlSelect1">
-              <option value="2018" selected>2018</option>
-            </select>
+        <form id="myForm" action="getQuery" method="POST">{% csrf_token %}
+          <div class="form-group row">
+            <div class="col-sm-2"></div>
+            <label class="col-sm-2 col-form-label">Year:</label>
+            <div class="col-sm-5">
+              <!--year-->
+              <select class="form-control" name="year" id="exampleFormControlSelect1">
+                <option value="2018" selected>2018</option>
+              </select>
+            </div>
+            <label class="col-sm-1 col-form-label">year</label>
+            <div class="col-sm-2"></div>
           </div>
-          <label class="col-sm-1 col-form-label">year</label>
-          <div class="col-sm-2"></div>
-        </div>
-        <div class="form-group row">
-          <div class="col-sm-1"></div>
-          <label class="col-sm-2 col-form-label">Start Date:</label>
-          <div class="col-sm-2">
-            <!--startMonth-->
-            <select class="form-control month" name="startMonth" id="startMonth"
-              onchange="changeDays('start');detectMonth()"></select>
+          <div class="form-group row">
+            <div class="col-sm-1"></div>
+            <label class="col-sm-2 col-form-label">Start Date:</label>
+            <div class="col-sm-2">
+              <!--startMonth-->
+              <select class="form-control month" name="startMonth" id="startMonth"
+                onchange="changeDays('start');detectMonth()"></select>
+            </div>
+            <label class="col-form-label">month</label>
+            <div class="col-sm-2">
+              <!--startDay-->
+              <select class="form-control day" name="startDay" id="startDay"></select>
+            </div>
+            <label class="col-form-label">day</label>
+            <div class="col-sm-2">
+              <!--startHour-->
+              <select class="form-control hour" name="startHour" id="startHour"></select>
+            </div>
+            <label class="col-form-label">hour</label>
+            <div class="col-sm-1"></div>
           </div>
-          <label class="col-form-label">month</label>
-          <div class="col-sm-2">
-            <!--startDay-->
-            <select class="form-control day" name="startDay" id="startDay"></select>
+          <div class="form-group row">
+            <div class="col-sm-1"></div>
+            <label class="col-sm-2 col-form-label">End Date:</label>
+            <div class="col-sm-2">
+              <!--endMonth-->
+              <select class="form-control month" name="endMonth" id="endMonth" onchange="changeDays('end')"></select>
+            </div>
+            <label class="col-form-label">month</label>
+            <div class="col-sm-2">
+              <!--endDay-->
+              <select class="form-control day" name="endDay" id="endDay"></select>
+            </div>
+            <label class="col-form-label">day</label>
+            <div class="col-sm-2">
+              <!--endHour-->
+              <select class="form-control hour" name="endHour" id="endHour"></select>
+            </div>
+            <label class="col-form-label">hour</label>
+            <div class="col-sm-1"></div>
           </div>
-          <label class="col-form-label">day</label>
-          <div class="col-sm-2">
-            <!--startHour-->
-            <select class="form-control hour" name="startHour" id="startHour"></select>
+          <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+              Dataset:
+            </div>
+            <div class="col-sm-6">
+              <input type="radio" name="dataset" id="level" value="level" checked>
+              <label for="level"> level </label>
+              <span style="margin-left: 1em;margin-right: 1em;"> </span>
+              <input type="radio" name="dataset" id="original" value="original">
+              <label for="original"> original </label>
+            </div>
+            <div class="col-sm-3"></div>
           </div>
-          <label class="col-form-label">hour</label>
-          <div class="col-sm-1"></div>
-        </div>
-        <div class="form-group row">
-          <div class="col-sm-1"></div>
-          <label class="col-sm-2 col-form-label">End Date:</label>
-          <div class="col-sm-2">
-            <!--endMonth-->
-            <select class="form-control month" name="endMonth" id="endMonth" onchange="changeDays('end')"></select>
+          <div class="form-group row" id="contrastDiv">
+            <div class="col-sm-12">
+              <input type="checkbox" name="contrast" id="contrast" onchange="loadContrast()">
+              <label for="contrast"> Contrast Enhancement </label>
+            </div>
           </div>
-          <label class="col-form-label">month</label>
-          <div class="col-sm-2">
-            <!--endDay-->
-            <select class="form-control day" name="endDay" id="endDay"></select>
+          <input type="button" class="btn btn-primary" id="submitBtn" onclick="submitData()" value="SEARCH">
+          <div style="padding: 0;">
+            <span style="display: none;" id="resultCount"></span>
           </div>
-          <label class="col-form-label">day</label>
-          <div class="col-sm-2">
-            <!--endHour-->
-            <select class="form-control hour" name="endHour" id="endHour"></select>
-          </div>
-          <label class="col-form-label">hour</label>
-          <div class="col-sm-1"></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-2">
-            Dataset:
-          </div>
-          <div class="col-sm-6">
-            <input type="radio" name="dataset" id="level" value="level" checked>
-            <label for="level"> level </label>
-            <span style="margin-left: 1em;margin-right: 1em;"> </span>
-            <input type="radio" name="dataset" id="original" value="original">
-            <label for="original"> original </label>
-          </div>
-          <div class="col-sm-3"></div>
-        </div>
-        <div class="form-group row" id="contrastDiv">
-          <div class="col-sm-12">
-            <input type="checkbox" name="contrast" id="contrast" onchange="loadContrast()">
-            <label for="contrast"> Contrast Enhancement </label>
-          </div>
-        </div>
-        <input type="button" class="btn btn-primary" id="submitBtn" onclick="submitData()" value="SEARCH">
-        <div style="padding: 0;">
-          <span style="display: none;" id="resultCount"></span>
-        </div>
-      </form>
-    </div>
-  </div>
-  <!--result-->
-  <div class="row mt-3" id="matchPic"></div>
-  <div class="row" id="pageBar">
-    <ul class="pagination justify-content-center" id="page" style="margin: auto;">
-    </ul>
-    <div class="show"></div>
-  </div>
-
-  <!-- The Modal -->
-  <div id="myModal" class="modal">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <div class="row" id="modalContent">
-      <!-- <div class="col-1"></div> -->
-      <div class="col-7" id="modalImgDiv">
-        <span class="helper">
-          <img class="modalImg" id="img01">
-        </span>
-        <!-- <div id="caption"></div> -->
+        </form>
       </div>
-      <div class="col-4">
-        <div id="information">
-          <h2 id="timeText"></h2>
-          <ul>
-            <!-- <li id="WDText"></li>
+    </div>
+    <!--result-->
+    <div class="row mt-3" id="matchPic"></div>
+    <div class="row" id="pageBar">
+      <ul class="pagination justify-content-center" id="page" style="margin: auto;">
+      </ul>
+      <div class="show"></div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div class="row" id="modalContent">
+        <!-- <div class="col-1"></div> -->
+        <div class="col-7" id="modalImgDiv">
+          <span class="helper">
+            <img class="modalImg" id="img01">
+          </span>
+          <!-- <div id="caption"></div> -->
+        </div>
+        <div class="col-4">
+          <div id="information">
+            <h2 id="timeText"></h2>
+            <ul>
+              <!-- <li id="WDText"></li>
             <li id="WSText"></li>
             <li id="PSText"></li>
             <li id="TPText"></li>
             <li id="RHText"></li> -->
-            <h5 id="WDText"></h5>
-            <h5 id="WSText"></h5>
-            <h5 id="PSText"></h5>
-            <h5 id="TPText"></h5>
-            <h5 id="RHText"></h5>
-          </ul>
-          <button class="btn btn-primary" id="qbeBtn" onclick="openQBE()">
-            <div class="row">
-              <img src="/static/lense.svg" class="searchIcon">QBE
-            </div>
-          </button>
-          <button class="btn btn-primary" id="maskBtn" onclick="openMask()">
-            <div class="row">
-              <img src="/static/lense.svg" class="searchIcon">Mask
-            </div>
-          </button>
+              <h5 id="WDText"></h5>
+              <h5 id="WSText"></h5>
+              <h5 id="PSText"></h5>
+              <h5 id="TPText"></h5>
+              <h5 id="RHText"></h5>
+            </ul>
+            <button class="btn btn-primary" id="qbeBtn" onclick="openQBE()">
+              <div class="row">
+                <img src="/static/lense.svg" class="searchIcon">QBE
+              </div>
+            </button>
+            <button class="btn btn-primary" id="maskBtn" onclick="openMask()">
+              <div class="row">
+                <img src="/static/lense.svg" class="searchIcon">Mask
+              </div>
+            </button>
+          </div>
         </div>
+        <div class="col-1"></div>
       </div>
-      <div class="col-1"></div>
     </div>
   </div>
   <script type="text/javascript" src="/static/js/pagination.js"></script>

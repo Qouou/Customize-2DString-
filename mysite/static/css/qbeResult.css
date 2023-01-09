@@ -2,18 +2,22 @@ html {
   scroll-behavior: smooth;
 }
 
-#container {
-  margin: 7vh 5vw;
+.container {
+  margin-top: 0;
+  margin-bottom: 0;  
+  padding-top: 6vh;
+  padding-bottom: 6vh;
 }
 
 .containerPic {
   text-align: center;
-  width: 95%;
+  /* width: 95%; */
   margin: 0px auto;
 }
 .containerPage{
   margin: 100px auto;
 }
+
 .card {
   /* 定位點 */
   position: relative;
@@ -49,7 +53,6 @@ img {
 .info:hover {
   -webkit-transition: 500ms;
   opacity: 1;
-  /* background-color: blueviolet; */
 }
 
 button a {
@@ -57,6 +60,8 @@ button a {
 } 
 
 #pageBar {
+  /* margin: auto; */
+  /* background-color: brown; */
   padding-top: 1em;
   padding-bottom: 1em;
   margin-top: 2em;
@@ -70,14 +75,23 @@ button a {
   /* color: black; */
   color: gray;
   border-radius: 2px;
-  /* cursor: pointer; */
+  cursor: pointer;
 }
 
-
-#method {
-  color: gray;
+.my-page-link {
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1.25;
 }
 
-#contrastDiv {
-  margin-top: 1em;
+.my-page-link a:hover {
+  color: rgb(255, 136, 0);
+  text-decoration: underline;
+}
+
+.active {
+  color: rgb(255, 136, 0);
+  font-weight: bold;
 }

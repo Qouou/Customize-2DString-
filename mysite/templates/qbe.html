@@ -17,90 +17,88 @@
 
 <body>
   {% include 'navbar.html' %}
-  <h4 id="qbe">QBE(Query-by-Frame)</h4>
-  <div class="row" id="contant">
-    <!--searchBox-->
-    <div class="col-6" id="searchBox">
-      <form id="myForm" novalidate action="getQuery" method="POST">{% csrf_token %}
-        <!-- <p style="color: rgb(102, 102, 102); font-size: 0.7em; text-align: center;">分成10等級的方法是 HD_A，不分的方法是 rasterScan_D</p> -->
-        <div class="form-group row">
-          <div class="col-sm-2"></div>
-          <label class="col-sm-3 label">Year</label>
-          <div class="col-sm-7">
-            <!-- <input type="text" class="form-control" id="imageName" value=""
-            placeholder="2018-1-1-00-00.png" onchange="preview()"> -->
-            <select class="form-control" name="year" id="year" onchange="preview()">
-              <option value="2018">2018</option>
-            </select>
+  <div id="container">
+    <h4 id="qbe">QBE(Query-by-Frame)</h4>
+    <div class="row" id="content">
+      <!--searchBox-->
+      <div class="col-6" id="searchBox">
+        <form id="myForm" novalidate action="getQuery" method="POST">{% csrf_token %}
+          <div class="form-group row">
+            <div class="col-sm-2"></div>
+            <label class="col-sm-3 label">Year</label>
+            <div class="col-sm-7">
+              <select class="form-control" name="year" id="year" onchange="preview()">
+                <option value="2018">2018</option>
+              </select>
+            </div>
+            <div class="col-sm-1"></div>
           </div>
-          <div class="col-sm-1"></div>
-        </div>
-        <div class="form-group row">
-          <div class="col-sm-2"></div>
-          <label class="col-sm-3 label">Month</label>
-          <div class="col-sm-7">
-            <select class="form-control" name="month" id="month" onchange="preview()">
-            </select>
+          <div class="form-group row">
+            <div class="col-sm-2"></div>
+            <label class="col-sm-3 label">Month</label>
+            <div class="col-sm-7">
+              <select class="form-control" name="month" id="month" onchange="preview(); changeDate()">
+              </select>
+            </div>
+            <div class="col-sm-1"></div>
           </div>
-          <div class="col-sm-1"></div>
-        </div>
-        <div class="form-group row">
-          <div class="col-sm-2"></div>
-          <label class="col-sm-3 label">Day</label>
-          <div class="col-sm-7">
-            <select class="form-control" name="day" id="day" onchange="preview()">
-            </select>
+          <div class="form-group row">
+            <div class="col-sm-2"></div>
+            <label class="col-sm-3 label">Day</label>
+            <div class="col-sm-7">
+              <select class="form-control" name="day" id="day" onchange="preview()">
+              </select>
+            </div>
+            <div class="col-sm-1"></div>
           </div>
+          <div class="form-group row">
+            <div class="col-sm-2"></div>
+            <label class="col-sm-3 label">Hour</label>
+            <div class="col-sm-7">
+              <select class="form-control" name="hour" id="hour" onchange="preview()">
+              </select>
+            </div>
+            <div class="col-sm-1"></div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-2"></div>
+            <label class="col-sm-3 label">Dataset</label>
+            <div class="col-sm-7">
+              <input type="radio" name="dataset" id="level" value="level" checked onchange="preview()">
+              <label for="level"> level </label>
+              <span style="margin-left: 1em;margin-right: 1em;"> </span>
+              <input type="radio" name="dataset" id="original" value="original" onchange="preview()">
+              <label for="original"> original </label>
+            </div>
+            <div class="col-sm-1"></div>
+          </div>
+          <div class="form-group row" id="contrastDiv">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-3 label">
+              <input type="checkbox" name="contrast" id="contrast" onchange="loadContrast()">
+            </div>
+            <div class="col-sm-7">
+              <label for="contrast"> Contrast Enhancement </label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!--imageBox-->
+      <div class="col-6">
+        <div class="row">
           <div class="col-sm-1"></div>
+          <div class="col-sm-8 empty" id="imageBox">
+            <img src="" alt="" id="image">
+          </div>
+          <div class="col-sm-3"></div>
         </div>
-        <div class="form-group row">
-          <div class="col-sm-2"></div>
-          <label class="col-sm-3 label">Hour</label>
-          <div class="col-sm-7">
-            <select class="form-control" name="hour" id="hour" onchange="preview()">
 
-            </select>
-          </div>
-          <div class="col-sm-1"></div>
-        </div>
-        <div class="form-group row">
-          <div class="col-sm-2"></div>
-          <label class="col-sm-3 label">Dataset</label>
-          <div class="col-sm-7">
-            <input type="radio" name="dataset" id="level" value="level" checked onchange="preview()">
-            <label for="level"> level </label>
-            <span style="margin-left: 1em;margin-right: 1em;"> </span>
-            <input type="radio" name="dataset" id="original" value="original" onchange="preview()">
-            <label for="original"> original </label>
-          </div>
-          <div class="col-sm-1"></div>
-        </div>
-        <div class="form-group row" id="contrastDiv">
-          <div class="col-sm-2"></div>
-          <div class="col-sm-3 label">
-            <input type="checkbox" name="contrast" id="contrast" onchange="loadContrast()">
-          </div>
-          <div class="col-sm-7">
-            <label for="contrast"> Contrast Enhancement </label>
-          </div>
-        </div>
-      </form>
-    </div>
-    <!--imageBox-->
-    <div class="col-6">
-      <div class="row">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-8 empty" id="imageBox">
-          <img src="" alt="" id="image">
-        </div>
-        <div class="col-sm-3"></div>
       </div>
 
     </div>
-
-  </div>
-  <div class="row">
-    <input type="submit" class="btn btn-primary" id="submitBtn" onclick="submitData()" value="SEARCH">
+    <div class="row">
+      <input type="submit" class="btn btn-primary" id="submitBtn" onclick="submitData()" value="SEARCH">
+    </div>
   </div>
   <script>
     // check if a year is leap year
@@ -109,6 +107,26 @@
         return true;
       } else {
         return false;
+      }
+    }
+
+    function getDays() {
+      let year = document.getElementById('year').value;
+      let monthData = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+      if (isLeap(year)) {
+        // there are 29 days in Febuary in leap year
+        monthData[1] = 29;
+      }
+      return monthData;
+
+    }
+
+    function changeDate() {
+      let monthData = getDays();
+      let month = document.getElementById('month').value;
+      let daySelect = document.getElementById('day');
+      for (let i = 0; i < monthData[month - 1]; i++) {
+        daySelect.innerHTML += `<option value="${i + 1}">${i + 1}</option>`;
       }
     }
 
@@ -122,7 +140,7 @@
       }
       // day
       let daySelect = document.getElementById('day');
-      for (let i = 0; i < isLeap(year); i++) {
+      for (let i = 0; i < 31; i++) {
         daySelect.innerHTML += `<option value="${i + 1}">${i + 1}</option>`;
       }
       // hour
@@ -131,7 +149,6 @@
         hourSelect.innerHTML += `<option value="${i}">${i}</option>`;
       }
     }
-    printOption();
 
     function submitData() {
       document.getElementById('myForm').submit();
@@ -143,12 +160,14 @@
         // console.log("good");
         document.getElementById('imageBox').classList.remove('empty');
         document.getElementById('image').src = imageSrc;
-        console.log(imageSrc);
+        document.getElementById('submitBtn').disabled = false;
+        // console.log(imageSrc);
       };
       img.onerror = () => {
         // console.log("bad");
         document.getElementById('imageBox').classList.add('empty');
-        document.getElementById('image').src = "/static/emptyImage.svg";
+        document.getElementById('image').src = "/static/noImage.png";
+        document.getElementById('submitBtn').disabled = true;
       };
       img.src = imageSrc;
     }
@@ -196,7 +215,6 @@
       checkImage(path);
     }
 
-    setParams();
 
     function promise() {
       return new Promise((resolve, reject) => {
@@ -216,10 +234,8 @@
             document.getElementById("hour").value = params.hour;
           }
           if (params.dataset == "origin") {
-            console.log(1);
             document.getElementsByName('dataset')[1].checked = true;
           } else {
-            console.log(0);
             document.getElementsByName('dataset')[0].checked = true;
           }
           resolve('成功');
@@ -246,6 +262,10 @@
           console.log(fail);
         });
     }
+
+    printOption();
+    setParams();
+
 
   </script>
 

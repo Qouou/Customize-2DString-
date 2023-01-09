@@ -16,109 +16,107 @@
 </head>
 
 <body>
-  {% include 'navbar.html' %}
-  <div class="row" id="titleDiv">
-    <div id="titleText">
-      <h1>Spatiotemporal Analysis System </h1>
-      <h2>for <span style="color:rgb(0, 124, 164)">PM2.5</span> Concentration and Dispersion Patterns</h2>
-      <table id="bookmarks">
-        <tr>
-          <td><a href="#subSystemDiv">Sub Systems</a></td>
-          <td><a href="#systemDiagramDiv">System Diagram</a></td>
-          <td><a href="#labMembersDiv">Lab Members</a></td>
-        </tr>
-      </table>
-
-    </div>
-  </div>
-
-  <div id="subSystemDiv" class="parts">
-    <h3>Sub Systems</h3>
-    <div class="row" class="boxes">
-      <div class="box"><a href="https://pyyin-gei.im.ncnu.edu.tw/shot">Shot<br>Detection</a></div>
-      <div class="box"><a href="https://pyyin-gei.im.ncnu.edu.tw/">Shot/GEI<br>Clustering Engine</a></div>
-      <div class="box"><a href="https://pyyin-2dstring.im.ncnu.edu.tw/bbtw/">Browse by<br>Time Window</a></div>
-      <div class="box"><a href="https://pyyin-gei.im.ncnu.edu.tw/bbc">Browse by<br>Cluster</a></div>
-    </div>
-    <div class="row" class="boxes">
-      <div class="box"><a href="https://pyyin-gei.im.ncnu.edu.tw/bbg">Browse by <br>GEI</a></div>
-      <div class="box"><a href="https://pyyin-2dstring.im.ncnu.edu.tw/weather/">Query by<br>Sketch</a></div>
-      <div class="box"><a href="https://pyyin-2dstring.im.ncnu.edu.tw/qbe/">Query by<br>Frame</a></div>
-      <div class="box"><a href="https://pyyin-2dstring.im.ncnu.edu.tw/qbg/">Query by<br>GEI</a></div>
-    </div>
-    <div class="row" class="boxes">
-      <div class="box"><a href="https://pyyin-mask.im.ncnu.edu.tw/mask.html">Feature Detection<br>Engine</a></div>
-      <div class="box"><a href="">Association and Regression</a></div>
-    </div>
-  </div>
-  <div id="systemDiagramDiv" class="parts">
-    <h3>System Diagram</h3>
-    <div id="diagram">
-      <img src="/static/diagram.png" /> <!-- from the media url -->
-    </div>
-  </div>
-  <div id="labMembersDiv" class="parts">
-    <h3>Lab Members</h3>
-    <div id="memberList">
-      <div class="row">
-        <div class="teacher">
-          <img src="/static/photo/PengYeng_Yin.jpg"  class="teacherPNG"/>
-          <br>
-          尹邦嚴教授<div class="mail">pyyin@mail.mcu.edu.tw</div>
-        </div>
-      </div>
-      <div class="row">
-        <table id="memberTable">
+  <div id="container">
+    {% include 'navbar.html' %}
+    <div class="row" id="titleDiv">
+      <div id="titleText">
+        <h1>Spatiotemporal Analysis System </h1>
+        <h2>for <span style="color:rgb(0, 124, 164)">PM2.5</span> Concentration and Dispersion Patterns</h2>
+        <table id="bookmarks">
           <tr>
-            <td>
-              <img src="/static/photo/student.png" class="studentPNG"/>
-            </td>
-            <td class="studentTD">
-                <div class="student left">陳秉鈞<br><span class="mail">abc@gmail.com</span></div>
-            </td>
-            <td class="studentTD">
-              <div class="student right">王珮如<br><span class="mail">pei.ruuu.wang@gmail.com</span></div>
-            </td>
-            <td>
-              <img src="/static/photo/student.png" class="studentPNG"/>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img src="/static/photo/student.png" class="studentPNG"/>
-            </td>
-            <td class="studentTD">
-                <div class="student left">郭子緯<br><span class="mail">ncnu@vincentintsh.tw</span></div>
-            </td>
-            <td class="studentTD">
-              <div class="student right">王婷誼<br><span class="mail">s108213027@mail1.ncnu.edu.tw</span></div>
-            </td>
-            <td>
-              <img src="/static/photo/student.png" class="studentPNG"/>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img src="/static/photo/student.png" class="studentPNG"/>
-            </td>
-            <td class="studentTD">
-                <div class="student left">鄭采禎<br><span class="mail">s108213029@mail1.ncnu.edu.tw</span></div>
-            </td>
-            <td class="studentTD">
-              <div class="student right">陳琪樺<br><span class="mail">s108213042@mail1.ncnu.edu.tw</span></div>
-            </td>
-            <td>
-              <img src="/static/photo/student.png" class="studentPNG"/>
-            </td>
+            <td><a href="#subSystemDiv">Sub Systems</a></td>
+            <td><a href="#systemDiagramDiv">System Diagram</a></td>
+            <td><a href="#labMembersDiv">Lab Members</a></td>
           </tr>
         </table>
+
       </div>
+    </div>
 
-
-
+    <div id="subSystemDiv" class="parts">
+      <h3>Sub Systems</h3>
+      <div class="row" class="boxes">
+        <div class="box"><a href="https://pyyin-gei.im.ncnu.edu.tw/shot">Shot<br>Detection</a></div>
+        <div class="box"><a href="https://pyyin-gei.im.ncnu.edu.tw/">Shot/GEI<br>Clustering Engine</a></div>
+        <div class="box"><a href="https://pyyin-2dstring.im.ncnu.edu.tw/bbtw/">Browse by<br>Time Window</a></div>
+        <div class="box"><a href="https://pyyin-gei.im.ncnu.edu.tw/bbc">Browse by<br>Cluster</a></div>
+      </div>
+      <div class="row" class="boxes">
+        <div class="box"><a href="https://pyyin-gei.im.ncnu.edu.tw/bbg">Browse by <br>GEI</a></div>
+        <div class="box"><a href="https://pyyin-2dstring.im.ncnu.edu.tw/weather/">Query by<br>Sketch</a></div>
+        <div class="box"><a href="https://pyyin-2dstring.im.ncnu.edu.tw/qbe/">Query by<br>Frame</a></div>
+        <div class="box"><a href="https://pyyin-2dstring.im.ncnu.edu.tw/qbg/">Query by<br>GEI</a></div>
+      </div>
+      <div class="row" class="boxes">
+        <div class="box"><a href="https://pyyin-mask.im.ncnu.edu.tw/mask.html">Feature Detection<br>Engine</a></div>
+        <div class="box"><a href="">Association and Regression</a></div>
+      </div>
+    </div>
+    <div id="systemDiagramDiv" class="parts">
+      <h3>System Diagram</h3>
+      <div id="diagram">
+        <img src="/static/diagram.png" /> <!-- from the media url -->
+      </div>
+    </div>
+    <div id="labMembersDiv" class="parts">
+      <h3>Lab Members</h3>
+      <div id="memberList">
+        <div class="row">
+          <div class="teacher">
+            <img src="/static/photo/PengYeng_Yin.jpg" class="teacherPNG" />
+            <br>
+            尹邦嚴教授<div class="mail">pyyin@mail.mcu.edu.tw</div>
+          </div>
+        </div>
+        <div class="row">
+          <table id="memberTable">
+            <tr>
+              <td>
+                <img src="/static/photo/student.png" class="studentPNG" />
+              </td>
+              <td class="studentTD">
+                <div class="student left">陳秉鈞<br><span class="mail">abc@gmail.com</span></div>
+              </td>
+              <td class="studentTD">
+                <div class="student right">王珮如<br><span class="mail">pei.ruuu.wang@gmail.com</span></div>
+              </td>
+              <td>
+                <img src="/static/photo/student.png" class="studentPNG" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img src="/static/photo/student.png" class="studentPNG" />
+              </td>
+              <td class="studentTD">
+                <div class="student left">郭子緯<br><span class="mail">ncnu@vincentintsh.tw</span></div>
+              </td>
+              <td class="studentTD">
+                <div class="student right">王婷誼<br><span class="mail">s108213027@mail1.ncnu.edu.tw</span></div>
+              </td>
+              <td>
+                <img src="/static/photo/student.png" class="studentPNG" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img src="/static/photo/student.png" class="studentPNG" />
+              </td>
+              <td class="studentTD">
+                <div class="student left">鄭采禎<br><span class="mail">s108213029@mail1.ncnu.edu.tw</span></div>
+              </td>
+              <td class="studentTD">
+                <div class="student right">陳琪樺<br><span class="mail">s108213042@mail1.ncnu.edu.tw</span></div>
+              </td>
+              <td>
+                <img src="/static/photo/student.png" class="studentPNG" />
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
-
   <!-- jQuery CDN - Slim version (=without AJAX) -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

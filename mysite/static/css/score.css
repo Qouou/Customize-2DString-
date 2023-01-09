@@ -3,8 +3,10 @@ html {
 }
 
 .container {
-  margin-top: 7vh;
-  margin-bottom: 7vh;
+  margin-top: 0;
+  margin-bottom: 0;  
+  padding-top: 6vh;
+  padding-bottom: 6vh;
 }
 
 .containerPic {

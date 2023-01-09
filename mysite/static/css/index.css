@@ -2,6 +2,10 @@ html {
   scroll-behavior: smooth;
 }
 
+.container-fluid {
+  padding-top: 1.5em;
+}
+
 #bg {
   background-image: url("/static/map.png");
   background-repeat: no-repeat;
