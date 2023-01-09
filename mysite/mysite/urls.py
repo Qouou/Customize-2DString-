@@ -25,4 +25,5 @@ urlpatterns = [
     path('bbtw/', include('bbtw.urls')),
     path('qbe/', include('qbe.urls')),
     path('qbg/', include('qbg.urls')),
+    path('associationRules/', include('associationRules.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
