@@ -3,7 +3,6 @@ from django.http import HttpResponse
 # Create your views here.
 
 
-def associationRules(request
-):
-    return HttpResponse("Hello, world. You're at the query index.")
+def associationRules(request):
+    return render(request, 'associationRule.html')
 

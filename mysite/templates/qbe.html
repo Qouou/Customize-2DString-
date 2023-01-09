@@ -97,7 +97,7 @@
 
     </div>
     <div class="row">
-      <input type="submit" class="btn btn-primary" id="submitBtn" onclick="submitData()" value="SEARCH">
+      <input type="submit" class="btn btn-secondary" id="submitBtn" onclick="submitData()" value="SEARCH">
     </div>
   </div>
   <script>
@@ -233,7 +233,7 @@
           if (params.hour != null) {
             document.getElementById("hour").value = params.hour;
           }
-          if (params.dataset == "origin") {
+          if (params.dataset == "original") {
             document.getElementsByName('dataset')[1].checked = true;
           } else {
             document.getElementsByName('dataset')[0].checked = true;
@@ -253,6 +253,7 @@
           preview()
           if (params.submit == "1") {
             setTimeout(() => {
+              document.getElementById('submitBtn').disabled = true;
               document.getElementById('myForm').submit();
             }, 500)
           }

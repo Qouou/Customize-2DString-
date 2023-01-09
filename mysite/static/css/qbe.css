@@ -49,9 +49,10 @@ img {
 
 #submitBtn {
   margin: 2em auto 2em auto;
-  padding-left: 0.7em;
-  padding-right: 0.7em;
-  font-size: 2em;
-  border-radius: 5px;
+  /* padding-left: 0.7em; */
+  /* padding-right: 0.7em; */
+  font-size: 1.3em;
+  /* border-radius: 5px; */
   background-color: rgb(237, 128, 0);
+  border-color: rgb(237, 138, 0);
 }

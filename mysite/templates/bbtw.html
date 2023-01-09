@@ -102,7 +102,7 @@
               <label for="contrast"> Contrast Enhancement </label>
             </div>
           </div>
-          <input type="button" class="btn btn-primary" id="submitBtn" onclick="submitData()" value="SEARCH">
+          <input type="button" class="btn btn-secondary" id="submitBtn" onclick="submitData()" value="SEARCH">
           <div style="padding: 0;">
             <span style="display: none;" id="resultCount"></span>
           </div>
@@ -143,12 +143,12 @@
               <h5 id="TPText"></h5>
               <h5 id="RHText"></h5>
             </ul>
-            <button class="btn btn-primary" id="qbeBtn" onclick="openQBE()">
+            <button class="btn btn-secondary" id="qbeBtn" onclick="openQBE()">
               <div class="row">
                 <img src="/static/lense.svg" class="searchIcon">QBE
               </div>
             </button>
-            <button class="btn btn-primary" id="maskBtn" onclick="openMask()">
+            <button class="btn btn-secondary" id="maskBtn" onclick="openMask()">
               <div class="row">
                 <img src="/static/lense.svg" class="searchIcon">Mask
               </div>
@@ -550,7 +550,8 @@
 
     function openQBE() {
       let stamp = document.getElementById('timeText').innerText;
-      let maskUrl = "https://pyyin-2dstring.im.ncnu.edu.tw/qbe/"
+      // let maskUrl = "https://pyyin-2dstring.im.ncnu.edu.tw/qbe/"
+      let maskUrl = "http://127.0.0.1:8000/qbe/"
       let params = findQBEParams(stamp.split(' ')[0], parseInt(stamp.split(' ')[1].replace("H", "")))
       window.open(maskUrl + "?" + params, "_blank");
     }

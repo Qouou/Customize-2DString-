@@ -79,18 +79,19 @@ nav {
   padding-right: 3vw;
   padding-top: 0.5em;
   text-decoration: none;
-  font-size: 1.7em;
+  font-size: 1.3em;
   color: #ffffff;
   display: block;
   transition: 0.2s;
 }
 
 .sidebar a:hover {
-  font-size: 2em;
-  text-shadow: 3px 2px 2px rgba(170, 93, 5, 0.885);
+  font-size: 1.5em;
+  /* text-shadow: 3px 2px 2px rgba(170, 93, 5, 0.885); */
   /* -webkit-filter: drop-shadow(2px 2px 1px rgba(188, 105, 9, 0.885)); */
   /* filter: drop-shadow(2px 2px rgba(188, 105, 9, 0.885)); */
-  transition: 0.3s;
+  transition: 0.2s;
+  font-weight:bold;
 }
 
 .closebtn {
