@@ -43,7 +43,7 @@
           </div>
           <div class="form-group row">
             <div class="col-sm-1"></div>
-            <label class="col-sm-2 col-form-label">Start Date:</label>
+            <label class="col-sm-2 col-form-label">Start Time:</label>
             <div class="col-sm-2">
               <!--startMonth-->
               <select class="form-control month" name="startMonth" id="startMonth"
@@ -64,7 +64,7 @@
           </div>
           <div class="form-group row">
             <div class="col-sm-1"></div>
-            <label class="col-sm-2 col-form-label">End Date:</label>
+            <label class="col-sm-2 col-form-label">End Time:</label>
             <div class="col-sm-2">
               <!--endMonth-->
               <select class="form-control month" name="endMonth" id="endMonth" onchange="changeDays('end')"></select>
@@ -307,7 +307,7 @@
       document.getElementById('WSText').innerHTML = "Wind speed: " + getWS(index);
       document.getElementById('PSText').innerHTML = "Pressure: " + getPS(index) + " Pa";
       document.getElementById('TPText').innerHTML = "Temperature: " + getTP(index) + " °C";
-      document.getElementById('RHText').innerHTML = "Humidity: " + getRH(index) + " %";
+      document.getElementById('RHText').innerHTML = "Relative humidity: " + getRH(index) + " %";
     }
 
     //closeModal(): close the image modal

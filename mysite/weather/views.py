@@ -147,6 +147,8 @@ def getQuery(request):
         
         time_query = ""
         t_data =  request.POST.getlist('time_query[]')    # 時間的query
+        print("54555555555")
+        print(t_data)
         for i in range(len(t_data)):
             time_query += t_data[i] + "/"
         ctx['time_query'] = time_query

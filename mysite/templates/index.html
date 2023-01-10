@@ -70,23 +70,41 @@
       </div>
       <form novalidate id="userDataForm" action="getQuery" method="POST">{% csrf_token %}
         <div class=" row m-auto">
-          <!-- <div class="col-md-1"></div> -->
-          <div class="col-md-3">
-            <table id="weatherEle" class="" style="padding:2em;">
+          <!-- </div> -->
+          <div class="col-md-2"></div>
+          <div class="col-md-8" id="drawTable">
+            <div id="bg">
+              <table id="bg-tbl" style="display:inline;">
+
+              </table>
+            </div>
+            <input class="d-none" id="userData" name="data">
+          </div>
+          <div class="forPointer col-md-1 mr-5" onclick="changeColor(this.id)" id="Clear"
+            style="background-color: lightgray;"> button <br>to <br />clear
+          </div>
+          <div class="col-md-1"></div>
+          {% comment %} <div class="col-md-3 bg-secondary."></div> {% endcomment %}
+        </div>
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8" id="filterDiv">
+            <table id="weatherEle">
+              <tr><td colspan="2"><h4>Filter (optional)</h4></td><td></tr>
               <tr>
-                <td><span class="input-group-text" id="inputGroup-sizing-default">起始時間</span></td>
-                <td class="text-left" style="padding:16px;">
-                  <input type="date" name="time_query[]">
-                  <select class="text-left hourList" name="time_query[]" aria-label="Default select example">
+                <td><span class="input-group-text">Start Time</span></td>
+                <td>
+                  <input type="date" class="dateSelect" name="time_query[]">
+                  <select class="hourList" name="time_query[]">
                     <option value="" select>--</option>
                   </select>
                 </td>
               </tr>
               <tr>
-                <td><span class="input-group-text" id="inputGroup-sizing-default">結束時間</span></td>
-                <td class="text-left" style="padding:16px;">
-                  <input type="date" name="time_query[]">
-                  <select class="text-left hourList" name="time_query[]" aria-label="Default select example">
+                <td><span class="input-group-text">End Time</span></td>
+                <td>
+                  <input type="date" class="dateSelect" name="time_query[]">
+                  <select class="hourList" name="time_query[]">
                     <option value="" select>--</option>
                   </select>
                   <script>
@@ -98,66 +116,28 @@
                   </script>
                 </td>
               </tr>
-              <!--# WD, WS_l, WS_u, PS_l, PS_u, TP_l, TP_u, RH_l, RH_u-->
               <tr>
-                <td><span class="input-group-text" id="inputGroup-sizing-default">風向</span></td>
-                <td class="text-center" style="padding:16px;">
-                  <select class="form-select-lg text-center form-control" name="weather_query[]"
-                    aria-label="Default select example">
+                <td><span class="input-group-text">Wind Direction</span></td>
+                <td class="">
+                  <select class="form-select-lg  form-control windSelect" name="weather_query[]">
                     <option value="" select>-</option>
-                    <option value="east">東風</option>
-                    <option value="south">南風</option>
-                    <option value="west">西風</option>
-                    <option value="north">北風</option>
+                    <option value="east">East</option>
+                    <option value="south">South</option>
+                    <option value="west">West</option>
+                    <option value="north">North</option>
                   </select>
                 </td>
-                <td class="chart"></td>
               </tr>
-              <script>
-                let weatherEle = document.getElementById('weatherEle');
-                let elemant = ["風速", "氣壓", "溫度", "濕度"]
-                for (let tr = 0; tr < 4; tr++) {
-                  // WS_l, WS_u, PS_l, PS_u, TP_l, TP_u, RH_l, RH_u
-                  weatherEle.innerHTML += `
-                <tr>
-                  <td>
-                    <span class="input-group-text" id="inputGroup-sizing-default">${elemant[tr]}</span>
-                  </td>
-                  <td>
-                    <div class="input-group-prepend">
-                      <input type="text" class="form-control" aria-label="Default"
-                        aria-describedby="inputGroup-sizing-default" value="" name="weather_query[]">
-                      <span>~</span>
-                      <input type="text" class="form-control" aria-label="Default"
-                        aria-describedby="inputGroup-sizing-default" value="" name="weather_query[]">
-                    </div>
-                  </td>
-                  <td class="chart">
-                  </td>
-                </tr>`;
-                }
-              </script>
             </table>
           </div>
-          <div class="col-md-6">
-            <div id="bg">
-              <table id="bg-tbl" style="display:inline;">
-
-              </table>
-            </div>
-            <input class="d-none" id="userData" name="data">
-          </div>
-          <div class="col-md-1"></div>
-          <div class="forPointer col-md-1 mr-5" onclick="changeColor(this.id)" id="Clear"
-            style="background-color: lightgray;"> button <br>to <br />clear
-          </div>
-          {% comment %} <div class="col-md-3 bg-secondary."></div> {% endcomment %}
+          <div class="col-md-2"></div>
 
         </div>
         <div class="text-center" style="margin: auto">
           <button type="button" onclick="resetData()"
             class="btn btn-outline-secondary m-5 btn btn-outline-secondary btn-lg">RESET</button>
-          <button type="button" onclick="processData()" class="btn m-5 btn btn-secondary btn-lg" id="enter">ENTER</button>
+          <button type="button" onclick="processData()" class="btn m-5 btn btn-secondary btn-lg"
+            id="enter">ENTER</button>
         </div>
       </form>
 
@@ -266,22 +246,28 @@
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous"></script>
   <script>
-    function openNav() {
-      document.getElementById("mySidebar").style.width = "35vw";
-      // document.getElementById("main").style.marginLeft = "25vw";
+    let weatherEle = document.getElementById('weatherEle');
+    let elemant = ["Wind Speed", "Pressure", "Temperature", "Relative Humidity"]
+    for (let tr = 0; tr < 4; tr++) {
+      // WS_l, WS_u, PS_l, PS_u, TP_l, TP_u, RH_l, RH_u
+      weatherEle.innerHTML += `
+                  <tr>
+                    <td>
+                      <span class="input-group-text">${elemant[tr]}</span>
+                    </td>
+                    <td>
+                      <div class="input-group-prepend">
+                        <input type="text" class="form-control" aria-label="Default"
+                          aria-describedby="inputGroup-sizing-default" value="" name="weather_query[]">
+                        <span>~</span>
+                        <input type="text" class="form-control" aria-label="Default"
+                          aria-describedby="inputGroup-sizing-default" value="" name="weather_query[]">
+                      </div>
+                    </td>
+                    </tr>`;
+                    // <td class="chart">
+                    // </td>
     }
-
-    function closeNav() {
-      document.getElementById("mySidebar").style.width = "0";
-      // document.getElementById("main").style.marginLeft = "0";
-    }
-
-    $("#subMenuTitle").click(function () {
-      $("#subMenu").toggle("slow");
-    });
-
-
-
   </script>
 
 </body>

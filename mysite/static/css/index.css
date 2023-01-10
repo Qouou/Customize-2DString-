@@ -6,6 +6,13 @@ html {
   padding-top: 1.5em;
 }
 
+#drawTable {
+  display:flex; 
+  flex-direction: row; 
+  justify-content: center; 
+  align-items: center
+}
+
 #bg {
   background-image: url("/static/map.png");
   background-repeat: no-repeat;
@@ -127,4 +134,61 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+#filterDiv {
+  display:flex; 
+  flex-direction: row; 
+  justify-content: center; 
+  align-items: center;
+  /* background-color: rgb(162, 202, 215); */
+  /* border-radius: 10px; */
+  border: #ced4da dashed 3px;
+  padding: 1em 3em;
+  margin: 2em 0em;
+}
+
+h4 {
+  text-align: center;
+  color: rgb(160, 160, 160);
+  font-weight: bold;
+}
+
+td {
+  width: auto;
+}
+
+.dateSelect {
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  /* width: 70%; */
+  padding: .375rem .75rem;
+}
+
+.hourList {
+  /* width: 30%; */
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+}
+
+.form-control {
+  width: 4em;
+}
+
+.windSelect {
+  width: 100%;
+}
+
+#enter {
+  background-color: rgb(251, 139, 12);
+  border-color: rgb(251, 139, 12);;
 }

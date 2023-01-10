@@ -241,8 +241,8 @@
 
         // weather info
         elements[index].innerHTML = `<img src="${getFileName(Xst)}" id=${Xst} class="sis">
-        <p><strong>NO.${getRank(Xst)} / ${getScore(Xst).substring(0, 8)}</strong></p>
-        <p>${getDate(Xst)} ${getHour(Xst).substring(0, 2)}H</p>  
+        <p><strong>NO.${getRank(Xst)}<br>${getScore(Xst).substring(0, 8)}</strong></p>
+        <p>${getDate(Xst)} ${getHour(Xst).substring(0, 2)}H</p>
         <p>${getWD(Xst)}/${getWS(Xst)}/${getPS(Xst)}/<br>${getTP(Xst)}/${getRH(Xst)}</p>
         `;
         num = num + 1;

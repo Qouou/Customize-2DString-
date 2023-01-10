@@ -32,6 +32,10 @@ img {
   height: auto;
 }
 
+p {
+  margin-bottom: 3px;
+}
+
 .info {
   /*   display: none; */
   opacity: 0;
