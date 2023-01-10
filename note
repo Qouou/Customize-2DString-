@@ -1,0 +1,8 @@
+weather 中 file_output(try2)_wind.csv 是自己做的
+但是因為日期格式怪怪的, 在 qbe 又在轉一個格式
+
+docker 和我本機上的 setting.py static 設定不一樣
+
+之後把 js 獨立出 html
+
+做分頁功能
