@@ -124,21 +124,9 @@ USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
+# STATIC_ROOT = os.path.join(BASE_DIR, "static_file")  # my PC
+STATIC_ROOT = os.path.join(BASE_DIR, "static")   # VM Server
 
-# my PC
-# STATIC_ROOT = os.path.join(BASE_DIR, "static_file")
-# STATIC_URL = '/static/'
-# STATICFILES_DIRS = (
-#    os.path.join(BASE_DIR, "static"),
-# )
-# STATICFILES_FINDERS = (
-#     "django.contrib.staticfiles.finders.FileSystemFinder",
-#     "django.contrib.staticfiles.finders.AppDirectoriesFinder"
-# )
-
-#-----------------
-# VM Server
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
    os.path.join(BASE_DIR, "static"),
